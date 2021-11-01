@@ -1,0 +1,16 @@
+html {
+    box-sizing: border-box;
+    margin: 25px;
+}
+
+.create {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 5px;
+}
+
+.new {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+}
