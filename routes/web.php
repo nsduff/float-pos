@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Laravel\Fortify\Fortify;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 
-Route::get('/home', function() {
-    return view('home');
-});
+Route::get('/order', 'App\Http\Controllers\OrderController@index')->name('order')->middleware('auth');

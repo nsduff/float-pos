@@ -8,9 +8,27 @@
     <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
-    {{-- Here's the button you push --}}
-    <button class="create">Create Button</button>
+    @if(Auth::check())
+        <h3>Hello, {{ Auth::user()->name }}</h1>
     
+        <form action="{{ route('logout') }}" method="post">
+        @csrf
+        <button>Logout</button>
+    </form>
+
+    @if (Gate::allows('admin'))
+    {{-- Here's the button you push --}}
+        <button class="create">Create Button</button>
+    
+    @else
+    <button>Here's a useless button</button>
+    @endif
+ 
+    @else
+        <h3>Log in to view terminal</h3>
+        <a href="/login"><button>Login</button></a>
+        <a href="/register"><button>Register</button></a>
+    @endif
     <script>
     // Here's the test to make sure it's working
 
