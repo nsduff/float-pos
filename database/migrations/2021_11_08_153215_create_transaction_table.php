@@ -13,11 +13,12 @@ class CreateTransactionTable extends Migration
      */
     public function up()
     {
-        Schema::create('transaction', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('bill_id');
             $table->foreignId('payment_type');
-            $table->boolean('paid'); // default value false
+            $table->foreignId('user_id'); // staff
+            $table->boolean('paid')->default(false);
             $table->timestamps();
         });
     }

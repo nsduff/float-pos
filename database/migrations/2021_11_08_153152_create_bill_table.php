@@ -13,10 +13,9 @@ class CreateBillTable extends Migration
      */
     public function up()
     {
-        Schema::create('bill', function (Blueprint $table) {
+        Schema::create('bills', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id');
-            $table->integer('amount');
             $table->timestamps();
         });
     }

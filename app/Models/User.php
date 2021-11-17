@@ -8,8 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-// Spatie nonsense
-use Spatie\Permission\Traits\HasRoles;
+// // Spatie nonsense
+// use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {

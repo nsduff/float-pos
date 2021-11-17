@@ -13,11 +13,11 @@ class CreateOrderTable extends Migration
      */
     public function up()
     {
-        Schema::create('order', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->integer('table_id');
-            $table->foreignId('user_id');
-            $table->integer('seat_id')->nullable();
+            $table->string('table_name');
+            $table->foreignId('user_id'); // id of the waiter
+            $table->integer('seat_nr')->nullable();
             $table->timestamps();
         });
     }

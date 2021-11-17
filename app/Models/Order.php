@@ -13,15 +13,19 @@ class Order extends Model
 {
     use HasFactory;
 
-    
+    public function bill()
+    {
+        return $this->hasMany(Bill::class);
+    }
+
     public function items()
     {
         return $this->hasMany(Item::class);
     }
 
-    public function bill()
+    public function user()
     {
-        return $this->hasOne(Bill::class);
+        return $this->belongsTo(User::class);
     }
     
 }
