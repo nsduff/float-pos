@@ -5,7 +5,7 @@ export default function App() {
     const [categories, setCategories] = useState([]);
 
     const fetchData = async () => {
-        const data = await axios.get("/api/category");
+        const data = await axios.get("/api/items");
         console.log(data.data);
         setCategories(data.data);
     };
@@ -17,7 +17,11 @@ export default function App() {
     return (
         <div>
             {categories.map((category) => {
-                return <button>{category.name}</button>;
+                return (
+                    <button>
+                        {category.name} - {category.price}
+                    </button>
+                );
             })}
         </div>
     );
