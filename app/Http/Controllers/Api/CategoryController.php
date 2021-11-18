@@ -12,16 +12,16 @@ class CategoryController extends Controller
 {
     //
 
-    public function index()
+    public function categories()
     {
         $category = Category::all();
 
         return $category;
     }
 
-    // public function show()
-    // {
-    //     $item = Item::all();
-    //     return $item;
-    // }
+    public function items()
+    {
+        $items = Item::all();
+        return $items;
+    }
 }

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Item;
 
+use App\Models\Category;
+
 use File;
 
 class ItemSeeder extends Seeder
@@ -23,6 +25,8 @@ class ItemSeeder extends Seeder
 
 
         DB::table('items')->truncate();
+        DB::table('categories')->truncate();
+
 
         $json = File::get('database/data/menu.json');
 
@@ -32,16 +36,33 @@ class ItemSeeder extends Seeder
         // 18.11.21 FIGURE OUT HOW TO SEED 
         // NAMES AND CATEGORY_IDs
         
-        foreach($data->items as $name) {
+        foreach($data as $d) {
+            $category = new Category;
+            $category->name = $d->category;
+            $category->save();
 
-        $item = new Item;
+            foreach($d->items as $i) {
+            $item = new Item;
+            $item->name = $i;
+            $item->category_id = $category->id;
+            $item->price = random_int(20, 200);
+            $item->save(); 
+            }
+        }
 
-        $item->name = $name;
+        // $d->categories = $category;
+
+
+
+
+        // $item = new Item;
+
+        // $item->name = $name;
         
-        $item->price = random_int(20, 200);
+        // $item->price = random_int(20, 200);
 
-        $item->save();
+        // $item->save();
 
     }
-    }
+    
 }

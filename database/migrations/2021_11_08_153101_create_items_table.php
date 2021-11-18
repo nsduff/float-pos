@@ -18,6 +18,7 @@ class CreateItemsTable extends Migration
             $table->string('name');
             $table->integer('price');
             $table->foreignId('category_id');
+            $table->text('comments')->nullable();
             $table->timestamps();
         });
     }

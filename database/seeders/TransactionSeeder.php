@@ -17,14 +17,5 @@ class TransactionSeeder extends Seeder
     {
         //
 
-        $transaction = new Transaction;
-
-        $transaction->paid = true;
-        
-        $transaction->user = 1;
-
-        $user->save();
-
-
     }
 }

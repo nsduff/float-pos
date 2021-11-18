@@ -18,6 +18,7 @@ class CreateOrderTable extends Migration
             $table->string('table_name');
             $table->foreignId('user_id'); // id of the waiter
             $table->integer('seat_nr')->nullable();
+            $table->text('comments')->nullable();
             $table->timestamps();
         });
     }

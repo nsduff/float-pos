@@ -16,8 +16,6 @@ class OrderSeeder extends Seeder
     public function run()
     {
         //
-            $order = new Order;
-            $order->table_nr = "first";
-            $order->user_id = 1;
+
     }
 }
