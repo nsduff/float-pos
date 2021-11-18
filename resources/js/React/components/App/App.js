@@ -34,8 +34,6 @@ export default function App() {
 
     return (
         <div>
-            <Login />
-            <Register />
             <br />
             <Topbar />
             <br />

@@ -15,9 +15,9 @@ use Laravel\Fortify\Fortify;
 |
 */
 
-Route::view('/', 'react.app')->name('react');
+Route::view('/', 'react.app')->name('react')->middleware('auth');
 
-// ->middleware('auth')
+// 
 
 // any URL that begins with /react should display the react.app view
 // Route::view('/menu/{param?}', 'react.app')->where('param', '.*')->name('react');
