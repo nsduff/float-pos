@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Laravel\Fortify\Fortify;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'react.app')->name('react');
 
-Route::get('/home', function() {
-    return view('home');
-});
+// ->middleware('auth')
+
+// any URL that begins with /react should display the react.app view
+// Route::view('/menu/{param?}', 'react.app')->where('param', '.*')->name('react');
+
+// Route::get('/order', 'App\Http\Controllers\OrderController@index')->name('order')->middleware('auth');

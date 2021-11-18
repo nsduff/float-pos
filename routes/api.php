@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Category;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::get('/orders', 'App\Http\Controllers\Api\OrderController@index');
+
+Route::get('/categories', 'App\Http\Controllers\Api\CategoryController@categories');
+
+Route::get('/items', 'App\Http\Controllers\Api\CategoryController@items');
