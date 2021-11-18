@@ -2081,7 +2081,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Menu */ "./resources/js/react/components/App/Menu.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2118,14 +2119,14 @@ function App() {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/items");
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/categories");
 
             case 2:
               data = _context.sent;
-              console.log(data.data);
+              // console.log(data.data);
               setCategories(data.data);
 
-            case 5:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -2141,14 +2142,53 @@ function App() {
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     fetchData();
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+  console.log(_Menu__WEBPACK_IMPORTED_MODULE_3__.Menu.map(function (names) {
+    return names.category;
+  }));
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     children: categories.map(function (category) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
-        children: [category.name, " - ", category.price]
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        children: category.name
       });
     })
   });
 }
+
+/***/ }),
+
+/***/ "./resources/js/react/components/App/Menu.js":
+/*!***************************************************!*\
+  !*** ./resources/js/react/components/App/Menu.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Menu": () => (/* binding */ Menu)
+/* harmony export */ });
+var Menu = [{
+  category: "tapas",
+  items: ["Hummus", "Baba Ghanoush", "Fried Cheese", "Grilled Mushrooms", "Gazpacho", "Guacamole&Nachos", "Empanadas", "Springrolls", "Tomato Bruschetta"]
+}, {
+  category: "pizza",
+  items: ["Margherita", "Pepperoni", "Capricciosa", "Signature Pizza", "Quatro Formaggi", "Spinach", "Calzone", "Grandmastyle"]
+}, {
+  category: "desserts",
+  items: ["Nutella Pizza", "Cheescake", "Pancakes", "Gelato", "Sorbet", "Tiramisu", "Apple Strudel", "Vetrnik", "Kremrole"]
+}, {
+  category: "wine",
+  items: ["Prosecco", "Sangria", "Lambrusco", "Fragolino", "Primitivo", "Pinot Noir", "Merlot", "Cabernet Savignon", "Chardonnay", "Moscato", "Riesling"]
+}, {
+  category: "spirits",
+  items: ["Tequila", "Finlandia", "Jack Daniels", "Aniversario rum", "Zelena", "Bombay Gin"]
+}, {
+  category: "cocktails",
+  items: ["Gin&Tonic", "Daiquiri", "Negroni", "Margarita", "Aperol Spritz", "Mojito", "Pina Colada", "Signature", "Caipirinha"]
+}, {
+  category: "beverages",
+  items: ["Espresso", "Cappuccino", "Tea", "Sparkling water", "Club  Mate", "Orange juice", "Lemonade"]
+}];
 
 /***/ }),
 

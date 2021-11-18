@@ -22,6 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Route::get('/orders', 'App\Http\Controllers\Api\OrderController@index');
 
-Route::get('/category', 'App\Http\Controllers\Api\CategoryController@index');
+Route::get('/categories', 'App\Http\Controllers\Api\CategoryController@index');
 
-Route::get('/items', 'App\Http\Controllers\Api\CategoryController@show');
+// Route::get('/items', 'App\Http\Controllers\Api\CategoryController@show');

@@ -19,9 +19,9 @@ class CategoryController extends Controller
         return $category;
     }
 
-    public function show()
-    {
-        $item = Item::all();
-        return $item;
-    }
+    // public function show()
+    // {
+    //     $item = Item::all();
+    //     return $item;
+    // }
 }

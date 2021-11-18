@@ -4,7 +4,12 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+use Illuminate\Support\Facades\DB;
+
+
 use App\Models\Category;
+
+use File;
 
 class CategorySeeder extends Seeder
 {
@@ -15,15 +20,19 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('categories')->truncate();
 
-        $names = ["beer", "wine", "spirits"];
+        $json = File::get('database/data/menu.json');
 
-        foreach($names as $name) {
+        $data = json_decode($json);
+
+        
+
+        foreach($data as $item) {
         
         $category = new Category;
 
-        $category->name = $name;
+        $category->name = $item->category;
 
         $category->save();
     }

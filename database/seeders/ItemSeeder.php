@@ -4,7 +4,11 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Item;
+
+use File;
 
 class ItemSeeder extends Seeder
 {
@@ -13,21 +17,31 @@ class ItemSeeder extends Seeder
      *
      * @return void
      */
+
     public function run()
     {
-        $snacks = ["fries", "nuts", "chlebicek", "mozarella sticks", "nachos", "hot dog"];
 
-        foreach($snacks as $snack) {
+
+        DB::table('items')->truncate();
+
+        $json = File::get('database/data/menu.json');
+
+        $data = json_decode($json);
+
+
+        // 18.11.21 FIGURE OUT HOW TO SEED 
+        // NAMES AND CATEGORY_IDs
         
+        foreach($data->items as $name) {
+
         $item = new Item;
 
-        $item->name = $snack;
-
-        $item->price = random_int(5, 20);
-
-        $item->category_id = 1;
+        $item->name = $name;
+        
+        $item->price = random_int(20, 200);
 
         $item->save();
+
     }
     }
 }
