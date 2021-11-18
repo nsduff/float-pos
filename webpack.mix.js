@@ -26,6 +26,7 @@ if (!mix.inProduction()) {
 //                SCSS                  CSS
 mix.sass("resources/css/app.scss", "public/css");
 mix.js("resources/js/react/index.js", "public/js/react.js").react();
+mix.js("resources/js/react/form.js", "public/js/form.js").react();
 
 mix.browserSync({
     host: "localhost",
