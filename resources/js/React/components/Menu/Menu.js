@@ -3,7 +3,12 @@ export default function Menu({ categoryId, items }) {
         <div>
             {items.map((item) => {
                 if (categoryId === item.category_id) {
-                    return <button>{item.name}</button>;
+                    return (
+                        <button>
+                            <div>{item.name}</div>
+                            <div>{item.price}</div>
+                        </button>
+                    );
                 }
             })}
         </div>

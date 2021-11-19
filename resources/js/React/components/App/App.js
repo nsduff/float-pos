@@ -2,9 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 import Footer from "../Footer/Footer";
-import Login from "../Login/Login";
 import Menu from "../Menu/Menu";
-import Register from "../Register/Register";
 import Sidebar from "../Sidebar/Sidebar";
 import Topbar from "../Topbar/Topbar";
 import Workspace from "../Workspace/Workspace";

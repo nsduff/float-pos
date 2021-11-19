@@ -1,8 +1,13 @@
+@extends('layout.main')
+@section('content')
 <form action="{{ route('login') }}" method="post">
 
     @csrf
 
+    <label>Email</label>
     <input type="email" name="email" value="{{ old('email') }}">
+
+    <label>Password</label>
 
     <input type="password" name="password" value="">
 
@@ -33,3 +38,5 @@
         <p class="mt-5 mb-3 text-muted">&copy; 2017</p>
     </form>
 </main>
+
+@endsection
