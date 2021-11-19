@@ -1,9 +1,11 @@
+
+
 export default function Menu({ categoryId, items }) {
     return (
-        <div>
+        <div className="menu">
             {items.map((item) => {
                 if (categoryId === item.category_id) {
-                    return <button>{item.name}</button>;
+                    return <button className="menu_item">{item.name}</button>;
                 }
             })}
         </div>

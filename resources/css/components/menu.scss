@@ -1,30 +1,9 @@
-.topbar {
-  display: grid;
-  width: 100vw;
-  height: 10vw;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 0px 2px;
-  grid-template-areas: ". . . . . . . . . . . .";
-}
 
-.topbar__left {
-  background-color: rgba(223, 151, 110, 0.9);
-}
-
-.topbar__right {
-  background-color: rgba(24, 24, 131, 0.9);
-}
-
-.topbar button {
-  font-size: larger;
-  color: white;
-  border-radius: 12px;
-}
-
+@import "./variables.scss";
 /* CSS */
 .menu_item {
   align-items: center;
+  background-image: linear-gradient(1200deg);
   border: 0;
   border-radius: 8px;
   box-sizing: border-box;
@@ -37,9 +16,7 @@
   padding: 0.2rem;
   margin: 1rem;
   text-decoration: none;
-  -moz-user-select: none;
-   -ms-user-select: none;
-       user-select: none;
+  user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
@@ -49,6 +26,7 @@
 .menu_item:active,
 .menu_item:hover {
   background-color: #5B42F3;
+
 }
 
 @media (min-width: 768px) {
@@ -57,5 +35,3 @@
     min-width: 196px;
   }
 }
-
-/*# sourceMappingURL=app.css.map*/
