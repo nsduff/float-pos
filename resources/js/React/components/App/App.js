@@ -33,21 +33,30 @@ export default function App() {
     }, [categoryId]);
 
     return (
-        <div>
-            <br />
-            <Topbar />
-            <br />
-            <br />
-            <Sidebar categories={categories} setCategoryId={setCategoryId} />
+        <div className='container'>
+            <div><Topbar/></div>
             <br />
             <br />
-            <Menu categoryId={categoryId} items={items} />
+            <div>
+                <div>
+                <Sidebar categories={categories} setCategoryId={setCategoryId} />
+                </div>
+                <div>
+                    <Menu categoryId={categoryId} items={items}/>
+                </div>
+                <div>
+                    <Workspace />
+                </div>
+            </div>
             <br />
             <br />
-            <Workspace />
+
             <br />
             <br />
-            <Footer />
+
+            <div><Footer /></div>
+            <br />
+            <br />
         </div>
     );
 }
