@@ -1,9 +1,12 @@
 export default function Sidebar({ categories, setCategoryId }) {
     return (
         <div>
-            {categories.map((category) => {
+            {categories.map((category, index) => {
                 return (
-                    <button onClick={() => setCategoryId(category.id)}>
+                    <button
+                        key={index}
+                        onClick={() => setCategoryId(category.id)}
+                    >
                         {category.name}
                     </button>
                 );

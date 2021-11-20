@@ -14,14 +14,14 @@ class CategoryController extends Controller
 
     public function categories()
     {
-        $category = Category::all();
+        $category = Category::orderBy('name')->get();
 
         return $category;
     }
 
     public function items()
     {
-        $items = Item::all();
+        $items = Item::orderBy('name')->get();
         return $items;
     }
 }
