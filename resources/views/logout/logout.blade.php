@@ -1,3 +1,5 @@
+@extends('layout.main')
+@section('content')
 <div>
     <h1>Logout?</h1>
 <form action="{{ route('logout') }}" method="post">
@@ -8,3 +10,5 @@
 
 </form>
 </div>
+@endsection
+

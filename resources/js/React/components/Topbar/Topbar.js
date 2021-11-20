@@ -34,7 +34,7 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
     };
 
     return (
-        <div className="topbar">
+        <div className="topbar mt-5">
             <button
                 type="submit"
                 className="topbar__right"

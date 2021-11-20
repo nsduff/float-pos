@@ -30,25 +30,44 @@ export default function App() {
     }, [categoryId, newOrder]);
 
     return (
-        <div>
-            <Topbar setTakeOrder={setTakeOrder} setNewOrder={setNewOrder} />
-            <Sidebar categories={categories} setCategoryId={setCategoryId} />
-            <Menu
-                categoryId={categoryId}
-                items={items}
-                newOrder={newOrder}
-                setNewOrder={setNewOrder}
-                // newOrderPrice={newOrderPrice}
-                // setNewOrderPrice={setNewOrderPrice}
-                takeOrder={takeOrder}
-            />
-            <Workspace
-                takeOrder={takeOrder}
-                newOrder={newOrder}
-                setNewOrder={setNewOrder}
-                setTakeOrder={setTakeOrder}
-            />
-            <Footer />
+      
+        <div className='container'>
+            
+      <div><Topbar setTakeOrder={setTakeOrder} setNewOrder={setNewOrder} /></div>
+
+            <div>
+                <div>
+                <Sidebar 
+                    categories={categories} 
+                    setCategoryId={setCategoryId} />
+                </div>
+
+
+                <div>
+                <Menu                 
+                    categoryId={categoryId}
+                    items={items}
+                    newOrder={newOrder}
+                    setNewOrder={setNewOrder}
+                    // newOrderPrice={newOrderPrice}
+                    // setNewOrderPrice={setNewOrderPrice}
+                    takeOrder={takeOrder}/>
+                </div>
+
+
+                <div>
+                <Workspace 
+                    takeOrder={takeOrder}
+                    newOrder={newOrder}
+                    setNewOrder={setNewOrder}
+                    setTakeOrder={setTakeOrder}
+                />
+                </div>
+
+            </div>
+
+            <div><Footer /></div>
+
         </div>
     );
 }
