@@ -1,12 +1,16 @@
 // import "./Topbar.css";
 
-const Topbar = () => {
+const Topbar = ({ setTakeOrder, setNewOrder }) => {
     const homeButtonHandler = () => {
+        setNewOrder([]);
+        setTakeOrder(false);
         //logic to send the user back to the home screen
         //&& send the order IF anything was inputed.
         //still have to decide on whatever the home screen UI is.
     };
-    const tablesButtonHandler = () => {};
+    const tablesButtonHandler = () => {
+        setTakeOrder(true);
+    };
     const transferButtonHandler = () => {};
     const holdButtonHandler = () => {};
     const deleteButtonHandler = () => {};
@@ -30,7 +34,7 @@ const Topbar = () => {
     };
 
     return (
-        <div className="topbar">
+        <div className="topbar mt-5">
             <button
                 type="submit"
                 className="topbar__right"

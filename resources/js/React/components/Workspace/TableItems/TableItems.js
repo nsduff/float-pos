@@ -5,7 +5,7 @@ export default function TableItems({ showButton, setShowButton }) {
 
             {new Array(4).fill(null).map((n, m) => {
                 return (
-                    <div className={"table__order__list"}>
+                    <div className={"table__order__list"} key={m}>
                         <div className={"table__order__item"}>
                             Item # {m + 1}
                         </div>

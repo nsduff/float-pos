@@ -1,23 +1,23 @@
-.topbar {
-  display: grid;
-  width: 100vw;
-  height: 10vw;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 0px 2px;
-  grid-template-areas: ". . . . . . . . . . . .";
-}
+/*.topbar {*/
+/*  display: grid;*/
+/*  width: 100vw;*/
+/*  height: 10vw;*/
+/*  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;*/
+/*  grid-template-rows: 1fr;*/
+/*  gap: 0px 2px;*/
+/*  grid-template-areas: ". . . . . . . . . . . .";*/
+/*}*/
 
-.topbar__left {
-  background-color: rgba(110, 223, 184, 0.9);
-}
+/*.topbar__left {*/
+/*  background-color: greenyellow;*/
+/*}*/
 
-.topbar__right {
-  background-color: rgba(24, 24, 131, 0.9);
-}
+/*.topbar__right {*/
+/*  background-color: rgba(24, 24, 131, 0.9);*/
+/*}*/
 
-.topbar button {
-  font-size: larger;
-  color: white;
-  border-radius: 12px;
-}
+/*.topbar button {*/
+/*  font-size: larger;*/
+/*  color: white;*/
+/*  border-radius: 12px;*/
+/*}*/
