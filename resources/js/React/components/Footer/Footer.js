@@ -3,9 +3,9 @@ export default function Footer() {
         <>
             <button>Pay</button>
             <button>Options</button>
-            <form action="{{ route('logout') }}" method="post">
+            <a href={`/logout`}>
                 <button>Logout</button>
-            </form>
+            </a>
         </>
     );
 }
