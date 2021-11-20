@@ -1,27 +1,3 @@
-/*.topbar {*/
-/*  display: grid;*/
-/*  width: 100vw;*/
-/*  height: 10vw;*/
-/*  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;*/
-/*  grid-template-rows: 1fr;*/
-/*  gap: 0px 2px;*/
-/*  grid-template-areas: ". . . . . . . . . . . .";*/
-/*}*/
-
-/*.topbar__left {*/
-/*  background-color: greenyellow;*/
-/*}*/
-
-/*.topbar__right {*/
-/*  background-color: rgba(24, 24, 131, 0.9);*/
-/*}*/
-
-/*.topbar button {*/
-/*  font-size: larger;*/
-/*  color: white;*/
-/*  border-radius: 12px;*/
-/*}*/
-
 
 .conteiner-login {
     display: flex;
@@ -64,10 +40,3 @@
 
 }
 
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-/*# sourceMappingURL=app.css.map*/
