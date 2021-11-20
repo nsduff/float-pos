@@ -2130,6 +2130,16 @@ function App() {
       items = _useState6[0],
       setItems = _useState6[1];
 
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]),
+      _useState8 = _slicedToArray(_useState7, 2),
+      newOrder = _useState8[0],
+      setNewOrder = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(false),
+      _useState10 = _slicedToArray(_useState9, 2),
+      takeOrder = _useState10[0],
+      setTakeOrder = _useState10[1];
+
   var fetchData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
       var data;
@@ -2142,7 +2152,6 @@ function App() {
 
             case 2:
               data = _context.sent;
-              // console.log(data.data);
               setCategories(data.data);
 
             case 4:
@@ -2170,7 +2179,6 @@ function App() {
 
             case 2:
               itemData = _context2.sent;
-              // console.log(itemData.data);
               setItems(itemData.data);
 
             case 4:
@@ -2188,16 +2196,29 @@ function App() {
 
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     fetchData();
-    fetchItems(); // console.log(categoryId);
-  }, [categoryId]);
+    fetchItems();
+  }, [categoryId, newOrder]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Topbar_Topbar__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Topbar_Topbar__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      setTakeOrder: setTakeOrder,
+      setNewOrder: setNewOrder
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_5__["default"], {
       categories: categories,
       setCategoryId: setCategoryId
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Menu_Menu__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Menu_Menu__WEBPACK_IMPORTED_MODULE_4__["default"], {
       categoryId: categoryId,
-      items: items
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Workspace_Workspace__WEBPACK_IMPORTED_MODULE_7__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Footer_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
+      items: items,
+      newOrder: newOrder,
+      setNewOrder: setNewOrder // newOrderPrice={newOrderPrice}
+      // setNewOrderPrice={setNewOrderPrice}
+      ,
+      takeOrder: takeOrder
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Workspace_Workspace__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      takeOrder: takeOrder,
+      newOrder: newOrder,
+      setNewOrder: setNewOrder,
+      setTakeOrder: setTakeOrder
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Footer_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
   });
 }
 
@@ -2249,19 +2270,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function Menu(_ref) {
   var categoryId = _ref.categoryId,
-      items = _ref.items;
+      items = _ref.items,
+      newOrder = _ref.newOrder,
+      setNewOrder = _ref.setNewOrder,
+      takeOrder = _ref.takeOrder;
+
+  var addItemToOrder = function addItemToOrder(newItem) {
+    if (takeOrder === true) {
+      setNewOrder([].concat(_toConsumableArray(newOrder), [newItem]));
+    }
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    children: items.map(function (item) {
+    children: items.map(function (item, index) {
       if (categoryId === item.category_id) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
+          onClick: function onClick() {
+            return addItemToOrder(item);
+          },
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
             children: item.name
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
             children: item.price
           })]
-        });
+        }, index);
       }
     })
   });
@@ -2286,13 +2333,13 @@ function Sidebar(_ref) {
   var categories = _ref.categories,
       setCategoryId = _ref.setCategoryId;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    children: categories.map(function (category) {
+    children: categories.map(function (category, index) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
         onClick: function onClick() {
           return setCategoryId(category.id);
         },
         children: category.name
-      });
+      }, index);
     })
   });
 }
@@ -2315,13 +2362,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // import "./Topbar.css";
-var Topbar = function Topbar() {
-  var homeButtonHandler = function homeButtonHandler() {//logic to send the user back to the home screen
+var Topbar = function Topbar(_ref) {
+  var setTakeOrder = _ref.setTakeOrder,
+      setNewOrder = _ref.setNewOrder;
+
+  var homeButtonHandler = function homeButtonHandler() {
+    setNewOrder([]);
+    setTakeOrder(false); //logic to send the user back to the home screen
     //&& send the order IF anything was inputed.
     //still have to decide on whatever the home screen UI is.
   };
 
-  var tablesButtonHandler = function tablesButtonHandler() {};
+  var tablesButtonHandler = function tablesButtonHandler() {
+    setTakeOrder(true);
+  };
 
   var transferButtonHandler = function transferButtonHandler() {};
 
@@ -2436,6 +2490,65 @@ var Topbar = function Topbar() {
 
 /***/ }),
 
+/***/ "./resources/js/react/components/Workspace/NewOrder/NewOrder.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/react/components/Workspace/NewOrder/NewOrder.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ NewOrder)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function NewOrder(_ref) {
+  var newOrder = _ref.newOrder,
+      setNewOrder = _ref.setNewOrder,
+      setTakeOrder = _ref.setTakeOrder;
+
+  if (newOrder.length === 0) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
+      children: "Your Order Goes Here"
+    });
+  }
+
+  var total = newOrder.map(function (newOrderItem) {
+    return newOrderItem.price;
+  }).reduce(function (a, i) {
+    return a + i;
+  }, 0);
+
+  var placeOrder = function placeOrder() {
+    setNewOrder([]);
+    setTakeOrder(false);
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
+      children: "Your Order"
+    }), newOrder.map(function (newOrderItem, index) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        onClick: function onClick() {
+          return clickItem();
+        },
+        children: [newOrderItem.name, " -- ", newOrderItem.price]
+      }, index);
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      children: ["Total: ", total]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+      onClick: function onClick() {
+        return placeOrder();
+      },
+      children: "Place Order"
+    })]
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/react/components/Workspace/TableItems/TableItems.js":
 /*!**************************************************************************!*\
   !*** ./resources/js/react/components/Workspace/TableItems/TableItems.js ***!
@@ -2464,7 +2577,7 @@ function TableItems(_ref) {
           className: "table__order__item",
           children: ["Item # ", m + 1]
         })
-      });
+      }, m);
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
       onClick: function onClick() {
         return setShowButton(null);
@@ -2495,8 +2608,7 @@ function Tables(_ref) {
   var setShowButton = _ref.setShowButton;
 
   var handleClick = function handleClick(i) {
-    setShowButton(i);
-    console.log("Table " + (i + 1) + " has been clicked!");
+    setShowButton(i); // console.log("Table " + (i + 1) + " has been clicked!");
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
@@ -2510,7 +2622,7 @@ function Tables(_ref) {
           },
           children: ["Table ", i + 1]
         })
-      });
+      }, i);
     })
   });
 }
@@ -2530,8 +2642,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _TableItems_TableItems__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TableItems/TableItems */ "./resources/js/react/components/Workspace/TableItems/TableItems.js");
 /* harmony import */ var _Tables_Tables__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tables/Tables */ "./resources/js/react/components/Workspace/Tables/Tables.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _NewOrder_NewOrder__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NewOrder/NewOrder */ "./resources/js/react/components/Workspace/NewOrder/NewOrder.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2548,22 +2661,37 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function Workspace() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(null),
+
+function Workspace(_ref) {
+  var takeOrder = _ref.takeOrder,
+      newOrder = _ref.newOrder,
+      setNewOrder = _ref.setNewOrder,
+      setTakeOrder = _ref.setTakeOrder;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(null),
       _useState2 = _slicedToArray(_useState, 2),
       showButton = _useState2[0],
       setShowButton = _useState2[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    className: "table__container",
-    children: showButton === null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Tables_Tables__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  if (takeOrder === false && showButton === null) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Tables_Tables__WEBPACK_IMPORTED_MODULE_1__["default"], {
       showButton: showButton,
       setShowButton: setShowButton
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_TableItems_TableItems__WEBPACK_IMPORTED_MODULE_0__["default"], {
-      showButton: showButton,
-      setShowButton: setShowButton
-    })
+    });
+  }
+
+  if (showButton === !null) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_TableItems_TableItems__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    showButton: showButton,
+    setShowButton: setShowButton
   });
+
+  if (takeOrder === true) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_NewOrder_NewOrder__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      newOrder: newOrder,
+      setNewOrder: setNewOrder,
+      setTakeOrder: setTakeOrder
+    });
+  }
 }
 
 /***/ }),
