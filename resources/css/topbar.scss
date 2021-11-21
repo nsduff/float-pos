@@ -1,0 +1,17 @@
+.wrapper_top{
+  display: grid;
+  color: $signature;
+  gap: 0.2rem 0.2rem;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: auto;
+    gap: 0.3rem;
+    height: 100%;
+    width: 100%;
+
+}
+
+.button_top{
+    background-color: $button-background;
+    color: $text; 
+    border-radius: 0.5rem;
+}

@@ -1,11 +1,15 @@
 export default function Sidebar({ categories, setCategoryId }) {
     return (
-        <div>
-            {categories.map((category) => {
+        <div className="wrapper_sidebar">
+            {categories.map((category, index) => {
                 return (
-                    <button onClick={() => setCategoryId(category.id)}>
+                    <button 
+                        className="button_sidebar"
+                        key={index}
+                        onClick={() => setCategoryId(category.id)}
+                    >
                         {category.name}
-                    </button>
+                    </button> 
                 );
             })}
         </div>

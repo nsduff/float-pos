@@ -1,12 +1,16 @@
 // import "./Topbar.css";
 
-const Topbar = () => {
+const Topbar = ({ setTakeOrder, setNewOrder }) => {
     const homeButtonHandler = () => {
+        setNewOrder([]);
+        setTakeOrder(false);
         //logic to send the user back to the home screen
         //&& send the order IF anything was inputed.
         //still have to decide on whatever the home screen UI is.
     };
-    const tablesButtonHandler = () => {};
+    const tablesButtonHandler = () => {
+        setTakeOrder(true);
+    };
     const transferButtonHandler = () => {};
     const holdButtonHandler = () => {};
     const deleteButtonHandler = () => {};
@@ -30,10 +34,11 @@ const Topbar = () => {
     };
 
     return (
-        <div className="topbar">
+        <div className="wrapper_top">
             <button
                 type="submit"
-                className="topbar__right"
+                className="button_top"
+                //className="topbar__right"
                 id="tb-home"
                 onClick={homeButtonHandler}
             >
@@ -41,7 +46,8 @@ const Topbar = () => {
             </button>
             <button
                 type="submit"
-                className="topbar__right"
+                className="button_top"
+               // className="topbar__right"
                 id="tb-tables"
                 onClick={tablesButtonHandler}
             >
@@ -49,79 +55,89 @@ const Topbar = () => {
             </button>
             <button
                 type="submit"
-                className="topbar__left"
+                className="button_top"
+                //className="topbar__left"
                 id="tb-transfer"
                 onClick={transferButtonHandler}
             >
                 Transfer
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+                //className="topbar__left"
                 id="tb-hold"
                 onClick={holdButtonHandler}
             >
                 Hold
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+                //className="topbar__left"
                 id="tb-delete"
                 onClick={deleteButtonHandler}
             >
                 Delete
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+                //className="topbar__left"
                 id="tb-modify"
                 onClick={modifyButtonHandler}
             >
                 Modify
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+               // className="topbar__left"
                 id="tb-quantity"
                 onClick={quantityButtonHandler}
             >
                 Quantity
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+               // className="topbar__left"
                 id="tb-repeat"
                 onClick={repeatButtonHandler}
             >
                 Repeat
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+                //className="topbar__left"
                 id="tb-seeServer"
                 onClick={seeServerButtonHandler}
             >
                 See Server
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+               // className="topbar__left"
                 id="tb-asApp"
                 onClick={asAppButtonHandler}
             >
                 As App
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+                //className="topbar__left"
                 id="tb-noMake"
                 onClick={noMakeButtonHandler}
             >
                 No Make
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+               // className="topbar__left"
                 id="tb-toGo"
                 onClick={toGoButtonHandler}
             >

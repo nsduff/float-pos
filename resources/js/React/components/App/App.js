@@ -6,46 +6,74 @@ import Menu from "../Menu/Menu";
 import Sidebar from "../Sidebar/Sidebar";
 import Topbar from "../Topbar/Topbar";
 import Workspace from "../Workspace/Workspace";
+//import logoPos from "../logoPos.png";
 
 export default function App() {
     const [categories, setCategories] = useState([]);
     const [categoryId, setCategoryId] = useState(1);
     const [items, setItems] = useState([]);
+    const [newOrder, setNewOrder] = useState([]);
+    const [takeOrder, setTakeOrder] = useState(false);
 
     const fetchData = async () => {
         const data = await axios.get("/api/categories");
-        // console.log(data.data);
         setCategories(data.data);
     };
 
     const fetchItems = async () => {
         const itemData = await axios.get("/api/items");
-        // console.log(itemData.data);
         setItems(itemData.data);
     };
 
     useEffect(() => {
         fetchData();
         fetchItems();
-        // console.log(categoryId);
-    }, [categoryId]);
+    }, [categoryId, newOrder]);
 
     return (
-        <div>
-            <br />
-            <Topbar />
-            <br />
-            <br />
-            <Sidebar categories={categories} setCategoryId={setCategoryId} />
-            <br />
-            <br />
-            <Menu categoryId={categoryId} items={items} />
-            <br />
-            <br />
-            <Workspace />
-            <br />
-            <br />
-            <Footer />
-        </div>
+      
+        <div className='container'>
+            <div className='header'>
+                <img className="logo" src={"./img/logo_pos_final.png"} alt="logo"/>
+                <h1 className="headline">Float POS</h1>
+                
+            </div>
+            
+            <div className="topbar">
+                <Topbar setTakeOrder={setTakeOrder} setNewOrder={setNewOrder} />
+                </div>
+
+            <div className="sidebar">
+                <Sidebar 
+                        categories={categories} 
+                        setCategoryId={setCategoryId} />
+                </div>
+
+
+            <div className="menu">
+                    <Menu                 
+                        categoryId={categoryId}
+                        items={items}
+                        newOrder={newOrder}
+                        setNewOrder={setNewOrder}
+                        // newOrderPrice={newOrderPrice}
+                        // setNewOrderPrice={setNewOrderPrice}
+                        takeOrder={takeOrder}/>
+                </div>
+
+
+            <div className="workspace">
+                    <Workspace 
+                        takeOrder={takeOrder}
+                        newOrder={newOrder}
+                        setNewOrder={setNewOrder}
+                        setTakeOrder={setTakeOrder}
+                    />
+                </div>
+
+                <div className="footer"><Footer /></div>
+
+            </div>
+
     );
 }

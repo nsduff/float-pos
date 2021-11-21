@@ -1,12 +1,25 @@
+export default function Menu({
+    categoryId,
+    items,
+    newOrder,
+    setNewOrder,
+    takeOrder,
+}) {
+    const addItemToOrder = (newItem) => {
+        if (takeOrder === true) {
+            setNewOrder([...newOrder, newItem]);
+        }
+    };
 
-
-export default function Menu({ categoryId, items }) {
     return (
-        <div className="menu">
-            {items.map((item) => {
+        <div className="wrapper_menu">
+            {items.map((item, index) => {
                 if (categoryId === item.category_id) {
                     return (
-                        <button>
+                        <button className="button_menu"
+                            key={index}
+                            onClick={() => addItemToOrder(item)}
+                        >
                             <div>{item.name}</div>
                             <div>{item.price}</div>
                         </button>
