@@ -144,7 +144,7 @@ body {
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
-  padding: 0.5rem 0rem;
+  padding: 1.5rem;
 }
 
 .button_menu_item {

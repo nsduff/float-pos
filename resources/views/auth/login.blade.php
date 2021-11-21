@@ -3,6 +3,7 @@
     <div class="conteiner-login">
         <section class="vh-100 w-100 bg-image " style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/search-box/img4.jpg');">
             <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+                <img class="login_logo" src="./img/logoLogin.png"></img>
                 <main class="form-signin">
                     <form action="{{ route('login') }}" method="post">
 
