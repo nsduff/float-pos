@@ -9,12 +9,12 @@
                         @csrf
                         <h1 class="h3 mb-3 fw-normal">Please Login</h1>
                         <div class="form-floating">
-                            <input type="email" name="email" value="{{ old('email') }}" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input type="email" name="email" value="{{ old('email') }}" class="form-control" id="floatingInput" placeholder="name@example.com" required>
                             <label for="floatingInput">Email address</label>
                         </div>
 
                         <div class="form-floating">
-                            <input type="password"  name="password" value="" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input type="password"  name="password" value="" class="form-control" id="floatingPassword" placeholder="Password" required>
                             <label for="floatingPassword">Password</label>
                         </div>
 

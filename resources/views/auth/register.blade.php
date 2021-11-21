@@ -6,7 +6,7 @@
 
 
     <section class="vh-100 bg-image" style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/search-box/img4.jpg');">
-        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="vh-100 mask d-flex align-items-center  gradient-custom-3">
             <div class="container h-100">
 {{--                <div class="row d-flex justify-content-center align-items-center h-100">--}}
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -21,32 +21,34 @@
 
                                 @endforeach
 
-                                <form action="{{ route('register') }}" method="post">
+                                <form class ='needs-validation' action="{{ route('register') }}" method="post">
                                     @csrf
-                                    <div class="form-outline mb-4">
+                                    <div class="form-outline mb-3">
                                         <label class="form-label" for="form3Example1cg">Your Name</label>
-                                        <input type="text" name="name"  id="form3Example1cg" class="form-control form-control-lg" value="{{ old('name') }}" />
+                                        <input type="text" name="name"  id="form3Example1cg" class="form-control form-control-lg" value="{{ old('name') }}" required />
 
                                     </div>
 
-                                    <div class="form-outline mb-4">
+                                    <div class="form-outline mb-3">
                                         <label class="form-label" for="form3Example3cg">Your Email</label>
-                                        <input type="email" name="email" id="form3Example3cg" class="form-control form-control-lg shadow" value="{{ old('email') }}"/>
+                                        <input type="email" name="email" id="form3Example3cg" class="form-control form-control-lg shadow" value="{{ old('email') }}" required/>
 
                                     </div>
 
 
-                                    <div class="form-outline mb-4">
+                                    <div class="form-outline mb-3">
                                         <label class="form-label" for="form3Example4cg">Password</label>
-                                        <input type="password" name="password" id="form3Example4cg" class="form-control form-control-lg" value="" />
+                                        <input type="password" name="password" id="form3Example4cg" class="form-control form-control-lg" value="" required/>
 
                                     </div>
 
 
-                                    <div class="form-outline mb-4 ">
+                                    <div class="form-outline mb-3 ">
                                         <label class="form-label" for="form3Example4cdg">Repeat your password</label>
-                                        <input type="password" name="password_confirmation"  id="form3Example4cdg" class="form-control form-control-lg" value="" />
-
+                                        <input type="password" name="password_confirmation"  id="form3Example4cdg" class="form-control form-control-lg" value="" required/>
+                                        <div class="invalid-tooltip">
+                                            Please provide a valid zip.
+                                        </div>
                                     </div>
 
 
@@ -55,7 +57,7 @@
 
                                     </div>
 
-                                    <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/" class="fw-bold text-body"><u>Login here</u></a></p>
+                                    <p class="text-center text-muted mt-3 mb-0">Have already an account? <a href="/" class="fw-bold text-body"><u>Login here</u></a></p>
 
                                 </form>
 
