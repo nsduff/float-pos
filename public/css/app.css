@@ -1,8 +1,80 @@
+/*.topbar {*/
+/*  display: grid;*/
+/*  width: 100vw;*/
+/*  height: 10vw;*/
+/*  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;*/
+/*  grid-template-rows: 1fr;*/
+/*  gap: 0px 2px;*/
+/*  grid-template-areas: ". . . . . . . . . . . .";*/
+/*}*/
+
+/*.topbar__left {*/
+/*  background-color: greenyellow;*/
+/*}*/
+
+/*.topbar__right {*/
+/*  background-color: rgba(24, 24, 131, 0.9);*/
+/*}*/
+
+/*.topbar button {*/
+/*  font-size: larger;*/
+/*  color: white;*/
+/*  border-radius: 12px;*/
+/*}*/
+
+
+.conteiner-login {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.gradient-custom-4 {
+    /* fallback for old browsers */
+    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+}
+.gradient-custom-3 {
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+
+}
+
+
 * {
   box-sizing: border-box;
   font-family: "Merriweather Sans", sans-serif;
+  font-size: 1rem;
   margin: 0;
   padding: 0;
+}
+
+body {
+  min-height: 100vh;
 }
 
 .container_pos {
@@ -10,8 +82,8 @@
   min-width: 100%;
   background-color: #151414;
   display: grid;
-  grid-template-columns: 8.3% 51.7% 40%;
-  grid-template-rows: 10% 10% 60% 20%;
+  grid-template-columns: 8.3% 51.7% 39%;
+  grid-template-rows: 10% 10% 60% 16%;
   gap: 0.5rem 0.5rem;
   grid-template-areas: "header header header" "topbar topbar topbar" "sidebar menu workspace" "sidebar menu footer";
 }
@@ -70,6 +142,21 @@
   background-color: #ffffff0c;
   color: #f0f0f0;
   border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0rem;
+}
+
+.button_menu_item {
+  font-size: 1.1rem;
+  font-style: italic;
+  padding-bottom: 30%;
+  align-self: center;
+}
+
+.button_menu_price {
+  font-size: 1rem;
+  align-self: center;
 }
 
 .wrapper_sidebar {

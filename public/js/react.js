@@ -2333,9 +2333,11 @@ function Menu(_ref) {
             return addItemToOrder(item);
           },
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+            className: "button_menu_item",
             children: item.name
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-            children: item.price
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+            className: "button_menu_price",
+            children: [item.price, " CZK"]
           })]
         }, index);
       }
