@@ -2328,7 +2328,7 @@ function Menu(_ref) {
     children: items.map(function (item, index) {
       if (categoryId === item.category_id) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
-          className: "button_menu",
+          className: "button_menu_inactive",
           onClick: function onClick() {
             return addItemToOrder(item);
           },
@@ -2363,11 +2363,16 @@ __webpack_require__.r(__webpack_exports__);
 function Sidebar(_ref) {
   var categories = _ref.categories,
       setCategoryId = _ref.setCategoryId;
+  //const [buttonClicked, setButtonClicked] = useState(false);
+  // const buttonSwitch = () =>{
+  //     buttonClicked ? setButtonClicked(false) : setButtonClicked(true);
+  // }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
     className: "wrapper_sidebar",
     children: categories.map(function (category, index) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-        className: "button_sidebar",
+        // className={buttonClicked ? "button_sidebar_active" : "button_sidebar_inactive"}
+        className: "button_sidebar_inactive",
         onClick: function onClick() {
           return setCategoryId(category.id);
         },

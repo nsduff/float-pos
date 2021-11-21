@@ -16,7 +16,7 @@ export default function Menu({
             {items.map((item, index) => {
                 if (categoryId === item.category_id) {
                     return (
-                        <button className="button_menu"
+                        <button className="button_menu_inactive"
                             key={index}
                             onClick={() => addItemToOrder(item)}
                         >
