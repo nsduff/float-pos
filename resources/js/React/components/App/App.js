@@ -32,7 +32,7 @@ export default function App() {
 
     return (
       
-        <div className='container'>
+        <div className='container_pos'>
             <div className='header'>
                 <img className="logo" src={"./img/logo_pos_final.png"} alt="logo"/>
                 <h1 className="headline">Float POS</h1>
