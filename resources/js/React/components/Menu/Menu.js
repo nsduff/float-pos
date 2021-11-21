@@ -12,11 +12,11 @@ export default function Menu({
     };
 
     return (
-        <div>
+        <div className="wrapper_menu">
             {items.map((item, index) => {
                 if (categoryId === item.category_id) {
                     return (
-                        <button
+                        <button className="button_menu"
                             key={index}
                             onClick={() => addItemToOrder(item)}
                         >

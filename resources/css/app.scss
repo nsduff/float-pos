@@ -1,7 +1,10 @@
+//@import "components/topbar.css";
+@import "variables.scss";
+@import "mainGrid.scss";
+@import "header.scss";
+@import "menu.scss";
+@import "sidebar.scss";
+@import "topbar.scss";
 @import "components/topbar.css";
 @import "components/login.css";
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-}

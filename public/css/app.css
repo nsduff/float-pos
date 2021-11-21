@@ -68,6 +68,95 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+.header {
+  grid-area: header;
+}
+
+.topbar {
+  grid-area: topbar;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.menu {
+  grid-area: menu;
+}
+
+.workspace {
+  border: 1px solid white;
+  grid-area: workspace;
+}
+
+.footer {
+  border: 1px solid white;
+  grid-area: footer;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-self: center;
+}
+.header .headline {
+  color: #84FAB0;
+  font-family: "Merriweather Sans", sans-serif;
+  align-self: center;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  padding: 0.1rem;
+}
+
+/* CSS */
+.wrapper_menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.2rem 0.2rem;
+}
+
+.button_menu {
+  background-color: #ffffff0c;
+  color: #f0f0f0;
+  border-radius: 0.5rem;
+}
+
+.wrapper_sidebar {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(7, minmax(0, 1fr));
+  gap: 0.3rem;
+}
+
+.button_sidebar {
+  background-color: #ffffff0c;
+  color: #f0f0f0;
+  border-radius: 0.5rem;
+}
+
+.wrapper_top {
+  display: grid;
+  color: #84FAB0;
+  gap: 0.2rem 0.2rem;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto;
+  gap: 0.3rem;
+  height: 100%;
+  width: 100%;
+}
+
+.button_top {
+  background-color: #ffffff0c;
+  color: #f0f0f0;
+  border-radius: 0.5rem;
 }
 
 /*# sourceMappingURL=app.css.map*/

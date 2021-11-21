@@ -2111,6 +2111,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+ //import logoPos from "../logoPos.png";
 
 
 
@@ -2200,36 +2201,49 @@ function App() {
   }, [categoryId, newOrder]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     className: "container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+      className: "header",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+        className: "logo",
+        src: "./img/logo_pos_final.png",
+        alt: "logo"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
+        className: "headline",
+        children: "Float POS"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      className: "topbar",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Topbar_Topbar__WEBPACK_IMPORTED_MODULE_6__["default"], {
         setTakeOrder: setTakeOrder,
         setNewOrder: setNewOrder
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_5__["default"], {
-          categories: categories,
-          setCategoryId: setCategoryId
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Menu_Menu__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          categoryId: categoryId,
-          items: items,
-          newOrder: newOrder,
-          setNewOrder: setNewOrder // newOrderPrice={newOrderPrice}
-          // setNewOrderPrice={setNewOrderPrice}
-          ,
-          takeOrder: takeOrder
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Workspace_Workspace__WEBPACK_IMPORTED_MODULE_7__["default"], {
-          takeOrder: takeOrder,
-          newOrder: newOrder,
-          setNewOrder: setNewOrder,
-          setTakeOrder: setTakeOrder
-        })
-      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      className: "sidebar",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        categories: categories,
+        setCategoryId: setCategoryId
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      className: "menu",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Menu_Menu__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        categoryId: categoryId,
+        items: items,
+        newOrder: newOrder,
+        setNewOrder: setNewOrder // newOrderPrice={newOrderPrice}
+        // setNewOrderPrice={setNewOrderPrice}
+        ,
+        takeOrder: takeOrder
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      className: "workspace",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Workspace_Workspace__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        takeOrder: takeOrder,
+        newOrder: newOrder,
+        setNewOrder: setNewOrder,
+        setTakeOrder: setTakeOrder
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      className: "footer",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Footer_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], {})
     })]
   });
@@ -2310,9 +2324,11 @@ function Menu(_ref) {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    className: "wrapper_menu",
     children: items.map(function (item, index) {
       if (categoryId === item.category_id) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
+          className: "button_menu",
           onClick: function onClick() {
             return addItemToOrder(item);
           },
@@ -2346,8 +2362,10 @@ function Sidebar(_ref) {
   var categories = _ref.categories,
       setCategoryId = _ref.setCategoryId;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    className: "wrapper_sidebar",
     children: categories.map(function (category, index) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+        className: "button_sidebar",
         onClick: function onClick() {
           return setCategoryId(category.id);
         },
@@ -2422,76 +2440,88 @@ var Topbar = function Topbar(_ref) {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    className: "topbar mt-5",
+    className: "wrapper_top",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
       type: "submit",
-      className: "topbar__right",
+      className: "button_top" //className="topbar__right"
+      ,
       id: "tb-home",
       onClick: homeButtonHandler,
       children: "Home"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
       type: "submit",
-      className: "topbar__right",
+      className: "button_top" // className="topbar__right"
+      ,
       id: "tb-tables",
       onClick: tablesButtonHandler,
       children: "Tables"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
       type: "submit",
-      className: "topbar__left",
+      className: "button_top" //className="topbar__left"
+      ,
       id: "tb-transfer",
       onClick: transferButtonHandler,
       children: "Transfer"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-      type: "submit",
-      className: "topbar__left",
+      className: "button_top",
+      type: "submit" //className="topbar__left"
+      ,
       id: "tb-hold",
       onClick: holdButtonHandler,
       children: "Hold"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-      type: "submit",
-      className: "topbar__left",
+      className: "button_top",
+      type: "submit" //className="topbar__left"
+      ,
       id: "tb-delete",
       onClick: deleteButtonHandler,
       children: "Delete"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-      type: "submit",
-      className: "topbar__left",
+      className: "button_top",
+      type: "submit" //className="topbar__left"
+      ,
       id: "tb-modify",
       onClick: modifyButtonHandler,
       children: "Modify"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-      type: "submit",
-      className: "topbar__left",
+      className: "button_top",
+      type: "submit" // className="topbar__left"
+      ,
       id: "tb-quantity",
       onClick: quantityButtonHandler,
       children: "Quantity"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-      type: "submit",
-      className: "topbar__left",
+      className: "button_top",
+      type: "submit" // className="topbar__left"
+      ,
       id: "tb-repeat",
       onClick: repeatButtonHandler,
       children: "Repeat"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-      type: "submit",
-      className: "topbar__left",
+      className: "button_top",
+      type: "submit" //className="topbar__left"
+      ,
       id: "tb-seeServer",
       onClick: seeServerButtonHandler,
       children: "See Server"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-      type: "submit",
-      className: "topbar__left",
+      className: "button_top",
+      type: "submit" // className="topbar__left"
+      ,
       id: "tb-asApp",
       onClick: asAppButtonHandler,
       children: "As App"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-      type: "submit",
-      className: "topbar__left",
+      className: "button_top",
+      type: "submit" //className="topbar__left"
+      ,
       id: "tb-noMake",
       onClick: noMakeButtonHandler,
       children: "No Make"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-      type: "submit",
-      className: "topbar__left",
+      className: "button_top",
+      type: "submit" // className="topbar__left"
+      ,
       id: "tb-toGo",
       onClick: toGoButtonHandler,
       children: "To Go"

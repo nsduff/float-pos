@@ -1,0 +1,18 @@
+.wrapper_sidebar{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    //grid-template-rows: 25% 25% 25% 25%;
+    //grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(7, minmax(0, 1fr));
+    gap: 0.3rem;
+
+}
+.button_sidebar{
+    background-color: $button-background;
+    color: $text; 
+    border-radius: 0.5rem;
+}
+
+
