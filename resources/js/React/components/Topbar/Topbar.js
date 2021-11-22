@@ -34,10 +34,11 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
     };
 
     return (
-        <div className="topbar mt-5">
+        <div className="wrapper_top">
             <button
                 type="submit"
-                className="topbar__right"
+                className="button_top"
+                //className="topbar__right"
                 id="tb-home"
                 onClick={homeButtonHandler}
             >
@@ -45,7 +46,8 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
             </button>
             <button
                 type="submit"
-                className="topbar__right"
+                className="button_top"
+               // className="topbar__right"
                 id="tb-tables"
                 onClick={tablesButtonHandler}
             >
@@ -53,79 +55,89 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
             </button>
             <button
                 type="submit"
-                className="topbar__left"
+                className="button_top"
+                //className="topbar__left"
                 id="tb-transfer"
                 onClick={transferButtonHandler}
             >
                 Transfer
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+                //className="topbar__left"
                 id="tb-hold"
                 onClick={holdButtonHandler}
             >
                 Hold
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+                //className="topbar__left"
                 id="tb-delete"
                 onClick={deleteButtonHandler}
             >
                 Delete
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+                //className="topbar__left"
                 id="tb-modify"
                 onClick={modifyButtonHandler}
             >
                 Modify
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+               // className="topbar__left"
                 id="tb-quantity"
                 onClick={quantityButtonHandler}
             >
                 Quantity
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+               // className="topbar__left"
                 id="tb-repeat"
                 onClick={repeatButtonHandler}
             >
                 Repeat
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+                //className="topbar__left"
                 id="tb-seeServer"
                 onClick={seeServerButtonHandler}
             >
                 See Server
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+               // className="topbar__left"
                 id="tb-asApp"
                 onClick={asAppButtonHandler}
             >
                 As App
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+                //className="topbar__left"
                 id="tb-noMake"
                 onClick={noMakeButtonHandler}
             >
                 No Make
             </button>
             <button
+            className="button_top"
                 type="submit"
-                className="topbar__left"
+               // className="topbar__left"
                 id="tb-toGo"
                 onClick={toGoButtonHandler}
             >

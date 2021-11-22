@@ -12,16 +12,16 @@ export default function Menu({
     };
 
     return (
-        <div>
+        <div className="wrapper_menu">
             {items.map((item, index) => {
                 if (categoryId === item.category_id) {
                     return (
-                        <button
+                        <button className="button_menu"
                             key={index}
                             onClick={() => addItemToOrder(item)}
                         >
-                            <div>{item.name}</div>
-                            <div>{item.price}</div>
+                            <div className="button_menu_item">{item.name}</div>
+                            <div className="button_menu_price">{item.price} CZK</div>
                         </button>
                     );
                 }

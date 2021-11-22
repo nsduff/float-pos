@@ -6,6 +6,7 @@ import Menu from "../Menu/Menu";
 import Sidebar from "../Sidebar/Sidebar";
 import Topbar from "../Topbar/Topbar";
 import Workspace from "../Workspace/Workspace";
+//import logoPos from "../logoPos.png";
 
 export default function App() {
     const [categories, setCategories] = useState([]);
@@ -31,43 +32,48 @@ export default function App() {
 
     return (
       
-        <div className='container'>
+        <div className='container_pos'>
+            <div className='header'>
+                <img className="logo" src={"./img/logo_pos_final.png"} alt="logo"/>
+                <h1 className="headline">Float POS</h1>
+                
+            </div>
             
-      <div><Topbar setTakeOrder={setTakeOrder} setNewOrder={setNewOrder} /></div>
+            <div className="topbar">
+                <Topbar setTakeOrder={setTakeOrder} setNewOrder={setNewOrder} />
+                </div>
 
-            <div>
-                <div>
+            <div className="sidebar">
                 <Sidebar 
-                    categories={categories} 
-                    setCategoryId={setCategoryId} />
+                        categories={categories} 
+                        setCategoryId={setCategoryId} />
                 </div>
 
 
-                <div>
-                <Menu                 
-                    categoryId={categoryId}
-                    items={items}
-                    newOrder={newOrder}
-                    setNewOrder={setNewOrder}
-                    // newOrderPrice={newOrderPrice}
-                    // setNewOrderPrice={setNewOrderPrice}
-                    takeOrder={takeOrder}/>
+            <div className="menu">
+                    <Menu                 
+                        categoryId={categoryId}
+                        items={items}
+                        newOrder={newOrder}
+                        setNewOrder={setNewOrder}
+                        // newOrderPrice={newOrderPrice}
+                        // setNewOrderPrice={setNewOrderPrice}
+                        takeOrder={takeOrder}/>
                 </div>
 
 
-                <div>
-                <Workspace 
-                    takeOrder={takeOrder}
-                    newOrder={newOrder}
-                    setNewOrder={setNewOrder}
-                    setTakeOrder={setTakeOrder}
-                />
+            <div className="workspace">
+                    <Workspace 
+                        takeOrder={takeOrder}
+                        newOrder={newOrder}
+                        setNewOrder={setNewOrder}
+                        setTakeOrder={setTakeOrder}
+                    />
                 </div>
+
+                <div className="footer"><Footer /></div>
 
             </div>
 
-            <div><Footer /></div>
-
-        </div>
     );
 }
