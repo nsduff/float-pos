@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
     const [newOrderName, setNewOrderName] = useState("");
@@ -21,10 +22,18 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
         .map((newOrderItem) => newOrderItem.price)
         .reduce((a, i) => a + i, 0);
 
-    const placeOrder = () => {
-        setNewOrder([]);
-        setNewOrderName("");
-        setTakeOrder(false);
+    const placeOrder = async (e) => {
+        e.preventDefault();
+        console.log(newOrder);
+        const itemsIds = newOrder.map((value) => value.id);
+        const data = await axios.post("/api/orders", {
+            items: itemsIds,
+            table_name: newOrderName,
+        });
+
+        // setNewOrder([]);
+        // setNewOrderName("");
+        // setTakeOrder(false);
     };
 
     // useEffect(() => {
@@ -37,7 +46,7 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
             <form action="" method="post">
                 <input
                     type="text"
-                    name="name"
+                    name="table_name"
                     value={newOrderName}
                     onChange={handleNameChange}
                 />
