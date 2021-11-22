@@ -13,7 +13,8 @@
     border-radius: 0.5rem;
     font-size: 1.5rem;
     &:hover {
-        background-color: $hover}
+        background-color: $hover;
+        color: $hover_color}
 }
 
 .button_footer_logout{

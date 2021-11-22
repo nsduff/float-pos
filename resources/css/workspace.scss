@@ -1,8 +1,58 @@
+// general CSS for workspace
 .workspace {
   color: $text;
+  background-color: $button-background ;
+  border-top: 0.1rem solid rgba(255, 255, 255, 0.472);
+  border-left: 0.1rem solid rgba(255, 255, 255, 0.472);
+  border-radius: 0.5rem;
+  padding: 1rem;
 }
- 
+
+//table CSS 
+.table_buttons {
+  
+}
+
 .table_button {
-        background-color: $button-background;
-        color: $text;
+  background-color: $button-background;
+  color: $text;
+}
+
+
+
+//order CSS
+//.order {
+  
+//}
+
+.order_headline{
+  color: $signature;
+}
+
+.order_item_name{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 0.02rem solid rgba(255, 255, 255, 0.472);
+}
+
+.p_padding {
+  margin-bottom: 0;
+  }
+
+
+//.order_list{}
+
+.order_total{
+  font-size: 1.2rem;
+}
+
+.button_place_order{
+  background-color: $signature;
+  color: black;
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  font-weight: 400;
 }

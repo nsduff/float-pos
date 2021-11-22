@@ -2317,6 +2317,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function Menu(_ref) {
   var categoryId = _ref.categoryId,
       items = _ref.items,
+      setItems = _ref.setItems,
       newOrder = _ref.newOrder,
       setNewOrder = _ref.setNewOrder,
       takeOrder = _ref.takeOrder;
@@ -2332,7 +2333,7 @@ function Menu(_ref) {
     children: items.map(function (item, index) {
       if (categoryId === item.category_id) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
-          className: "button_menu_inactive",
+          className: "button_menu",
           onClick: function onClick() {
             return addItemToOrder(item);
           },
@@ -2620,7 +2621,9 @@ function NewOrder(_ref) {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+    className: "order",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
+      className: "order_headline",
       children: "New Order Name:"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("form", {
       action: "",
@@ -2632,19 +2635,31 @@ function NewOrder(_ref) {
         onChange: handleNameChange
       })
     }), newOrder.map(function (newOrderItem, index) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "order_list",
         onClick: function onClick() {
           return clickItem(newOrderItem.name);
         },
-        children: [newOrderItem.name, " -- ", newOrderItem.price]
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "order_item_name",
+          children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+            className: "p_padding",
+            children: newOrderItem.name
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+            className: "p_padding",
+            children: [newOrderItem.price, " CZK"]
+          })]
+        })
       }, index);
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      children: ["Total: ", total]
+      className: "order_total",
+      children: ["Total: ", total, " CZK"]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("form", {
       action: "",
       method: "post",
       onSubmit: placeOrder,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+        className: "button_place_order",
         children: "Place Order"
       })
     })]
