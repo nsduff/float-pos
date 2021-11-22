@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
     const [newOrderName, setNewOrderName] = useState("");
-    const [selectedItem, setSelectedItem] = useState([]);
+    // const [selectedItem, setSelectedItem] = useState([]);
 
     if (newOrder.length === 0) {
         return <h3>New Order</h3>;
@@ -13,10 +13,9 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
         console.log(newOrderName);
     };
 
-    const clickItem = (name) => {
-        setSelectedItem(...selectedItem, name);
-        console.log(selectedItem);
-    };
+    // const clickItem = (item) => {
+    //     setSelectedItem(item);
+    // };
 
     const total = newOrder
         .map((newOrderItem) => newOrderItem.price)
@@ -27,6 +26,10 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
         setNewOrderName("");
         setTakeOrder(false);
     };
+
+    // useEffect(() => {
+    //     console.log(selectedItem);
+    // }, [selectedItem]);
 
     return (
         <div>
@@ -41,15 +44,14 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
             </form>
             {newOrder.map((newOrderItem, index) => {
                 return (
-                    <div
-                        onClick={() => clickItem(newOrderItem.name)}
-                        key={index}
-                    >
-                        {newOrderItem.name} -- {newOrderItem.price}
+                    <div key={index}>
+                        {/* ({counter}) */}
+                        {newOrderItem.name} -{newOrderItem.price}
+                        &#75;&#269;
                     </div>
                 );
             })}
-            <div>Total: {total}</div>
+            <div>Total: {total} &#75;&#269;</div>
             <form action="" method="post" onSubmit={placeOrder}>
                 <button>Place Order</button>
             </form>

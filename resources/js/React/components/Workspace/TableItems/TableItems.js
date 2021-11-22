@@ -7,7 +7,7 @@ export default function TableItems({ showButton, setShowButton }) {
                 return (
                     <div className={"table__order__list"} key={m}>
                         <div className={"table__order__item"}>
-                            Item # {m + 1}
+                            <button>Item # {m + 1}</button>
                         </div>
                     </div>
                 );

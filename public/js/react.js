@@ -2321,6 +2321,7 @@ function Menu(_ref) {
   var addItemToOrder = function addItemToOrder(newItem) {
     if (takeOrder === true) {
       setNewOrder([].concat(_toConsumableArray(newOrder), [newItem]));
+      console.log(newOrder);
     }
   };
 
@@ -2550,14 +2551,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2581,12 +2574,8 @@ function NewOrder(_ref) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
       newOrderName = _useState2[0],
-      setNewOrderName = _useState2[1];
+      setNewOrderName = _useState2[1]; // const [selectedItem, setSelectedItem] = useState([]);
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-      _useState4 = _slicedToArray(_useState3, 2),
-      selectedItem = _useState4[0],
-      setSelectedItem = _useState4[1];
 
   if (newOrder.length === 0) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
@@ -2597,12 +2586,10 @@ function NewOrder(_ref) {
   var handleNameChange = function handleNameChange(event) {
     setNewOrderName(event.target.value);
     console.log(newOrderName);
-  };
+  }; // const clickItem = (item) => {
+  //     setSelectedItem(item);
+  // };
 
-  var clickItem = function clickItem(name) {
-    setSelectedItem.apply(void 0, _toConsumableArray(selectedItem).concat([name]));
-    console.log(selectedItem);
-  };
 
   var total = newOrder.map(function (newOrderItem) {
     return newOrderItem.price;
@@ -2614,7 +2601,10 @@ function NewOrder(_ref) {
     setNewOrder([]);
     setNewOrderName("");
     setTakeOrder(false);
-  };
+  }; // useEffect(() => {
+  //     console.log(selectedItem);
+  // }, [selectedItem]);
+
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
@@ -2630,13 +2620,10 @@ function NewOrder(_ref) {
       })
     }), newOrder.map(function (newOrderItem, index) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        onClick: function onClick() {
-          return clickItem(newOrderItem.name);
-        },
-        children: [newOrderItem.name, " -- ", newOrderItem.price]
+        children: [newOrderItem.name, " -", newOrderItem.price, "K\u010D"]
       }, index);
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      children: ["Total: ", total]
+      children: ["Total: ", total, " K\u010D"]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("form", {
       action: "",
       method: "post",
@@ -2674,9 +2661,11 @@ function TableItems(_ref) {
     }), new Array(4).fill(null).map(function (n, m) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
         className: "table__order__list",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
           className: "table__order__item",
-          children: ["Item # ", m + 1]
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
+            children: ["Item # ", m + 1]
+          })
         })
       }, m);
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
@@ -2710,7 +2699,6 @@ function Tables(_ref) {
 
   var handleClick = function handleClick(i) {
     setShowButton(i);
-    console.log("Table " + (i + 1) + " has been clicked!");
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
