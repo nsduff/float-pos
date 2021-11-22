@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: 'Merriweather Sans', sans-serif;
-    font-size: 1rem;
+    //font-family: 'Merriweather Sans', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -10,7 +9,7 @@ body {
 }
 .container_pos {
   min-height: 100vh;
-  min-width: 100% ;  
+  min-width: 100% ;
   background-color: $background;
   display: grid; 
   grid-template-columns: 8.3% 51.7% 39%; 
@@ -20,7 +19,7 @@ body {
     "header header header"
     "topbar topbar topbar"
     "sidebar menu workspace"
-    "sidebar menu footer"; 
+    "sidebar menu footer";
 }
 
 .header {
@@ -28,34 +27,34 @@ body {
   grid-area: header;
 }
 
-.topbar { 
+.topbar {
    // border: 1px solid white;
     grid-area: topbar;
 }
 
-.sidebar { 
+.sidebar {
     grid-area: sidebar;
     //border: 1px solid white;
-    
-}
-    
 
-.menu { 
+}
+
+
+.menu {
     //border: 1px solid white;
     grid-area: menu;
     //height: 85vh;
     //width: 100%;
 }
 
-.workspace { 
-    border: 1px solid white;
+.workspace {
+   // border: 1px solid white;
     grid-area: workspace;
 
 }
 
-.footer { 
-    border: 1px solid white;
-    grid-area: footer; 
+.footer {
+   // border: 1px solid white;
+    grid-area: footer;
 }
 
 

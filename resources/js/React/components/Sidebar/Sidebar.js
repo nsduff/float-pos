@@ -15,7 +15,7 @@ export default function Sidebar({ categories, setCategoryId }) {
                         onClick={() => setCategoryId(category.id)}
                     >
                         {category.name}
-                    </button> 
+                    </button>
                 );
             })}
         </div>

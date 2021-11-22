@@ -63,12 +63,14 @@
     background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
 
 }
+.errors-messagesas {
+    color: red;
+    font-size: large;
+}
 
 
 * {
   box-sizing: border-box;
-  font-family: "Merriweather Sans", sans-serif;
-  font-size: 1rem;
   margin: 0;
   padding: 0;
 }
@@ -105,12 +107,10 @@ body {
 }
 
 .workspace {
-  border: 1px solid white;
   grid-area: workspace;
 }
 
 .footer {
-  border: 1px solid white;
   grid-area: footer;
 }
 
@@ -207,6 +207,39 @@ body {
 .table_button {
   background-color: #ffffff0c;
   color: #f0f0f0;
+}
+
+.wrapper_footer {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto;
+  gap: 0.3rem;
+}
+
+.button_footer {
+  background-color: #ffffff0c;
+  color: #84FAB0;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+}
+.button_footer:hover {
+  background-color: #42ee812a;
+}
+
+.button_footer_logout {
+  background-color: #ffffff0c;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+.button_footer_logout:hover {
+  background-color: #905be631;
+}
+.button_footer_logout a {
+  text-decoration: none;
+  color: #a68fca;
 }
 
 /*# sourceMappingURL=app.css.map*/
