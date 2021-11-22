@@ -1,19 +1,36 @@
-export default function TableItems({ showButton, setShowButton }) {
+export default function TableItems({ orders, showButton }) {
+    console.log(orders);
+
+    const total = orders.map((order) =>
+        order.items.map((item) => item.price).reduce((a, i) => a + i, 0)
+    );
+    // item.map((i) => {
+    //     console.log(i);
+    // });;
+
     return (
-        <div className={"table__order"}>
-            <h3>Table # {showButton + 1}</h3>
+        <>
+            {orders.map((order, index) => {
+                if (order.id === showButton) {
+                    return (
+                        <div key={index}>
+                            <h3>{order.table_name}</h3>
 
-            {new Array(4).fill(null).map((n, m) => {
-                return (
-                    <div className={"table__order__list"} key={m}>
-                        <div className={"table__order__item"}>
-                            <button>Item # {m + 1}</button>
+                            {order.items.map((item, index) => {
+                                return (
+                                    <>
+                                        <div key={index}>
+                                            {item.name} --{item.price}
+                                            &#75;&#269;
+                                        </div>
+                                    </>
+                                );
+                            })}
                         </div>
-                    </div>
-                );
+                    );
+                }
             })}
-
-            <button onClick={() => setShowButton(null)}>Back</button>
-        </div>
+            <div>Total: {total} &#75;&#269;</div>
+        </>
     );
 }

@@ -1,18 +1,17 @@
-export default function Tables({ setShowButton }) {
-    const handleClick = (i) => {
-        setShowButton(i);
+export default function Tables({ setShowButton, orders }) {
+    const handleClick = (id) => {
+        setShowButton(id);
     };
-
     return (
         <>
-            {new Array(4).fill(null).map((a, i) => {
+            {orders.map((order, index) => {
                 return (
-                    <div className={"table_buttons"} key={i}>
+                    <div className={"table_buttons"} key={index}>
                         <button
                             className={"table_button"}
-                            onClick={() => handleClick(i)}
+                            onClick={() => handleClick(order.id)}
                         >
-                            Table {i + 1}
+                            {order.table_name}
                         </button>
                     </div>
                 );

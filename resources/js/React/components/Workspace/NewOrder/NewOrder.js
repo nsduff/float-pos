@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
@@ -24,16 +24,14 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
 
     const placeOrder = async (e) => {
         e.preventDefault();
-        console.log(newOrder);
         const itemsIds = newOrder.map((value) => value.id);
         const data = await axios.post("/api/orders", {
             items: itemsIds,
             table_name: newOrderName,
         });
-
-        // setNewOrder([]);
-        // setNewOrderName("");
-        // setTakeOrder(false);
+        setNewOrder([]);
+        setNewOrderName("");
+        setTakeOrder(false);
     };
 
     // useEffect(() => {
