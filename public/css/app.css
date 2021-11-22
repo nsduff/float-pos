@@ -196,12 +196,7 @@ body {
 }
 
 .workspace {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1.7fr 0.3fr;
-  gap: 0px 0px;
-  grid-template-areas: "." ".";
-  grid-area: workspace;
+  color: #f0f0f0;
 }
 
 .table_button {
