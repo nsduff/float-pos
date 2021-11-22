@@ -107,12 +107,10 @@ body {
 }
 
 .workspace {
-  border: 1px solid white;
   grid-area: workspace;
 }
 
 .footer {
-  border: 1px solid white;
   grid-area: footer;
 }
 
@@ -140,7 +138,7 @@ body {
   gap: 0.2rem 0.2rem;
 }
 
-.button_menu {
+.button_menu_inactive {
   background-color: #ffffff0c;
   color: #f0f0f0;
   border-radius: 0.5rem;
@@ -170,10 +168,14 @@ body {
   gap: 0.3rem;
 }
 
-.button_sidebar {
+.button_sidebar_inactive {
   background-color: #ffffff0c;
   color: #f0f0f0;
   border-radius: 0.5rem;
+}
+
+.button_sidebar_active {
+  background-color: #84faaf80;
 }
 
 .wrapper_top {
@@ -191,6 +193,53 @@ body {
   background-color: #ffffff0c;
   color: #f0f0f0;
   border-radius: 0.5rem;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1.7fr 0.3fr;
+  gap: 0px 0px;
+  grid-template-areas: "." ".";
+  grid-area: workspace;
+}
+
+.table_button {
+  background-color: #ffffff0c;
+  color: #f0f0f0;
+}
+
+.wrapper_footer {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto;
+  gap: 0.3rem;
+}
+
+.button_footer {
+  background-color: #ffffff0c;
+  color: #84FAB0;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+}
+.button_footer:hover {
+  background-color: #42ee812a;
+}
+
+.button_footer_logout {
+  background-color: #ffffff0c;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+.button_footer_logout:hover {
+  background-color: #905be631;
+}
+.button_footer_logout a {
+  text-decoration: none;
+  color: #a68fca;
 }
 
 /*# sourceMappingURL=app.css.map*/
