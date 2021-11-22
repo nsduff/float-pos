@@ -17,6 +17,8 @@
 
 .button_sidebar_active {
     background-color: $active_menu_button;
+    color: $active_text;
+    border-radius: 0.5rem;
 }
 
 

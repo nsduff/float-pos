@@ -175,7 +175,9 @@ body {
 }
 
 .button_sidebar_active {
-  background-color: #84faaf80;
+  background-color: #84FAB0;
+  color: black;
+  border-radius: 0.5rem;
 }
 
 .wrapper_top {

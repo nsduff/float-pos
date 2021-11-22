@@ -14,7 +14,7 @@ export default function Workspace({
     if (takeOrder === false && showButton === null) {
         return <Tables showButton={showButton} setShowButton={setShowButton} />;
     }
-    if (showButton === !null)
+    if (showButton != null)
         return (
             <TableItems showButton={showButton} setShowButton={setShowButton} />
         );
