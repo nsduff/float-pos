@@ -1,10 +1,6 @@
 @extends('layout.main')
 @section('content')
 
-
-
-
-
     <section class="vh-100 bg-image" style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/search-box/img4.jpg');">
         <div class="vh-100 mask d-flex align-items-center  gradient-custom-3">
             <div class="container ">

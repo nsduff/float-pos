@@ -4,16 +4,18 @@
     margin: 0;
     padding: 0;
 }
-
+body {
+    min-height: 100vh;
+}
 .container_pos {
   min-height: 100vh;
   min-width: 100% ;
   background-color: $background;
-  display: grid;
-  grid-template-columns: 8.3% 51.7% 40%;
-  grid-template-rows: 10% 10% 60% 20%;
-  gap: 0.5rem 0.5rem;
-  grid-template-areas:
+  display: grid; 
+  grid-template-columns: 8.3% 51.7% 39%; 
+  grid-template-rows: 10% 10% 60% 16%; 
+  gap: 0.5rem 0.5rem; 
+  grid-template-areas: 
     "header header header"
     "topbar topbar topbar"
     "sidebar menu workspace"

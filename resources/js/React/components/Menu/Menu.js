@@ -20,8 +20,8 @@ export default function Menu({
                             key={index}
                             onClick={() => addItemToOrder(item)}
                         >
-                            <div>{item.name}</div>
-                            <div>{item.price}</div>
+                            <div className="button_menu_item">{item.name}</div>
+                            <div className="button_menu_price">{item.price} CZK</div>
                         </button>
                     );
                 }
