@@ -5,10 +5,6 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
     const [newOrderName, setNewOrderName] = useState("");
     // const [selectedItem, setSelectedItem] = useState([]);
 
-    if (newOrder.length === 0) {
-        return <h3>New Order</h3>;
-    }
-
     const handleNameChange = (event) => {
         setNewOrderName(event.target.value);
         console.log(newOrderName);
@@ -40,7 +36,7 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
 
     return (
         <div>
-            <h3>New Order Name:</h3>
+            <h3>New Order:</h3>
             <form action="" method="post">
                 <input
                     type="text"
