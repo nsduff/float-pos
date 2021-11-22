@@ -1,4 +1,6 @@
 /node_modules
+/public/css
+/public/js
 /public/hot
 /public/storage
 /storage/*.key
@@ -9,7 +11,10 @@
 docker-compose.override.yml
 Homestead.json
 Homestead.yaml
+mix-manifest.json
 npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+package-lock.json
+.DS_Store.
