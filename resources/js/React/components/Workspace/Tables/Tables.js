@@ -8,9 +8,9 @@ export default function Tables({ setShowButton }) {
         <>
             {new Array(4).fill(null).map((a, i) => {
                 return (
-                    <div className={"table__button"} key={i}>
+                    <div className={"table_buttons"} key={i}>
                         <button
-                            className={"table__button"}
+                            className={"table_button"}
                             onClick={() => handleClick(i)}
                         >
                             Table {i + 1}

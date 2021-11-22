@@ -1,7 +1,7 @@
 export default function Sidebar({ categories, setCategoryId }) {
     //const [buttonClicked, setButtonClicked] = useState(false);
 
-   // const buttonSwitch = () =>{
+   // const buttonSwitchColor = () =>{
    //     buttonClicked ? setButtonClicked(false) : setButtonClicked(true);
    // }
     return (
