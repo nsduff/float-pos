@@ -1,10 +1,10 @@
 export default function Footer() {
     return (
         <>
-            <button>Pay</button>
-            <button>Options</button>
+            <button className={"footer"}>Pay</button>
+            <button className={"footer"}>Options</button>
             <a href={`/logout`}>
-                <button>Logout</button>
+                <button className={"footer"}>Logout</button>
             </a>
         </>
     );

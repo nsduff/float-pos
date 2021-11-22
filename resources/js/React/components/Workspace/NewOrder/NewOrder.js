@@ -17,7 +17,11 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
             <h3>Your Order</h3>
             {newOrder.map((newOrderItem, index) => {
                 return (
-                    <div onClick={() => clickItem()} key={index}>
+                    <div
+                        className={"new__order__map"}
+                        onClick={() => clickItem()}
+                        key={index}
+                    >
                         {newOrderItem.name} -- {newOrderItem.price}
                     </div>
                 );
