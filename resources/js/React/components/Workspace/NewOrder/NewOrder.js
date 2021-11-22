@@ -24,6 +24,7 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
 
     const placeOrder = () => {
         setNewOrder([]);
+        setNewOrderName("");
         setTakeOrder(false);
     };
 
