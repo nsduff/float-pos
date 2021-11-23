@@ -1,10 +1,10 @@
-// GENERAL THEME COLORS 
-$background: #151414; 
+// GENERAL THEME COLORS
+$background: #151414;
 $text:rgb(240, 240, 240);
 $signature: #84FAB0;
 $button-background: #ffffff0c;
 
-// MENU THEME COLORS 
+// MENU THEME COLORS
 $purple-superdark:  #3b0d86;
 $purple-dark:  #4e19a3e7;
 $purple-light:  #6323c8e7;
@@ -22,3 +22,7 @@ $hover_logout: #905be631;
 
 //WORKSPACE THEME COLORS
 $tables_background: #7424f3af;
+
+//LOGIN LOGOUT SIGNUP COLORS
+$green-blue-button: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+$green-blue-background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
