@@ -2121,7 +2121,7 @@ function App() {
       categories = _useState2[0],
       setCategories = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(7),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(1),
       _useState4 = _slicedToArray(_useState3, 2),
       categoryId = _useState4[0],
       setCategoryId = _useState4[1];
@@ -2133,13 +2133,23 @@ function App() {
 
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]),
       _useState8 = _slicedToArray(_useState7, 2),
-      newOrder = _useState8[0],
-      setNewOrder = _useState8[1];
+      orders = _useState8[0],
+      setOrders = _useState8[1];
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(false),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]),
       _useState10 = _slicedToArray(_useState9, 2),
-      takeOrder = _useState10[0],
-      setTakeOrder = _useState10[1];
+      newOrder = _useState10[0],
+      setNewOrder = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(null),
+      _useState12 = _slicedToArray(_useState11, 2),
+      showButton = _useState12[0],
+      setShowButton = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(false),
+      _useState14 = _slicedToArray(_useState13, 2),
+      takeOrder = _useState14[0],
+      setTakeOrder = _useState14[1];
 
   var fetchData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -2195,9 +2205,37 @@ function App() {
     };
   }();
 
+  var fetchOrders = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+      var orderData;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/orders");
+
+            case 2:
+              orderData = _context3.sent;
+              setOrders(orderData.data); // console.log(orders);
+
+            case 4:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function fetchOrders() {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     fetchData();
     fetchItems();
+    fetchOrders();
   }, [categoryId, newOrder]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     className: "container_pos",
@@ -2215,7 +2253,8 @@ function App() {
       className: "topbar",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Topbar_Topbar__WEBPACK_IMPORTED_MODULE_6__["default"], {
         setTakeOrder: setTakeOrder,
-        setNewOrder: setNewOrder
+        setNewOrder: setNewOrder,
+        setShowButton: setShowButton
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
       className: "sidebar",
@@ -2241,7 +2280,10 @@ function App() {
         takeOrder: takeOrder,
         newOrder: newOrder,
         setNewOrder: setNewOrder,
-        setTakeOrder: setTakeOrder
+        setTakeOrder: setTakeOrder,
+        orders: orders,
+        showButton: showButton,
+        setShowButton: setShowButton
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
       className: "footer",
@@ -2325,6 +2367,7 @@ function Menu(_ref) {
   var addItemToOrder = function addItemToOrder(newItem) {
     if (takeOrder === true) {
       setNewOrder([].concat(_toConsumableArray(newOrder), [newItem]));
+      console.log(newOrder);
     }
   };
 
@@ -2403,11 +2446,13 @@ __webpack_require__.r(__webpack_exports__);
 // import "./Topbar.css";
 var Topbar = function Topbar(_ref) {
   var setTakeOrder = _ref.setTakeOrder,
-      setNewOrder = _ref.setNewOrder;
+      setNewOrder = _ref.setNewOrder,
+      setShowButton = _ref.setShowButton;
 
   var homeButtonHandler = function homeButtonHandler() {
     setNewOrder([]);
-    setTakeOrder(false); //logic to send the user back to the home screen
+    setTakeOrder(false);
+    setShowButton(null); //logic to send the user back to the home screen
     //&& send the order IF anything was inputed.
     //still have to decide on whatever the home screen UI is.
   };
@@ -2552,15 +2597,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ NewOrder)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -2577,36 +2624,25 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function NewOrder(_ref) {
   var newOrder = _ref.newOrder,
       setNewOrder = _ref.setNewOrder,
       setTakeOrder = _ref.setTakeOrder;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
       newOrderName = _useState2[0],
-      setNewOrderName = _useState2[1];
+      setNewOrderName = _useState2[1]; // const [selectedItem, setSelectedItem] = useState([]);
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-      _useState4 = _slicedToArray(_useState3, 2),
-      selectedItem = _useState4[0],
-      setSelectedItem = _useState4[1];
-
-  if (newOrder.length === 0) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
-      children: "New Order"
-    });
-  }
 
   var handleNameChange = function handleNameChange(event) {
     setNewOrderName(event.target.value);
     console.log(newOrderName);
-  };
+  }; // const clickItem = (item) => {
+  //     setSelectedItem(item);
+  // };
 
-  var clickItem = function clickItem(name) {
-    setSelectedItem.apply(void 0, _toConsumableArray(selectedItem).concat([name]));
-    console.log(selectedItem);
-  };
 
   var total = newOrder.map(function (newOrderItem) {
     return newOrderItem.price;
@@ -2614,51 +2650,84 @@ function NewOrder(_ref) {
     return a + i;
   }, 0);
 
-  var placeOrder = function placeOrder() {
-    setNewOrder([]);
-    setNewOrderName("");
-    setTakeOrder(false);
-  };
+  var placeOrder = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
+      var itemsIds, data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              e.preventDefault();
+              itemsIds = newOrder.map(function (value) {
+                return value.id;
+              });
+              _context.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/orders", {
+                items: itemsIds,
+                table_name: newOrderName
+              });
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            case 4:
+              data = _context.sent;
+              setNewOrder([]);
+              setNewOrderName("");
+              setTakeOrder(false);
+
+            case 8:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function placeOrder(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }(); // useEffect(() => {
+  //     console.log(selectedItem);
+  // }, [selectedItem]);
+
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "order",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
       className: "order_headline",
       children: "New Order Name:"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("form", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("form", {
       action: "",
       method: "post",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         type: "text",
-        name: "name",
+        name: "table_name",
         value: newOrderName,
         onChange: handleNameChange
       })
     }), newOrder.map(function (newOrderItem, index) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "order_list",
         onClick: function onClick() {
           return clickItem(newOrderItem.name);
         },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "order_item_name",
-          children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
             className: "p_padding",
             children: newOrderItem.name
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
             className: "p_padding",
             children: [newOrderItem.price, " CZK"]
           })]
         })
       }, index);
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "order_total",
       children: ["Total: ", total, " CZK"]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("form", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("form", {
       action: "",
       method: "post",
       onSubmit: placeOrder,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
         className: "button_place_order",
         children: "Place Order"
       })
@@ -2682,26 +2751,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
+
 function TableItems(_ref) {
-  var showButton = _ref.showButton,
-      setShowButton = _ref.setShowButton;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    className: "table__order",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h3", {
-      children: ["Table # ", showButton + 1]
-    }), new Array(4).fill(null).map(function (n, m) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        className: "table__order__list",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-          className: "table__order__item",
-          children: ["Item # ", m + 1]
-        })
-      }, m);
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-      onClick: function onClick() {
-        return setShowButton(null);
-      },
-      children: "Back"
+  var orders = _ref.orders,
+      showButton = _ref.showButton;
+  console.log(orders);
+  var total = orders.map(function (order) {
+    return order.items.map(function (item) {
+      return item.price;
+    }).reduce(function (a, i) {
+      return a + i;
+    }, 0);
+  }); // item.map((i) => {
+  //     console.log(i);
+  // });;
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: [orders.map(function (order, index) {
+      if (order.id === showButton) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
+            children: order.table_name
+          }), order.items.map(function (item, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                children: [item.name, " --", item.price, "K\u010D"]
+              }, index)
+            });
+          })]
+        }, index);
+      }
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      children: ["Total: ", total, " K\u010D"]
     })]
   });
 }
@@ -2722,27 +2803,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
-
 function Tables(_ref) {
-  var setShowButton = _ref.setShowButton;
+  var setShowButton = _ref.setShowButton,
+      orders = _ref.orders;
 
-  var handleClick = function handleClick(i) {
-    setShowButton(i);
-    console.log("Table " + (i + 1) + " has been clicked!");
+  var handleClick = function handleClick(id) {
+    setShowButton(id);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: new Array(4).fill(null).map(function (a, i) {
+    children: orders.map(function (order, index) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        className: "table__button",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
-          className: "table__button",
+        className: "table_buttons",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+          className: "table_button",
           onClick: function onClick() {
-            return handleClick(i);
+            return handleClick(order.id);
           },
-          children: ["Table ", i + 1]
+          children: order.table_name
         })
-      }, i);
+      }, index);
     })
   });
 }
@@ -2763,50 +2843,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TableItems_TableItems__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TableItems/TableItems */ "./resources/js/react/components/Workspace/TableItems/TableItems.js");
 /* harmony import */ var _Tables_Tables__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tables/Tables */ "./resources/js/react/components/Workspace/Tables/Tables.js");
 /* harmony import */ var _NewOrder_NewOrder__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NewOrder/NewOrder */ "./resources/js/react/components/Workspace/NewOrder/NewOrder.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
 function Workspace(_ref) {
-  var takeOrder = _ref.takeOrder,
+  var orders = _ref.orders,
+      takeOrder = _ref.takeOrder,
       newOrder = _ref.newOrder,
       setNewOrder = _ref.setNewOrder,
-      setTakeOrder = _ref.setTakeOrder;
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(null),
-      _useState2 = _slicedToArray(_useState, 2),
-      showButton = _useState2[0],
-      setShowButton = _useState2[1];
+      setTakeOrder = _ref.setTakeOrder,
+      showButton = _ref.showButton,
+      setShowButton = _ref.setShowButton;
 
   if (takeOrder === false && showButton === null) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Tables_Tables__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Tables_Tables__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      orders: orders,
       showButton: showButton,
       setShowButton: setShowButton
     });
   }
 
-  if (showButton != null) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_TableItems_TableItems__WEBPACK_IMPORTED_MODULE_0__["default"], {
+  if (showButton != null) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_TableItems_TableItems__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    orders: orders,
     showButton: showButton,
     setShowButton: setShowButton
   });
 
   if (takeOrder === true) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_NewOrder_NewOrder__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_NewOrder_NewOrder__WEBPACK_IMPORTED_MODULE_2__["default"], {
       newOrder: newOrder,
       setNewOrder: setNewOrder,
       setTakeOrder: setTakeOrder

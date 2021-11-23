@@ -1,22 +1,32 @@
 import TableItems from "./TableItems/TableItems";
 import Tables from "./Tables/Tables";
 import NewOrder from "./NewOrder/NewOrder";
-import { useState } from "react";
 
 export default function Workspace({
+    orders,
     takeOrder,
     newOrder,
     setNewOrder,
     setTakeOrder,
+    showButton,
+    setShowButton,
 }) {
-    const [showButton, setShowButton] = useState(null);
-
     if (takeOrder === false && showButton === null) {
-        return <Tables showButton={showButton} setShowButton={setShowButton} />;
+        return (
+            <Tables
+                orders={orders}
+                showButton={showButton}
+                setShowButton={setShowButton}
+            />
+        );
     }
     if (showButton != null)
         return (
-            <TableItems showButton={showButton} setShowButton={setShowButton} />
+            <TableItems
+                orders={orders}
+                showButton={showButton}
+                setShowButton={setShowButton}
+            />
         );
     if (takeOrder === true) {
         return (
