@@ -36,22 +36,34 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
 
     return (
         <div className="order">
-            <h4 className="order_headline">New Order Name:</h4>
-            <form action="" method="post">
-                <input
-                    type="text"
-                    name="table_name"
-                    value={newOrderName}
-                    onChange={handleNameChange}
-                />
-            </form>
+          <div className="order_header"> 
+            <div className="order_name"> 
+                <h4 className="order_name_headline">New Order Name:</h4>
+                <form action="" method="post">
+                    <input
+                        type="text"
+                        name="table_name"
+                        value={newOrderName}
+                        onChange={handleNameChange}
+                    />
+                </form>
+            </div>    
+
+            <form action="" method="post" onSubmit={placeOrder}>
+                    <button className="button_place_order">Place Order</button>
+            </form>      
+          </div>  
+
+             
+
             {newOrder.map((newOrderItem, index) => {
                 return (
                     <div
                         className="order_list"
                         onClick={() => clickItem(newOrderItem.name)}
                         key={index}
-                    >
+                    >  
+
                         <div className="order_item_name">
                             {" "}
                             <p className="p_padding">{newOrderItem.name}</p>
@@ -63,9 +75,6 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
                 );
             })}
             <div className="order_total">Total: {total} CZK</div>
-            <form action="" method="post" onSubmit={placeOrder}>
-                <button className="button_place_order">Place Order</button>
-            </form>
         </div>
     );
 }

@@ -14,23 +14,23 @@ export default function TableItems({ orders, showButton }) {
                 if (order.id === showButton) {
                     return (
                         <div key={index}>
-                            <h3>{order.table_name}</h3>
+                            <h3 className="order_name_headline">{order.table_name} order</h3>
 
                             {order.items.map((item, index) => {
                                 return (
-                                    <>
-                                        <div key={index}>
-                                            {item.name} --{item.price}
-                                            &#75;&#269;
+                        
+                                        <div className="order_item_name" key={index}>
+                                             <p className="p_padding"> {item.name} </p>
+                                              <p className="p_padding">{item.price} &#75;&#269;</p>
+                                           
                                         </div>
-                                    </>
                                 );
                             })}
                         </div>
                     );
                 }
             })}
-            <div>Total: {total} &#75;&#269;</div>
+            <div className="order_total">Total: {total} &#75;&#269;</div>
         </>
     );
 }
