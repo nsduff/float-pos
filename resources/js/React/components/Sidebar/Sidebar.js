@@ -6,7 +6,9 @@ export default function Sidebar({ categories, categoryId, setCategoryId }) {
                     <button
                         className={
                             "button_sidebar" +
-                            (category.id === categoryId ? "_active" : "_inactive")
+                            (category.id === categoryId
+                                ? "_active"
+                                : "_inactive")
                         }
                         key={index}
                         onClick={() => setCategoryId(category.id)}

@@ -10,9 +10,13 @@ import Workspace from "../Workspace/Workspace";
 
 export default function App() {
     const [categories, setCategories] = useState([]);
-    const [categoryId, setCategoryId] = useState(7);
+    const [categoryId, setCategoryId] = useState(1);
     const [items, setItems] = useState([]);
+    const [orders, setOrders] = useState([]);
+
     const [newOrder, setNewOrder] = useState([]);
+    const [showButton, setShowButton] = useState(null);
+
     const [takeOrder, setTakeOrder] = useState(false);
 
     const fetchData = async () => {
@@ -25,9 +29,16 @@ export default function App() {
         setItems(itemData.data);
     };
 
+    const fetchOrders = async () => {
+        const orderData = await axios.get("/api/orders");
+        setOrders(orderData.data);
+        // console.log(orders);
+    };
+
     useEffect(() => {
         fetchData();
         fetchItems();
+        fetchOrders();
     }, [categoryId, newOrder]);
 
     return (
@@ -42,7 +53,11 @@ export default function App() {
             </div>
 
             <div className="topbar">
-                <Topbar setTakeOrder={setTakeOrder} setNewOrder={setNewOrder} />
+                <Topbar
+                    setTakeOrder={setTakeOrder}
+                    setNewOrder={setNewOrder}
+                    setShowButton={setShowButton}
+                />
             </div>
 
             <div className="sidebar">
@@ -71,6 +86,9 @@ export default function App() {
                     newOrder={newOrder}
                     setNewOrder={setNewOrder}
                     setTakeOrder={setTakeOrder}
+                    orders={orders}
+                    showButton={showButton}
+                    setShowButton={setShowButton}
                 />
             </div>
 

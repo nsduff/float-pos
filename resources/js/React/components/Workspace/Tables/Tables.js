@@ -1,9 +1,7 @@
-export default function Tables({ setShowButton }) {
-    const handleClick = (i) => {
-        setShowButton(i);
-        console.log("Table " + (i + 1) + " has been clicked!");
+export default function Tables({ setShowButton, orders }) {
+    const handleClick = (id) => {
+        setShowButton(id);
     };
-
     return (
         <div className="wrapper_tables">
             {new Array(9).fill(null).map((a, i) => {
@@ -11,9 +9,9 @@ export default function Tables({ setShowButton }) {
                         <button
                             key={i}
                             className={"table_button"}
-                            onClick={() => handleClick(i)}
+                            onClick={() => handleClick(orders.id)}
                         >
-                            Table {i + 1}
+                            {orders.table_name}
                         </button>
                 );
             })}
