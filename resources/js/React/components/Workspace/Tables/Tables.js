@@ -3,6 +3,7 @@ export default function Tables({ setShowButton, orders }) {
         setShowButton(id);
     };
     return (
+        
         <div className="wrapper_tables">
             {new Array(9).fill(null).map((a, i) => {
                 return (
@@ -20,3 +21,6 @@ export default function Tables({ setShowButton, orders }) {
         </div>
     );
 }
+ //</div><div className="wrapper_tables">
+    
+     //   </div>
