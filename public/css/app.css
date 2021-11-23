@@ -30,6 +30,7 @@
 
 body {
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .container_pos {
@@ -99,6 +100,9 @@ body {
   flex-direction: column;
   padding: 1.5rem;
 }
+.button_menu:hover {
+  background: #4e19a3e7;
+}
 
 .button_menu_item {
   font-size: 1.1rem;
@@ -128,7 +132,7 @@ body {
 }
 
 .button_sidebar_active {
-  background: linear-gradient(to right, #84fab0, #8fd3f4);
+  background: #84FAB0;
   color: black;
   border-radius: 0.5rem;
 }
@@ -239,17 +243,17 @@ body {
 }
 
 .button_footer_logout {
-  background-color: #ffffff0c;
+  background-color: #e90ade3b;
   border-radius: 0.5rem;
   font-size: 1.5rem;
   text-decoration: none;
 }
 .button_footer_logout:hover {
-  background-color: #905be631;
+  background-color: #e90adeb4;
 }
 .button_footer_logout a {
   text-decoration: none;
-  color: #a68fca;
+  color: white;
 }
 
 .conteiner-login {
