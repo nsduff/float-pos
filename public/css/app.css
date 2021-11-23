@@ -128,7 +128,7 @@ body {
 }
 
 .button_sidebar_active {
-  background-color: #84FAB0;
+  background: linear-gradient(to right, #84fab0, #8fd3f4);
   color: black;
   border-radius: 0.5rem;
 }

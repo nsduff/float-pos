@@ -2793,36 +2793,9 @@ function TableItems(_ref) {
 /*!******************************************************************!*\
   !*** ./resources/js/react/components/Workspace/Tables/Tables.js ***!
   \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Tables)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-function Tables(_ref) {
-  var setShowButton = _ref.setShowButton,
-      orders = _ref.orders;
-
-  var handleClick = function handleClick(id) {
-    setShowButton(id);
-  };
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    className: "wrapper_tables",
-    children: new Array(9).fill(null).map(function (a, i) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-        className: "table_button",
-        onClick: function onClick() {
-          return handleClick(orders.id);
-        },
-        children: orders.table_name
-      }, i);
-    })
-  });
-}
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\Magda\\web\\bootcamp\\final\\POS_GIT\\resources\\js\\react\\components\\Workspace\\Tables\\Tables.js: Unexpected token, expected \",\" (22:0)\n\n\u001b[0m \u001b[90m 20 |\u001b[39m     )\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 21 |\u001b[39m }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 22 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n    at Object._raise (C:\\Users\\Magda\\web\\bootcamp\\final\\POS_GIT\\node_modules\\@babel\\parser\\lib\\index.js:541:17)\n    at Object.raiseWithData (C:\\Users\\Magda\\web\\bootcamp\\final\\POS_GIT\\node_modules\\@babel\\parser\\lib\\index.js:534:17)\n    at Object.raise (C:\\Users\\Magda\\web\\bootcamp\\final\\POS_GIT\\node_modules\\@babel\\parser\\lib\\index.js:495:17)\n    at Object.unexpected (C:\\Users\\Magda\\web\\bootcamp\\final\\POS_GIT\\node_modules\\@babel\\parser\\lib\\index.js:3587:16)\n    at Object.expect (C:\\Users\\Magda\\web\\bootcamp\\final\\POS_GIT\\node_modules\\@babel\\parser\\lib\\index.js:3561:28)\n    at Object.parseCallExpressionArguments (C:\\Users\\Magda\\web\\bootcamp\\final\\POS_GIT\\node_modules\\@babel\\parser\\lib\\index.js:11755:14)\n    at Object.parseCoverCallAndAsyncArrowHead (C:\\Users\\Magda\\web\\bootcamp\\final\\POS_GIT\\node_modules\\@babel\\parser\\lib\\index.js:11678:29)\n    at Object.parseSubscript (C:\\Users\\Magda\\web\\bootcamp\\final\\POS_GIT\\node_modules\\@babel\\parser\\lib\\index.js:11608:19)\n    at Object.parseSubscripts (C:\\Users\\Magda\\web\\bootcamp\\final\\POS_GIT\\node_modules\\@babel\\parser\\lib\\index.js:11581:19)\n    at Object.parseExprSubscripts (C:\\Users\\Magda\\web\\bootcamp\\final\\POS_GIT\\node_modules\\@babel\\parser\\lib\\index.js:11570:17)");
 
 /***/ }),
 
@@ -2839,6 +2812,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _TableItems_TableItems__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TableItems/TableItems */ "./resources/js/react/components/Workspace/TableItems/TableItems.js");
 /* harmony import */ var _Tables_Tables__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tables/Tables */ "./resources/js/react/components/Workspace/Tables/Tables.js");
+/* harmony import */ var _Tables_Tables__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Tables_Tables__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _NewOrder_NewOrder__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NewOrder/NewOrder */ "./resources/js/react/components/Workspace/NewOrder/NewOrder.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
@@ -2855,7 +2829,7 @@ function Workspace(_ref) {
       setShowButton = _ref.setShowButton;
 
   if (takeOrder === false && showButton === null) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Tables_Tables__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)((_Tables_Tables__WEBPACK_IMPORTED_MODULE_1___default()), {
       orders: orders,
       showButton: showButton,
       setShowButton: setShowButton
