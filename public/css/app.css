@@ -22,53 +22,6 @@
 /*  border-radius: 12px;*/
 /*}*/
 
-
-.conteiner-login {
-    display: flex;
-    align-items: center;
-    background-color: #f5f5f5;
-}
-
-.form-signin {
-    width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: auto;
-}
-
-
-
-.form-signin .form-floating:focus-within {
-    z-index: 2;
-}
-
-.form-signin input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-.gradient-custom-4 {
-    /* fallback for old browsers */
-    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
-}
-.gradient-custom-3 {
-
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
-
-}
-.errors-messagesas {
-    color: red;
-    font-size: large;
-}
-
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -191,6 +144,69 @@ body {
   background-color: #ffffff0c;
   color: #f0f0f0;
   border-radius: 0.5rem;
+}
+
+.conteiner-login {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type=email] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#floatingInputEmail {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+#floatingInputPass {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type=password] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-signin input[type=text] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.gradient-button {
+  background: linear-gradient(to right, #84fab0, #8fd3f4);
+}
+
+.gradient-background {
+  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+}
+
+.errors-messagesas {
+  color: red;
+  font-size: large;
+}
+
+.background_img {
+  background-image: url("../img/bgupdated.png");
 }
 
 /*# sourceMappingURL=app.css.map*/
