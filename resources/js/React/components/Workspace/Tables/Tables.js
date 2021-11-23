@@ -1,7 +1,7 @@
 export default function Tables({ setShowButton }) {
     const handleClick = (i) => {
         setShowButton(i);
-        // console.log("Table " + (i + 1) + " has been clicked!");
+        console.log("Table " + (i + 1) + " has been clicked!");
     };
 
     return (

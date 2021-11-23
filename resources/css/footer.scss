@@ -1,0 +1,33 @@
+.wrapper_footer {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto;
+    gap: 0.3rem;
+}
+
+.button_footer {
+    background-color: $button-background;
+    color: $signature;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    &:hover {
+        background-color: $hover;
+        color: $hover_color}
+}
+
+.button_footer_logout{
+    background-color: $button-background;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+
+     &:hover {
+         background-color: $hover_logout};
+    a {
+        text-decoration: none;
+        color: $logout_color;
+       
+}
+    }

@@ -1,6 +1,7 @@
 export default function Menu({
     categoryId,
     items,
+    setItems,
     newOrder,
     setNewOrder,
     takeOrder,
