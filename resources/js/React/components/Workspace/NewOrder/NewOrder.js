@@ -1,27 +1,21 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
+export default function NewOrder({
+    newOrder,
+    setNewOrder,
+    setTakeOrder,
+    toggledItems,
+    setToggledItems,
+    highlightHandler,
+}) {
     const [newOrderName, setNewOrderName] = useState("");
     const [errors, setErrors] = useState({});
-    const [toggledItems, setToggledItems] = useState([]);
 
     const handleNameChange = (event) => {
         setNewOrderName(event.target.value);
     };
 
-    const highlightHandler = (i) => {
-        if (toggledItems.includes(i)) {
-            // remove
-            // tc = [0, 1, 2]
-            // i = 2
-            // output [0, 1]
-            setToggledItems(toggledItems.filter((c) => c !== i));
-        } else {
-            // add
-            setToggledItems([...toggledItems, i]);
-        }
-    };
     const clearOrder = () => {
         //reset states back to normal
         setNewOrder([]);
@@ -38,9 +32,12 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
 
         try {
             const itemsIds = newOrder.map((value) => value.id);
+            // const itemsComments = newOrder.map((value) => value.comments);
             const data = await axios.post("/api/orders", {
                 items: itemsIds,
                 table_name: newOrderName,
+                // ND: CAN'T POST COMMENTS YET, SO DON'T TRY
+                // item_comments: itemsComments,
             });
 
             // stops here and wait for response from ajax request
@@ -61,9 +58,9 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
         }
     };
 
-    useEffect(() => {
-        console.log(toggledItems);
-    }, [toggledItems]);
+    // useEffect(() => {
+    //     console.log(toggledItems);
+    // }, [toggledItems]);
 
     return (
         <div className="order">
@@ -97,11 +94,12 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
                     <div className="order_list" key={index}>
                         <div
                             className={
-                                `order_item_name` + toggledItems.includes(index)
-                                    ? null
-                                    : `activeOrderItem`
+                                "order_item_name" +
+                                (toggledItems.includes(newOrderItem)
+                                    ? " active_order_item"
+                                    : null)
                             }
-                            onClick={() => highlightHandler(index)}
+                            onClick={() => highlightHandler(newOrderItem)}
                         >
                             <p className="p_padding">{newOrderItem.name}</p>
                             <p className="p_padding">
@@ -111,6 +109,19 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
                     </div>
                 );
             })}
+            {/* <ul>
+                {comments.map((comment, index) => {
+                    if (comments != []) {
+                        return <li key={index}>{comment}</li>;
+                    }
+                })}
+            </ul> */}
+            {/* Comment button that works */}
+            {/* {comments.length > 0 ? (
+                <button onClick={saveComments}>Save Comments</button>
+            ) : (
+                <></>
+            )} */}
 
             <div className="order_total">Total: {total} CZK</div>
 

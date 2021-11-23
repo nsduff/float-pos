@@ -27,9 +27,13 @@ class OrderController extends Controller
         $order = new Order;
         $order->table_name = $request->table_name;
         $order->user_id = Auth::id();
+        $order->paid = false;
         $order->save();
-        //conect orders and items_order
+        //connect orders and items_order
         $order->items()->attach($request->items);
+
+        //ND -- COMMENTS DON'T POST. FIX LATER
+        // $order->items()->attach($request->item_comments);
         return $order;
     }
 
