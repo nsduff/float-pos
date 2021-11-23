@@ -1,6 +1,7 @@
 export default function Menu({
     categoryId,
     items,
+    setItems,
     newOrder,
     setNewOrder,
     takeOrder,
@@ -18,7 +19,7 @@ export default function Menu({
                 if (categoryId === item.category_id) {
                     return (
                         <button
-                            className="button_menu_inactive"
+                            className="button_menu"
                             key={index}
                             onClick={() => addItemToOrder(item)}
                         >

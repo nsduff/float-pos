@@ -35,8 +35,8 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
     // }, [selectedItem]);
 
     return (
-        <div>
-            <h3>New Order:</h3>
+        <div className="order">
+            <h4 className="order_headline">New Order Name:</h4>
             <form action="" method="post">
                 <input
                     type="text"
@@ -47,16 +47,24 @@ export default function NewOrder({ newOrder, setNewOrder, setTakeOrder }) {
             </form>
             {newOrder.map((newOrderItem, index) => {
                 return (
-                    <div key={index}>
-                        {/* ({counter}) */}
-                        {newOrderItem.name} -{newOrderItem.price}
-                        &#75;&#269;
+                    <div
+                        className="order_list"
+                        onClick={() => clickItem(newOrderItem.name)}
+                        key={index}
+                    >
+                        <div className="order_item_name">
+                            {" "}
+                            <p className="p_padding">{newOrderItem.name}</p>
+                            <p className="p_padding">
+                                {newOrderItem.price} CZK
+                            </p>
+                        </div>
                     </div>
                 );
             })}
-            <div>Total: {total} &#75;&#269;</div>
+            <div className="order_total">Total: {total} CZK</div>
             <form action="" method="post" onSubmit={placeOrder}>
-                <button>Place Order</button>
+                <button className="button_place_order">Place Order</button>
             </form>
         </div>
     );

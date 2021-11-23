@@ -85,7 +85,7 @@ body {
   background-color: #151414;
   display: grid;
   grid-template-columns: 8.3% 51.7% 39%;
-  grid-template-rows: 10% 10% 60% 16%;
+  grid-template-rows: 10% 10% 66% 10%;
   gap: 0.5rem 0.5rem;
   grid-template-areas: "header header header" "topbar topbar topbar" "sidebar menu workspace" "sidebar menu footer";
 }
@@ -138,7 +138,7 @@ body {
   gap: 0.2rem 0.2rem;
 }
 
-.button_menu_inactive {
+.button_menu {
   background-color: #ffffff0c;
   color: #f0f0f0;
   border-radius: 0.5rem;
@@ -175,7 +175,9 @@ body {
 }
 
 .button_sidebar_active {
-  background-color: #84faaf80;
+  background-color: #84FAB0;
+  color: black;
+  border-radius: 0.5rem;
 }
 
 .wrapper_top {
@@ -196,17 +198,46 @@ body {
 }
 
 .workspace {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1.7fr 0.3fr;
-  gap: 0px 0px;
-  grid-template-areas: "." ".";
-  grid-area: workspace;
+  color: #f0f0f0;
+  background-color: #ffffff0c;
+  border-top: 0.1rem solid rgba(255, 255, 255, 0.472);
+  border-left: 0.1rem solid rgba(255, 255, 255, 0.472);
+  border-radius: 0.5rem;
+  padding: 1rem;
 }
 
 .table_button {
   background-color: #ffffff0c;
   color: #f0f0f0;
+}
+
+.order_headline {
+  color: #84FAB0;
+}
+
+.order_item_name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 0.02rem solid rgba(255, 255, 255, 0.472);
+}
+
+.p_padding {
+  margin-bottom: 0;
+}
+
+.order_total {
+  font-size: 1.2rem;
+}
+
+.button_place_order {
+  background-color: #84FAB0;
+  color: black;
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
 .wrapper_footer {
@@ -225,7 +256,8 @@ body {
   font-size: 1.5rem;
 }
 .button_footer:hover {
-  background-color: #42ee812a;
+  background-color: #84FAB0;
+  color: black;
 }
 
 .button_footer_logout {
