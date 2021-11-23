@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+//dummy CSS
+import "./dummyToggle.css";
+
 import Footer from "../Footer/Footer";
 import Menu from "../Menu/Menu";
 import Sidebar from "../Sidebar/Sidebar";
@@ -10,9 +13,10 @@ import Workspace from "../Workspace/Workspace";
 
 export default function App() {
     const [categories, setCategories] = useState([]);
-    const [categoryId, setCategoryId] = useState(1);
+    const [categoryId, setCategoryId] = useState(7);
     const [items, setItems] = useState([]);
     const [orders, setOrders] = useState([]);
+    const [pay, setPay] = useState(false);
 
     const [newOrder, setNewOrder] = useState([]);
     const [showButton, setShowButton] = useState(null);
@@ -39,7 +43,8 @@ export default function App() {
         fetchData();
         fetchItems();
         fetchOrders();
-    }, [categoryId, newOrder]);
+        // console.log(pay);
+    }, [categoryId, newOrder, pay]);
 
     return (
         <div className="container_pos">
@@ -93,7 +98,7 @@ export default function App() {
             </div>
 
             <div className="footer">
-                <Footer />
+                <Footer pay={pay} setPay={setPay} />
             </div>
         </div>
     );

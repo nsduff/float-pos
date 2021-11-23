@@ -9,7 +9,7 @@ export default function Menu({
     const addItemToOrder = (newItem) => {
         if (takeOrder === true) {
             setNewOrder([...newOrder, newItem]);
-            console.log(newOrder);
+            // console.log(newOrder);
         }
     };
 
