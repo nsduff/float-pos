@@ -2722,7 +2722,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
-
 function Tables(_ref) {
   var setShowButton = _ref.setShowButton;
 
@@ -2731,17 +2730,15 @@ function Tables(_ref) {
     console.log("Table " + (i + 1) + " has been clicked!");
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-    children: new Array(4).fill(null).map(function (a, i) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        className: "table_buttons",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
-          className: "table_button",
-          onClick: function onClick() {
-            return handleClick(i);
-          },
-          children: ["Table ", i + 1]
-        })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    className: "wrapper_tables",
+    children: new Array(9).fill(null).map(function (a, i) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
+        className: "table_button",
+        onClick: function onClick() {
+          return handleClick(i);
+        },
+        children: ["Table ", i + 1]
       }, i);
     })
   });

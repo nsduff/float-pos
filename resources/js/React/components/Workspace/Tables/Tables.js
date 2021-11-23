@@ -5,19 +5,18 @@ export default function Tables({ setShowButton }) {
     };
 
     return (
-        <>
-            {new Array(4).fill(null).map((a, i) => {
+        <div className="wrapper_tables">
+            {new Array(9).fill(null).map((a, i) => {
                 return (
-                    <div className={"table_buttons"} key={i}>
                         <button
+                            key={i}
                             className={"table_button"}
                             onClick={() => handleClick(i)}
                         >
                             Table {i + 1}
                         </button>
-                    </div>
                 );
             })}
-        </>
+        </div>
     );
 }
