@@ -26,6 +26,6 @@ class Item extends Model
     }
     public function order()
     {
-        return $this->belongsToMany(Order::class);
+        return $this->belongsToMany(Order::class, "items_order");
     }
 }

@@ -16,7 +16,9 @@ export default function TableItems({
                         .reduce((a, i) => a + i, 0);
                     return (
                         <div key={index}>
-                            <h3>{order.table_name}</h3>
+                            <h3 className="order_name_headline">
+                                {order.table_name} order
+                            </h3>
 
                             {order.items.map((item, index) => {
                                 console.log(item);

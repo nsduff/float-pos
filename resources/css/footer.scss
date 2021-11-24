@@ -18,7 +18,8 @@
 }
 
 .button_footer_logout{
-    background-color: $button-background;
+    background-color: $signature;
+   
     border-radius: 0.5rem;
     font-size: 1.5rem;
     text-decoration: none;
@@ -27,7 +28,6 @@
          background-color: $hover_logout};
     a {
         text-decoration: none;
-        color: $logout_color;
-       
+        color:black;;
 }
     }

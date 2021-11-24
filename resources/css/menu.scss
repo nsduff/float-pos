@@ -5,24 +5,28 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 0.2rem 0.2rem;
 
+
 }
 
 .button_menu {
-
   background-color: $button-background;
   color: $text;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-
+   &:hover {
+     background:$purple-dark;
+  }
 }
+  
 
 .button_menu_item {
   font-size: 1.1rem;
   font-style: italic;
   padding-bottom: 30%;
   align-self: center;
+ 
 }
 
 .button_menu_price {
