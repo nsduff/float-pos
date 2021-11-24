@@ -2,8 +2,9 @@
 /* CSS */
 .wrapper_menu{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0.2rem 0.2rem;
+ 
 
 
 }
@@ -11,6 +12,7 @@
 .button_menu {
   background-color: $button-background;
   color: $text;
+  border:0;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;

@@ -1,37 +1,90 @@
 // import "./Topbar.css";
 
-const Topbar = ({ setTakeOrder, setNewOrder, setShowButton }) => {
+import { isNull } from "lodash";
+import { useEffect } from "react";
+
+const Topbar = ({
+    setTakeOrder,
+    newOrder,
+    setNewOrder,
+    setShowButton,
+    toggledItems,
+    setToggledItems,
+}) => {
     const homeButtonHandler = () => {
         setNewOrder([]);
         setTakeOrder(false);
         setShowButton(null);
-        //logic to send the user back to the home screen
+        //LL -- logic to send the user back to the home screen
         //&& send the order IF anything was inputed.
-        //still have to decide on whatever the home screen UI is.
+        //ND -- oesn't do that, just clears the order
+        //LL -- still have to decide on whatever the home screen UI is.
     };
     const tablesButtonHandler = () => {
         setTakeOrder(true);
     };
+
+    const saveComments = (comment) => {
+        console.log(toggledItems.length);
+        const toggledItemIds = toggledItems.map((toggleItem) => {
+            // console.log(toggleItem.id);
+            return toggleItem.id;
+        });
+        // console.log(toggledItemIds);
+        const newNewOrder = newOrder.map((newOrderItem) => {
+            if (toggledItemIds.includes(newOrderItem.id)) {
+                // console.log("boop")
+                if (isNull(newOrderItem.comments)) {
+                    newOrderItem.comments = [];
+                    console.log("no longer null");
+                }
+                //find item and remove it if it's there
+                const index = newOrderItem.comments.indexOf(comment);
+                if (index > -1) {
+                    newOrderItem.comments.splice(index, 1);
+                } else {
+                    newOrderItem.comments.push(comment);
+                    console.log("triggered");
+                }
+            }
+            return newOrderItem;
+        });
+        // console.log(newNewOrder);
+        setNewOrder(newNewOrder);
+        setToggledItems([]);
+        console.log(newOrder);
+    };
+
     const transferButtonHandler = () => {};
     const holdButtonHandler = () => {};
-    const deleteButtonHandler = () => {};
+    const deleteButtonHandler = () => {
+        if (newOrder.includes(toggledItems)) {
+            // remove toggled items from newOrder array
+            // ND: OR IT WOULD, BUT IT DOESN'T DO ANYTHING YET
+            setNewOrder(newOrder.filter((c) => c !== toggledItems));
+            setToggledItems([]);
+            console.log(toggledItems);
+        }
+    };
     const modifyButtonHandler = () => {
-        const enteredMod = prompt("mod up");
-        console.log(enteredMod);
+        const enteredMod = prompt("Custom Modification");
+        saveComments(enteredMod);
     };
     const quantityButtonHandler = () => {};
+
     const repeatButtonHandler = () => {};
+
     const seeServerButtonHandler = () => {
-        console.log("See Server");
+        saveComments("See Server");
     };
     const asAppButtonHandler = () => {
-        console.log("As App");
+        saveComments("As App");
     };
     const noMakeButtonHandler = () => {
-        console.log("No Make");
+        saveComments("No make");
     };
     const toGoButtonHandler = () => {
-        console.log("To Go");
+        saveComments("To Go");
     };
 
     return (
@@ -52,7 +105,7 @@ const Topbar = ({ setTakeOrder, setNewOrder, setShowButton }) => {
                 id="tb-tables"
                 onClick={tablesButtonHandler}
             >
-                Tables
+                New Order
             </button>
             <button
                 type="submit"
@@ -147,5 +200,4 @@ const Topbar = ({ setTakeOrder, setNewOrder, setShowButton }) => {
         </div>
     );
 };
-
 export default Topbar;

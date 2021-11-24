@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 
 
@@ -16,14 +17,23 @@ class OrderController extends Controller
     }
 
     public function store(Request $request){
+        // ensure that order has name and item(s)
+         $this->validate($request, [
+            'table_name' => 'required',
+            'items' => 'required|array|min:1'
+         ]);
 
-
+    
         $order = new Order;
         $order->table_name = $request->table_name;
-        $order->user_id = 1;
+        $order->user_id = Auth::id();
+        $order->paid = false;
         $order->save();
-        //conect orders and items_order
+        //connect orders and items_order
         $order->items()->attach($request->items);
+
+        //ND -- COMMENTS DON'T POST. FIX LATER
+        // $order->items()->attach($request->item_comments);
         return $order;
     }
 

@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+//dummy CSS
+import "./dummyToggle.css";
+
 import Footer from "../Footer/Footer";
 import Menu from "../Menu/Menu";
 import Sidebar from "../Sidebar/Sidebar";
@@ -10,14 +13,16 @@ import Workspace from "../Workspace/Workspace";
 
 export default function App() {
     const [categories, setCategories] = useState([]);
-    const [categoryId, setCategoryId] = useState(1);
+    const [categoryId, setCategoryId] = useState(7);
     const [items, setItems] = useState([]);
     const [orders, setOrders] = useState([]);
-
+    const [pay, setPay] = useState(false);
     const [newOrder, setNewOrder] = useState([]);
     const [showButton, setShowButton] = useState(null);
-
     const [takeOrder, setTakeOrder] = useState(false);
+
+    // messing with toggling items
+    const [toggledItems, setToggledItems] = useState([]);
 
     const fetchData = async () => {
         const data = await axios.get("/api/categories");
@@ -39,7 +44,12 @@ export default function App() {
         fetchData();
         fetchItems();
         fetchOrders();
-    }, [categoryId, newOrder]);
+        console.log(newOrder);
+    }, [categoryId, newOrder, pay]);
+
+    useEffect(() => {
+        console.log(toggledItems);
+    }, [toggledItems]);
 
     return (
         <div className="container_pos">
@@ -55,8 +65,11 @@ export default function App() {
             <div className="topbar">
                 <Topbar
                     setTakeOrder={setTakeOrder}
+                    newOrder={newOrder}
                     setNewOrder={setNewOrder}
                     setShowButton={setShowButton}
+                    toggledItems={toggledItems}
+                    setToggledItems={setToggledItems}
                 />
             </div>
 
@@ -89,11 +102,13 @@ export default function App() {
                     orders={orders}
                     showButton={showButton}
                     setShowButton={setShowButton}
+                    toggledItems={toggledItems}
+                    setToggledItems={setToggledItems}
                 />
             </div>
 
             <div className="footer">
-                <Footer />
+                <Footer pay={pay} setPay={setPay} />
             </div>
         </div>
     );

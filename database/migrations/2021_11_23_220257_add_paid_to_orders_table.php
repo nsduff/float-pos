@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrderItemsTable extends Migration
+class AddPaidToOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateOrderItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('items_order', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('order_id');
-            $table->foreignId('bill_id')->nullable();
-            $table->foreignId('item_id');
-            $table->timestamps();
+        Schema::table('orders', function (Blueprint $table) {
+            $table->boolean('paid')->default(false);
         });
     }
 
@@ -29,6 +25,8 @@ class CreateOrderItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_items');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropColumn('paid');
+        });
     }
 }

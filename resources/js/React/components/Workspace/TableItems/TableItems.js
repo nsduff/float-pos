@@ -1,17 +1,13 @@
-export default function TableItems({ orders, showButton }) {
-    console.log(orders);
-
-    const total = orders.map((order) =>
-        order.items.map((item) => item.price).reduce((a, i) => a + i, 0)
-    );
-    // item.map((i) => {
-    //     console.log(i);
-    // });;
+export default function TableItems({ orders, showButton, setShowButton }) {
+    let total = 0;
 
     return (
-        <>
+        <div>
             {orders.map((order, index) => {
                 if (order.id === showButton) {
+                    total = order.items
+                        .map((item) => item.price)
+                        .reduce((a, i) => a + i, 0);
                     return (
                         <div key={index}>
                             <h3 className="order_name_headline">{order.table_name} order</h3>
@@ -31,6 +27,7 @@ export default function TableItems({ orders, showButton }) {
                 }
             })}
             <div className="order_total">Total: {total} &#75;&#269;</div>
-        </>
+            <button className="button_cancel_order" onClick={() => setShowButton(null)}>Back</button>
+        </div>
     );
 }

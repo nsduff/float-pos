@@ -2,8 +2,8 @@
 .workspace {
   color: $text;
   background-color:$button-background;
-  border-top: 0.1rem solid rgba(255, 255, 255, 0.472);
-  border-left: 0.1rem solid rgba(255, 255, 255, 0.472);
+  //border-top: 0.1rem solid rgba(255, 255, 255, 0.472);
+  //border-left: 0.1rem solid rgba(255, 255, 255, 0.472);
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
@@ -15,7 +15,11 @@
   gap: 0.2rem 0.2rem;
   
 }
+.tables_headline {
+  color: $signature;
+  padding: 1rem;
 
+}
 .table_button {
   display: flex;
   border-radius: 0.2rem;
@@ -23,9 +27,10 @@
   padding: 1.5rem;
   background-color: $button-background;
   color: $text;
+  border: 0;
   //border-bottom: 0.01rem solid rgba(255, 255, 255, 0.472);
   padding: 1rem;
-  //margin: 0.1rem;
+  margin: 0.1rem;
   font-size: 1rem;
    &:hover {
      background-color: $tables_hover_background;
@@ -69,6 +74,15 @@
 .button_place_order{
   background-color: $signature;
   color: black;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.button_cancel_order{
+  background-color: $pink-hover;
+  color: $text;
   border-radius: 0.5rem;
   padding: 0.6rem;
   font-size: 1.2rem;
