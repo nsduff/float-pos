@@ -3,6 +3,10 @@
 /public/js
 /public/hot
 public/js/react.js.map
+public/css/app.css.map
+public/js/react.js
+public/js/react.js.map
+public/mix-manifest.json
 /public/storage
 /storage/*.key
 /vendor
