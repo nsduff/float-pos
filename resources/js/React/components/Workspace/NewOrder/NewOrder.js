@@ -16,6 +16,15 @@ export default function NewOrder({
         setNewOrderName(event.target.value);
     };
 
+    // const viewComments = (comments) => {
+    //     if (comments.length > 0) {
+    //         console.log(comments);
+    //         // comments.map((comment, index) => {
+    //         //     return <div key={index}>{comment}</div>;
+    //         // });
+    //     }
+    // };
+
     const clearOrder = () => {
         //reset states back to normal
         setNewOrder([]);
@@ -91,21 +100,33 @@ export default function NewOrder({
             {/* show names and prices of new order */}
             {newOrder.map((newOrderItem, index) => {
                 return (
-                    <div className="order_list" key={index}>
-                        <div
-                            className={
-                                "order_item_name" +
-                                (toggledItems.includes(newOrderItem)
-                                    ? " active_order_item"
-                                    : null)
-                            }
-                            onClick={() => highlightHandler(newOrderItem)}
-                        >
-                            <p className="p_padding">{newOrderItem.name}</p>
-                            <p className="p_padding">
-                                {newOrderItem.price} CZK
-                            </p>
+                    <div key={index}>
+                        <div className="order_list">
+                            <div
+                                className={
+                                    "order_item_name" +
+                                    (toggledItems.includes(newOrderItem)
+                                        ? " active_order_item"
+                                        : null)
+                                }
+                                onClick={() => highlightHandler(newOrderItem)}
+                            >
+                                <p className="p_padding">{newOrderItem.name}</p>
+                                <p className="p_padding">
+                                    {newOrderItem.price} CZK
+                                </p>
+                            </div>
                         </div>
+                        {newOrderItem.comments != null &&
+                        newOrderItem.comments.length > 0 ? (
+                            <ul>
+                                {newOrderItem.comments.map((comment, index) => {
+                                    return <li key={index}>{comment}</li>;
+                                })}
+                            </ul>
+                        ) : (
+                            <></>
+                        )}
                     </div>
                 );
             })}
