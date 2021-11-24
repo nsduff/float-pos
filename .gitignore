@@ -2,6 +2,7 @@
 /public/css
 /public/js
 /public/hot
+public/js/react.js.map
 /public/storage
 /storage/*.key
 /vendor

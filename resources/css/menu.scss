@@ -10,17 +10,13 @@
 .button_menu {
 
   background-color: $button-background;
-  color: $text; 
+  color: $text;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  
-}
 
-//.button_menu_active{
-//  background-color: ;
-//}
+}
 
 .button_menu_item {
   font-size: 1.1rem;

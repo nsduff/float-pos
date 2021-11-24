@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "./MenuItemForm.css";
-import "./NewMenuItem.css";
+
 
 const CategoryForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -38,23 +37,24 @@ const CategoryForm = (props) => {
     setEnteredTitle("");
   };
   return (
-    <div className="new-expense">
-      <form onSubmit={submitHandler}>
-        <div className="new-expense__controls">
-          <div className="new-expense__control">
-            <label>Title</label>
+
+      <form className='todo-form  ' onSubmit={submitHandler}>
+
             <input
               type="text"
               value={enteredTitle}
               onChange={titleChangeHandler}
+              placeholder='Your category'
+              className="todo-input "
+              id="floatingInput"
+              required
             />
-          </div>
-        </div>
-        <div className="new-expense__actions">
-          <button type="submit">Add Category</button>
-        </div>
+
+
+          <button  type="submit" className='todo-button'>Add Category</button>
+
       </form>
-    </div>
+
   );
 };
 

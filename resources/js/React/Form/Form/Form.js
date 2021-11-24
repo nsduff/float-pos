@@ -41,32 +41,38 @@ export default function Form() {
     console.log(activeCategory, categories);
 
     return (
-        <div className="App">
-            <div style={{ display: "flex", flexDirection: "row" }}>
-                <div style={{ width: "50%" }}>
-                    <CategoryForm onSaveCategory={addCategory} />
-                    {/* frontend: erase above */}
-                    {categories.map((category, i) => (
-                        <button
-                            className="expense-item__description"
-                            onClick={() => setActiveCategory(i)}
-                        >
-                            <h2>{category.title}</h2>
-                        </button>
-                    ))}
-                </div>
-                <div style={{ width: "50%" }}>
-                    {activeCategory !== null && (
-                        <>
-                            <NewMenuItem onAddMenuItem={addMenuItem} />
+
+        <div className="App ">
+                    <div className="d-flex justify-content-around  ">
+                        <div className="todo-app mt-5 ">
+                            <h1 className="h-one">Create new category</h1>
+                            <CategoryForm onSaveCategory={addCategory} />
                             {/* frontend: erase above */}
-                            <MenuItemLoop
-                                items={categories[activeCategory].items}
-                            />
-                        </>
-                    )}
+                            {categories.map((category, i) => (
+                                <button
+                                    className=" todo-row complete btn text-body shadow border-0"
+                                    onClick={() => setActiveCategory(i)}
+                                >
+                                    <h2>Category:{category.title}</h2>
+                                </button>
+                            ))}
+                        </div>
+                        <div className="todo-app mt-5">
+                            <h1 className="h-one">Create Items for the category</h1>
+                            {activeCategory !== null && (
+                                <div>
+                                    <NewMenuItem
+                                        onAddMenuItem={addMenuItem} />
+                                    {/* frontend: erase above */}
+                                    <MenuItemLoop
+                                        items={categories[activeCategory].items}
+                                    />
+                                </div>
+
+                            )}
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-        </div>
     );
 }
