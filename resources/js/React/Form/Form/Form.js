@@ -3,8 +3,6 @@ import MenuItemLoop from "./components/MenuItem/MenuItemLoop";
 import NewMenuItem from "./components/NewMenuItem/NewMenuItem";
 import CategoryForm from "./components/NewCategory/CategoryForm";
 
-// import "./App.css";
-
 export default function Form() {
     const [categories, setCategories] = useState([]);
     const [activeCategory, setActiveCategory] = useState(null);

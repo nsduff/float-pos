@@ -2408,7 +2408,7 @@ function Menu(_ref) {
     children: items.map(function (item, index) {
       if (categoryId === item.category_id) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
-          className: "button_menu",
+          className: "button_menu button_menu_color ",
           onClick: function onClick() {
             return addItemToOrder(item);
           },

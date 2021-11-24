@@ -19,7 +19,7 @@ export default function Menu({
                 if (categoryId === item.category_id) {
                     return (
                         <button
-                            className="button_menu"
+                            className="button_menu button_menu_color "
                             key={index}
                             onClick={() => addItemToOrder(item)}
                         >
