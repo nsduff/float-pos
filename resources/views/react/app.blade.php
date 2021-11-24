@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('content')
-    <div id="app"></div>
+    <div class="bla" id="app"></div>
 
     <script src="{{ mix('js/react.js') }}"></script>
 

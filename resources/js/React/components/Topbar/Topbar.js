@@ -1,9 +1,10 @@
 // import "./Topbar.css";
 
-const Topbar = ({ setTakeOrder, setNewOrder }) => {
+const Topbar = ({ setTakeOrder, setNewOrder, setShowButton }) => {
     const homeButtonHandler = () => {
         setNewOrder([]);
         setTakeOrder(false);
+        setShowButton(null);
         //logic to send the user back to the home screen
         //&& send the order IF anything was inputed.
         //still have to decide on whatever the home screen UI is.
@@ -47,7 +48,7 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
             <button
                 type="submit"
                 className="button_top"
-               // className="topbar__right"
+                // className="topbar__right"
                 id="tb-tables"
                 onClick={tablesButtonHandler}
             >
@@ -63,7 +64,7 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
                 Transfer
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
                 //className="topbar__left"
                 id="tb-hold"
@@ -72,7 +73,7 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
                 Hold
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
                 //className="topbar__left"
                 id="tb-delete"
@@ -81,7 +82,7 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
                 Delete
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
                 //className="topbar__left"
                 id="tb-modify"
@@ -90,25 +91,25 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
                 Modify
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
-               // className="topbar__left"
+                // className="topbar__left"
                 id="tb-quantity"
                 onClick={quantityButtonHandler}
             >
                 Quantity
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
-               // className="topbar__left"
+                // className="topbar__left"
                 id="tb-repeat"
                 onClick={repeatButtonHandler}
             >
                 Repeat
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
                 //className="topbar__left"
                 id="tb-seeServer"
@@ -117,16 +118,16 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
                 See Server
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
-               // className="topbar__left"
+                // className="topbar__left"
                 id="tb-asApp"
                 onClick={asAppButtonHandler}
             >
                 As App
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
                 //className="topbar__left"
                 id="tb-noMake"
@@ -135,9 +136,9 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
                 No Make
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
-               // className="topbar__left"
+                // className="topbar__left"
                 id="tb-toGo"
                 onClick={toGoButtonHandler}
             >

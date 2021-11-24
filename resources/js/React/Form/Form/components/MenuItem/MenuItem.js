@@ -1,15 +1,13 @@
 import React from "react";
-import Card from "./Card";
-import "./MenuItem.css";
+// import Card from "./Card";
 
 function MenuItem(props) {
   return (
-    <Card className="expense-item">
-      <button className="expense-item__description">
+      <button className="todo-row btn-width d-flex shadow border-0">
         <h2>{props.title}</h2>
-        <div className="expense-item__price">${props.amount}</div>
+        <div>{props.amount}CZK</div>
       </button>
-    </Card>
+
   );
 }
 

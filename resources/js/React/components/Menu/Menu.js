@@ -9,6 +9,7 @@ export default function Menu({
     const addItemToOrder = (newItem) => {
         if (takeOrder === true) {
             setNewOrder([...newOrder, newItem]);
+            console.log(newOrder);
         }
     };
 
@@ -17,12 +18,15 @@ export default function Menu({
             {items.map((item, index) => {
                 if (categoryId === item.category_id) {
                     return (
-                        <button className="button_menu"
+                        <button
+                            className="button_menu"
                             key={index}
                             onClick={() => addItemToOrder(item)}
                         >
                             <div className="button_menu_item">{item.name}</div>
-                            <div className="button_menu_price">{item.price} CZK</div>
+                            <div className="button_menu_price">
+                                {item.price} CZK
+                            </div>
                         </button>
                     );
                 }
