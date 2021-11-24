@@ -41,12 +41,15 @@ export default function NewOrder({
 
         try {
             const itemsIds = newOrder.map((value) => value.id);
-            // const itemsComments = newOrder.map((value) => value.comments);
+            const itemsComments = newOrder.map((value) => ({
+                item_id: value.id,
+                comments: value.comments,
+            }));
             const data = await axios.post("/api/orders", {
                 items: itemsIds,
                 table_name: newOrderName,
                 // ND: CAN'T POST COMMENTS YET, SO DON'T TRY
-                // item_comments: itemsComments,
+                item_comments: itemsComments,
             });
 
             // stops here and wait for response from ajax request
@@ -62,7 +65,7 @@ export default function NewOrder({
             // console.log(error.response);
 
             //show errors on screen
-            setErrors(error.response.data);
+            // setErrors(error.response.data);
             console.log(errors);
         }
     };

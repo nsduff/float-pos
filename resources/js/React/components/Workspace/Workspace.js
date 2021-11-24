@@ -48,6 +48,9 @@ export default function Workspace({
                 orders={orders}
                 showButton={showButton}
                 setShowButton={setShowButton}
+                toggledItems={toggledItems}
+                setToggledItems={setToggledItems}
+                highlightHandler={highlightHandler}
             />
         );
     if (takeOrder === true) {

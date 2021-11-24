@@ -37,14 +37,14 @@ export default function App() {
     const fetchOrders = async () => {
         const orderData = await axios.get("/api/orders");
         setOrders(orderData.data);
-        // console.log(orders);
+        console.log(orders);
     };
 
     useEffect(() => {
         fetchData();
         fetchItems();
         fetchOrders();
-        console.log(newOrder);
+        // console.log(newOrder);
     }, [categoryId, newOrder, pay]);
 
     useEffect(() => {

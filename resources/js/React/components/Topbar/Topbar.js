@@ -60,19 +60,33 @@ const Topbar = ({
     const deleteButtonHandler = () => {
         if (newOrder.includes(toggledItems)) {
             // remove toggled items from newOrder array
-            // ND: OR IT WOULD, BUT IT DOESN'T DO ANYTHING YET
-            setNewOrder(newOrder.filter((c) => c !== toggledItems));
-            setToggledItems([]);
-            console.log(toggledItems);
+            newOrder.map((newOrderItems) => {
+                const index = newOrder.indexOf(toggledItems);
+                if (index > -1) {
+                    newOrderItems.splice(index, 1);
+                }
+            });
         }
+        setToggledItems([]);
+        console.log(toggledItems);
     };
+
     const modifyButtonHandler = () => {
         const enteredMod = prompt("Custom Modification");
         saveComments(enteredMod);
     };
-    const quantityButtonHandler = () => {};
+    const quantityButtonHandler = () => {
+        const quantity = prompt("Set Quantity");
+        const newNewOrder = new Array(quantity - 1).fill(toggledItems);
+        setNewOrder(...newOrder, newNewOrder);
+        // ND: breaks the page, don't use yet
+    };
 
-    const repeatButtonHandler = () => {};
+    const repeatButtonHandler = () => {
+        // const newItems = toggledItems.map((item);
+        // setNewOrder([...newOrder, newItems]);
+        // setToggledItems([]);
+    };
 
     const seeServerButtonHandler = () => {
         saveComments("See Server");

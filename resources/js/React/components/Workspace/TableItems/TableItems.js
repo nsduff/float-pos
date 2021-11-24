@@ -1,4 +1,10 @@
-export default function TableItems({ orders, showButton, setShowButton }) {
+export default function TableItems({
+    orders,
+    showButton,
+    setShowButton,
+    toggledItems,
+    highlightHandler,
+}) {
     let total = 0;
 
     return (
@@ -13,12 +19,45 @@ export default function TableItems({ orders, showButton, setShowButton }) {
                             <h3>{order.table_name}</h3>
 
                             {order.items.map((item, index) => {
+                                console.log(item);
                                 return (
                                     <div key={index}>
-                                        <div>
-                                            {item.name} --{item.price}
-                                            &#75;&#269;
+                                        <div className="order_list">
+                                            <div
+                                                className={
+                                                    "order_item_name" +
+                                                    (toggledItems.includes(item)
+                                                        ? " active_order_item"
+                                                        : null)
+                                                }
+                                                onClick={() =>
+                                                    highlightHandler(item)
+                                                }
+                                            >
+                                                <p className="p_padding">
+                                                    {item.name}
+                                                </p>
+                                                <p className="p_padding">
+                                                    {item.price} CZK
+                                                </p>
+                                            </div>
                                         </div>
+                                        {item.comments != null &&
+                                        item.comments.length > 0 ? (
+                                            <ul>
+                                                {item.comments.map(
+                                                    (comment, index) => {
+                                                        return (
+                                                            <li key={index}>
+                                                                {comment}
+                                                            </li>
+                                                        );
+                                                    }
+                                                )}
+                                            </ul>
+                                        ) : (
+                                            <></>
+                                        )}
                                     </div>
                                 );
                             })}
