@@ -53,14 +53,14 @@
  flex: 1;
   border: 0;
   padding-right: 0.5rem;
-  
-  
  
 }
 
 .order_name_headline{
   color: $signature;
 }
+
+
 
 .order_item_name{
   display: flex;
@@ -94,6 +94,34 @@
    border-bottom: 0.02rem solid rgba(255, 255, 255, 0.472);
 }
 
+.wrapper_order_list {
+ width: 100%;
+ height: 500px;
+ overflow: hidden;
+ overflow-y: scroll;
+ /* width */
+
+}
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
 .order_total{
   font-size: 1.2rem;
 }
@@ -113,6 +141,7 @@
   color: $text;
   border-radius: 0.5rem;
   padding: 0.6rem;
+  margin-top: 1rem;
   font-size: 1.2rem;
   font-weight: 400;
   border: 0;

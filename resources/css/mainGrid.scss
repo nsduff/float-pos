@@ -6,14 +6,13 @@
 }
 body {
     min-height: 100vh;
-    overflow:hidden;
 }
 .container_pos {
   min-height: 100vh;
   min-width: 100% ;
   background-color: $background;
   display: grid; 
-  grid-template-columns: 10% 50% 39%; 
+  grid-template-columns: 10% 50% 39% (); 
   grid-template-rows: 8% 12% 68% 9%; 
   gap: 0.5rem 0.5rem; 
   grid-template-areas: 
@@ -50,6 +49,7 @@ body {
 .workspace {
    // border: 1px solid white;
     grid-area: workspace;
+    overflow: hidden;
 
 }
 
