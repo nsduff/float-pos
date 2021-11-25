@@ -24,5 +24,5 @@ yarn-error.log
 /.idea
 /.vscode
 package-lock.json
-.DS_Store.
+.DS_Store
 phploy.ini
