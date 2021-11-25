@@ -4,10 +4,11 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.2rem 0.2rem;
- 
+
 
 
 }
+
 .button_menu {
 
   color: $text;
@@ -61,14 +62,37 @@
         background:#ffffff0c;
     }
 }
-  
+
+
+.button_menu_color:nth-child(4n + 2) {
+    background: linear-gradient(
+            90deg,
+            rgb(155, 0, 250) 100%,
+            rgba(93, 12, 255, 1) 0%
+    );
+    &:hover {
+        background:linear-gradient(to right, rgba(118, 75, 162, 0.5), rgba(102, 126, 234, 0.5) );;
+    }
+}
+
+.button_menu_color:nth-child(4n + 3) {
+    background: linear-gradient(
+            to right,
+            rgba(155, 0, 250, 1) 100%,
+            rgba(93, 12, 255, 1) 0%
+    );
+    &:hover {
+        background:linear-gradient(to right, rgba(118, 75, 162, 0.5), rgba(102, 126, 234, 0.5) );;
+    }
+}
+
 
 .button_menu_item {
   font-size: 1.1rem;
   font-style: italic;
   padding-bottom: 30%;
   align-self: center;
- 
+
 }
 
 .button_menu_price {

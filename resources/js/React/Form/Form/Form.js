@@ -5,8 +5,6 @@ import CategoryForm from "./components/NewCategory/CategoryForm";
 // import "./FormDummy.css";
 import axios from "axios";
 
-// import "./App.css";
-
 export default function Form() {
     //Set Items that already exsist in DB
     const [items, setItems] = useState([]);

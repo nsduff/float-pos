@@ -4,9 +4,11 @@
 /public/app.css.map
 /public/js
 /public/hot
-/public/mix-manifest.json
-/public/js/react.js
-/public/js/react.js.map
+public/js/react.js.map
+public/css/app.css.map
+public/js/react.js
+public/js/react.js.map
+public/mix-manifest.json
 /public/storage
 /storage/*.key
 /vendor
@@ -22,5 +24,5 @@ yarn-error.log
 /.idea
 /.vscode
 package-lock.json
-.DS_Store.
+.DS_Store
 phploy.ini
