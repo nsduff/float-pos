@@ -27,12 +27,13 @@ export default function TableItems({
                                         <div className="order_list">
                                             <div
                                                 className={
-                                                    "order_item_name" +
-                                                    (toggledItems.includes(
-                                                        order.indexOf(item)
-                                                    )
-                                                        ? " active_order_item"
-                                                        : null)
+                                                    "order_item_name"
+                                                    // +
+                                                    // (toggledItems.includes(
+                                                    //     order.indexOf(item)
+                                                    // )
+                                                    //     ? " active_order_item"
+                                                    //     : null)
                                                 }
                                                 onClick={() =>
                                                     highlightHandler(
@@ -40,8 +41,6 @@ export default function TableItems({
                                                     )
                                                 }
                                             >
-
-                                              
                                                 <p className="p_padding">
                                                     {item.name}
                                                 </p>
@@ -74,7 +73,12 @@ export default function TableItems({
                 }
             })}
             <div>Total: {total} &#75;&#269;</div>
-            <button className="table_button" onClick={() => setShowButton(null)}>Back</button>
+            <button
+                className="table_button"
+                onClick={() => setShowButton(null)}
+            >
+                Back
+            </button>
         </div>
     );
 }

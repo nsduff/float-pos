@@ -1,8 +1,12 @@
 /node_modules
 /public/css
+/public/app.css
+/public/app.css.map
 /public/js
 /public/hot
-public/js/react.js.map
+/public/mix-manifest.json
+/public/js/react.js
+/public/js/react.js.map
 /public/storage
 /storage/*.key
 /vendor
@@ -12,11 +16,11 @@ public/js/react.js.map
 docker-compose.override.yml
 Homestead.json
 Homestead.yaml
-mix-manifest.json
+
 npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
 package-lock.json
 .DS_Store.
-
+phploy.ini
