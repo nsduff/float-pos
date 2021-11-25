@@ -32,8 +32,23 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root' => storage_path('app'),            
         ],
+        'production' => [
+
+    'driver' => 'ftp',
+
+    'host' => env('FTP_HOST'),
+
+    'username' => env('FTP_USER'),
+
+    'password' => env('FTP_PASS'),
+
+    'port' => env('FTP_PORT'),
+
+    'root' => env('FTP_ROOT')
+
+],
 
         'public' => [
             'driver' => 'local',
