@@ -1,7 +1,7 @@
 // GENERAL THEME COLORS
 $background: #161a2b;
-$text: rgb(240, 240, 240);
-$signature: #84fab0;
+$text:rgb(240, 240, 240);
+$signature: #84FAB0;
 $button-background: #ffffff0c;
 
 // MENU THEME COLORS
@@ -31,7 +31,11 @@ $green-blue-background: linear-gradient(
 //$logout_color:  #e90ade3b;
 $hover: #84fab0;
 $hover_color: black;
-$hover_logout: #e90adeb4;
+$hover_logout: linear-gradient(
+            90deg,
+            rgba(93, 12, 255, 1) 0%,
+            rgba(155, 0, 250, 1) 100%
+    );
 
 //WORKSPACE THEME COLORS
 

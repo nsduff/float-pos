@@ -2,8 +2,8 @@
 .workspace {
   color: $text;
   background-color:$button-background;
-  border-top: 0.1rem solid rgba(255, 255, 255, 0.472);
-  border-left: 0.1rem solid rgba(255, 255, 255, 0.472);
+  //border-top: 0.1rem solid rgba(255, 255, 255, 0.472);
+  //border-left: 0.1rem solid rgba(255, 255, 255, 0.472);
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
@@ -15,7 +15,11 @@
   gap: 0.2rem 0.2rem;
   
 }
+.tables_headline {
+  color: $signature;
+  padding: 1rem;
 
+}
 .table_button {
   display: flex;
   border-radius: 0.2rem;
@@ -23,12 +27,13 @@
   padding: 1.5rem;
   background-color: $button-background;
   color: $text;
+  border: 0;
   //border-bottom: 0.01rem solid rgba(255, 255, 255, 0.472);
   padding: 1rem;
-  //margin: 0.1rem;
+  margin: 0.1rem;
   font-size: 1rem;
    &:hover {
-     background-color: $tables_hover_background;
+     background-color: #802BB1;
     }
 
 }
@@ -37,30 +42,85 @@
 //order CSS
 
 .order_header {
+  padding-bottom: 1rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding-bottom: 1rem;
+
+  
+}
+
+.order_buttons {
+ flex: 1;
+  border: 0;
+  padding-right: 0.5rem;
+ 
 }
 
 .order_name_headline{
   color: $signature;
 }
 
+
+
 .order_item_name{
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: baseline;
-  border-bottom: 0.02rem solid rgba(255, 255, 255, 0.472);
+  width: 100%;
+  //align-items: baseline;
+ 
+}
+
+.active_order_item {
+    background-color:#802BB1;
+}
+
+.order_item_namenull {
+   display: flex;
+  justify-content: space-between;
+  width: 100%;
+
 }
 
 .p_padding {
   margin-bottom: 0;
+    margin-right: 1em;
   }
 
 
-//.order_list{}
+.order_list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+   border-bottom: 0.02rem solid rgba(255, 255, 255, 0.472);
+}
+
+.wrapper_order_list {
+ width: 100%;
+ height: 500px;
+ overflow: hidden;
+ overflow-y: scroll;
+ /* width */
+
+}
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
 
 .order_total{
   font-size: 1.2rem;
@@ -73,4 +133,16 @@
   padding: 0.6rem;
   font-size: 1.2rem;
   font-weight: 400;
+  border: 0;
+}
+
+.button_cancel_order{
+  background-color: #802BB1;
+  color: $text;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  border: 0;
 }

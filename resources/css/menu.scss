@@ -6,6 +6,7 @@
   gap: 0.2rem 0.2rem;
 
 
+
 }
 
 .button_menu {
@@ -26,7 +27,7 @@
             rgba(155, 0, 250, 1) 100%
     );
     &:hover {
-        background:rgba(102, 126, 234, 0.5);
+        background: #ffffff0c;
     }
 }
 .button_menu_color:nth-child(4n + 1) {
@@ -36,9 +37,32 @@
             rgba(155, 0, 250, 1) 100%
     );
     &:hover {
-        background:linear-gradient(to right, rgba(118, 75, 162, 0.5), rgba(102, 126, 234, 0.5) );;
+        background: #ffffff0c;
     }
 }
+
+.button_menu_color:nth-child(4n + 2) {
+    background: linear-gradient(
+            90deg,
+            rgb(155, 0, 250) 100%,
+            rgba(93, 12, 255, 1) 0%
+    );
+    &:hover {
+        background: #ffffff0c;
+    }
+}
+
+.button_menu_color:nth-child(4n + 3) {
+    background: linear-gradient(
+            to right,
+            rgba(155, 0, 250, 1) 100%,
+            rgba(93, 12, 255, 1) 0%
+    );
+    &:hover {
+        background:#ffffff0c;
+    }
+}
+
 
 .button_menu_color:nth-child(4n + 2) {
     background: linear-gradient(

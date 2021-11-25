@@ -14,8 +14,6 @@ class OrderController extends Controller
     {
         $orders = Order::with('items')->orderBy('created_at')->get();
 
-// $orders->load(['ite'])
-
         return $orders;
     }
 
@@ -29,13 +27,13 @@ class OrderController extends Controller
         $item_comments = $request->item_comments;
 
         $items = [];
-        foreach($request->items as $item_id) 
+        foreach($request->items as $item_id)
         {
             $items[$item_id] = [
                 "item_comments" => null
             ];
         }
-        foreach($item_comments as $comment) 
+        foreach($item_comments as $comment)
         {
             if ($comment["comments"]){
                 $items[$comment["item_id"]]
@@ -47,9 +45,11 @@ class OrderController extends Controller
         // dd($items);
         $order = new Order;
         $order->table_name = $request->table_name;
-        $order->user_id = Auth::id();
+        $order->user_id = 1;
+
         $order->paid = false;
         $order->save();
+
         //connect orders and items_order
         $order->items()->attach($items);
 

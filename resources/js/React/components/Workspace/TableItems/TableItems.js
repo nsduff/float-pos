@@ -17,7 +17,7 @@ export default function TableItems({
                     return (
                         <div key={index}>
                             <h3 className="order_name_headline">
-                                {order.table_name} order
+                                {order.table_name}
                             </h3>
 
                             {order.items.map((item, index) => {
@@ -27,13 +27,18 @@ export default function TableItems({
                                         <div className="order_list">
                                             <div
                                                 className={
-                                                    "order_item_name" +
-                                                    (toggledItems.includes(item)
-                                                        ? " active_order_item"
-                                                        : null)
+                                                    "order_item_name"
+                                                    // +
+                                                    // (toggledItems.includes(
+                                                    //     order.indexOf(item)
+                                                    // )
+                                                    //     ? " active_order_item"
+                                                    //     : null)
                                                 }
                                                 onClick={() =>
-                                                    highlightHandler(item)
+                                                    highlightHandler(
+                                                        order.indexOf(item)
+                                                    )
                                                 }
                                             >
                                                 <p className="p_padding">
@@ -68,7 +73,12 @@ export default function TableItems({
                 }
             })}
             <div>Total: {total} &#75;&#269;</div>
-            <button onClick={() => setShowButton(null)}>Back</button>
+            <button
+                className="table_button"
+                onClick={() => setShowButton(null)}
+            >
+                Back
+            </button>
         </div>
     );
 }
