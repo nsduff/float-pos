@@ -118,6 +118,8 @@ export default function NewOrder({
             })} */}
 
             {/* show names and prices of new order */}
+           
+           <div className="wrapper_order_list">
             {newOrder.map((newOrderItem, index) => {
                 return (
                     <div key={index}>
@@ -175,7 +177,7 @@ export default function NewOrder({
                             Cancel
                     </button>
 
-           
+           </div>
         </div>
     );
 }

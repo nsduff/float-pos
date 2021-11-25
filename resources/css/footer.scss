@@ -5,6 +5,7 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-rows: auto;
     gap: 0.3rem;
+    position: static;
 }
 
 .button_footer {

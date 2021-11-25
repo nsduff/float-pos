@@ -2865,43 +2865,46 @@ function NewOrder(_ref) {
           children: "Place Order"
         })
       })]
-    }), newOrder.map(function (newOrderItem, index) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "order_list ",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "order_item_name" + (toggledItems.includes(newOrderItem) ? " active_order_item" : null),
-            onClick: function onClick() {
-              return highlightHandler(newOrderItem);
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "order_item_name",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-                className: "p_padding",
-                children: newOrderItem.name
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
-                className: "p_padding ",
-                children: [newOrderItem.price, " CZK"]
-              })]
-            })
-          })
-        }), newOrderItem.comments != null && newOrderItem.comments.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
-          children: newOrderItem.comments.map(function (comment, index) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-              children: comment
-            }, index);
-          })
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {})]
-      }, index);
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "order_total",
-      children: ["Total: ", total, " CZK"]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-      className: "button_cancel_order",
-      onClick: function onClick() {
-        return clearOrder();
-      },
-      children: "Cancel"
+      className: "wrapper_order_list",
+      children: [newOrder.map(function (newOrderItem, index) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "order_list ",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "order_item_name" + (toggledItems.includes(newOrderItem) ? " active_order_item" : null),
+              onClick: function onClick() {
+                return highlightHandler(newOrderItem);
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                className: "order_item_name",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                  className: "p_padding",
+                  children: newOrderItem.name
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+                  className: "p_padding ",
+                  children: [newOrderItem.price, " CZK"]
+                })]
+              })
+            })
+          }), newOrderItem.comments != null && newOrderItem.comments.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
+            children: newOrderItem.comments.map(function (comment, index) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+                children: comment
+              }, index);
+            })
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {})]
+        }, index);
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "order_total",
+        children: ["Total: ", total, " CZK"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        className: "button_cancel_order",
+        onClick: function onClick() {
+          return clearOrder();
+        },
+        children: "Cancel"
+      })]
     })]
   });
 }
