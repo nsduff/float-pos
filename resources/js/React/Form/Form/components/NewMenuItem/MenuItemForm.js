@@ -66,37 +66,42 @@ const MenuItemForm = (props) => {
     console.log(props.activeCategory);
 
     return (
-        <>
+        // MAKE THEM WORK OR GET RID OF THEM
+        //     <button onClick={() => editItemHandler()}>Edit</button>
+        //     <button onClick={() => deleteItemHandler()}>Delete</button>
+        <form
+            className="todo-form d-flex flex-row ms-4 "
+            action=""
+            method="post"
+            onSubmit={submitHandler}
+        >
             <div>
-                <button onClick={() => editItemHandler()}>Edit</button>
-                <button onClick={() => deleteItemHandler()}>Delete</button>
+                <div>
+                    <input
+                        className="todo-input"
+                        type="text"
+                        value={enteredName}
+                        onChange={nameChangeHandler}
+                        placeholder="Your Item"
+                    />
+                </div>
+
+                <div>
+                    <input
+                        className="todo-input"
+                        type="text"
+                        min="0.01"
+                        step="0.01"
+                        value={enteredAmount}
+                        onChange={amountChangeHandler}
+                        placeholder="Price"
+                    />
+                </div>
             </div>
-            <form action="" method="post" onSubmit={submitHandler}>
-                <div className="new-expense__controls">
-                    <div className="new-expense__control">
-                        <label>Title</label>
-                        <input
-                            type="text"
-                            value={enteredName}
-                            onChange={nameChangeHandler}
-                        />
-                    </div>
-                    <div className="new-expense__control">
-                        <label>Amount</label>
-                        <input
-                            type="text"
-                            min="0.01"
-                            step="0.01"
-                            value={enteredAmount}
-                            onChange={amountChangeHandler}
-                        />
-                    </div>
-                </div>
-                <div className="new-expense__actions">
-                    <button type="submit">Add Menu Item</button>
-                </div>
-            </form>
-        </>
+            <button className="todo-button" type="submit">
+                Add Menu Item
+            </button>
+        </form>
     );
 };
 

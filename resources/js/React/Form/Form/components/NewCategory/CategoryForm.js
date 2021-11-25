@@ -55,25 +55,28 @@ const CategoryForm = (props) => {
         setEnteredName("");
     };
     return (
-        <div className="new-expense">
-            <button onClick={() => editCatHandler()}>Edit</button>
-            <button onClick={() => deleteCatHandler()}>Delete</button>
-            <form action="" method="post" onSubmit={submitHandler}>
-                <div className="new-expense__controls">
-                    <div className="new-expense__control">
-                        <label>Title</label>
-                        <input
-                            type="text"
-                            value={enteredName}
-                            onChange={nameChangeHandler}
-                        />
-                    </div>
-                </div>
-                <div className="new-expense__actions">
-                    <button type="submit">Add Category</button>
-                </div>
-            </form>
-        </div>
+        /* MAKE THESE WORK OR GET RID OF THEM */
+        /* <button onClick={() => editCatHandler()}>Edit</button>
+            <button onClick={() => deleteCatHandler()}>Delete</button> */
+        <form
+            className="todo-form"
+            action=""
+            method="post"
+            onSubmit={submitHandler}
+        >
+            <input
+                className="todo-input"
+                type="text"
+                value={enteredName}
+                onChange={nameChangeHandler}
+                placeholder="Your category"
+                required
+            />
+
+            <button className="todo-button" type="submit">
+                Add Category
+            </button>
+        </form>
     );
 };
 

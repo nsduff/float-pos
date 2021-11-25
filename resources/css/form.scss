@@ -1,11 +1,10 @@
 .container_form {
     background: linear-gradient(
-            90deg,
-            rgba(48, 16, 255, 1) 0%,
-            rgba(100, 115, 255, 1) 100%
+        90deg,
+        rgba(48, 16, 255, 1) 0%,
+        rgba(100, 115, 255, 1) 100%
     );
 }
-
 
 .todo-app {
     display: flex;
@@ -50,14 +49,13 @@
     cursor: pointer;
     outline: none;
     background: linear-gradient(
-            90deg,
-            rgba(93, 12, 255, 1) 0%,
-            rgba(155, 0, 250, 1) 100%
+        90deg,
+        rgba(93, 12, 255, 1) 0%,
+        rgba(155, 0, 250, 1) 100%
     );
     color: #fff;
     text-transform: capitalize;
 }
-
 
 .todo-container {
     display: flex;
@@ -72,9 +70,9 @@
     margin: 4px auto;
     color: #fff;
     background: linear-gradient(
-            90deg,
-            rgba(255, 118, 20, 1) 0%,
-            rgba(255, 84, 17, 1) 100%
+        90deg,
+        rgba(255, 118, 20, 1) 0%,
+        rgba(255, 84, 17, 1) 100%
     );
 
     padding: 16px;
@@ -84,31 +82,27 @@
 
 .todo-row:nth-child(4n + 1) {
     background: linear-gradient(
-            90deg,
-            rgba(93, 12, 255, 1) 0%,
-            rgba(155, 0, 250, 1) 100%
+        90deg,
+        rgba(93, 12, 255, 1) 0%,
+        rgba(155, 0, 250, 1) 100%
     );
 }
 
 .todo-row:nth-child(4n + 2) {
     background: linear-gradient(
-            90deg,
-            rgba(255, 12, 241, 1) 0%,
-            rgba(250, 0, 135, 1) 100%
+        90deg,
+        rgba(255, 12, 241, 1) 0%,
+        rgba(250, 0, 135, 1) 100%
     );
 }
 
 .todo-row:nth-child(4n + 3) {
     background: linear-gradient(
-            90deg,
-            rgba(20, 159, 255, 1) 0%,
-            rgba(17, 122, 255, 1) 100%
+        90deg,
+        rgba(20, 159, 255, 1) 0%,
+        rgba(17, 122, 255, 1) 100%
     );
 }
-
-
-
-
 
 #item_input_name {
     margin-bottom: -2px;
@@ -118,4 +112,9 @@
 #item_input_price {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+
+.active {
+    background-color: silver;
+    color: black;
 }

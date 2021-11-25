@@ -73,8 +73,9 @@ export default function Form() {
 
     return (
         <div className="App">
-            <div style={{ display: "flex", flexDirection: "row" }}>
-                <div style={{ width: "50%" }}>
+            <div className="d-flex justify-content-around">
+                <div className="todo-app mt-5">
+                    <h1 className="h-one">Create New Category</h1>
                     <CategoryForm
                         onSaveCategory={addCategory}
                         // setCategories={setCategories}
@@ -85,10 +86,13 @@ export default function Form() {
                     {categories.map((category, i) => (
                         <button
                             className={
-                                "expense-item__description" +
+                                " todo-row complete btn text-body shadow border-0" +
                                 (activeCategory === category.id
                                     ? " active"
                                     : " inactive")
+
+                                // DESIGN TEAM: CAN YOU STYLE
+                                // _ACTIVE & _INACTIVE CLASSES?
                             }
                             key={i}
                             onClick={() => setActiveCategory(category.id)}
@@ -97,7 +101,10 @@ export default function Form() {
                         </button>
                     ))}
                 </div>
-                <div style={{ width: "50%" }}>
+                <div className="todo-app mt-5">
+                    <h1 className="h-one">
+                        Create New Items for this Category
+                    </h1>
                     {activeCategory !== null && (
                         <>
                             <NewMenuItem

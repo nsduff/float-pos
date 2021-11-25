@@ -4,12 +4,10 @@ import React, { useState } from "react";
 
 function MenuItem(props) {
     return (
-        <div className="expense-item">
-            <button className="expense-item__description">
-                <h2>{props.name}</h2>
-                <div className="expense-item__price">${props.amount}</div>
-            </button>
-        </div>
+        <button className="todo-row btn-width d-flex shadow border-0">
+            <h2>{props.name}</h2>
+            <div>{props.amount} CZK</div>
+        </button>
     );
 }
 
