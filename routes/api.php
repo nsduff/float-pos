@@ -30,6 +30,7 @@ Route::post('/items', 'App\Http\Controllers\Api\CategoryController@storeItems');
 
 Route::get('/orders', 'App\Http\Controllers\Api\OrderController@orders');
 Route::post('/orders', 'App\Http\Controllers\Api\OrderController@store');
+
 Route::post('orders', 'App\Http\Controllers\Api\OrderController@payment');
 // Route::get('/user', function(){
 //     return [

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import MenuItemLoop from "./components/MenuItem/MenuItemLoop";
 import NewMenuItem from "./components/NewMenuItem/NewMenuItem";
 import CategoryForm from "./components/NewCategory/CategoryForm";
-import "./FormDummy.css";
+// import "./FormDummy.css";
 import axios from "axios";
 
 // import "./App.css";
