@@ -1,6 +1,5 @@
 import React from "react";
 import MenuItemForm from "./MenuItemForm";
-import "./NewMenuItem.css";
 
 const NewMenuItem = (props) => {
   const saveMenuItemDataHandler = (enteredMenuItemData) => {

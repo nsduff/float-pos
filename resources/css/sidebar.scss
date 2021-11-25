@@ -16,7 +16,8 @@
 }
 
 .button_sidebar_active {
-    background-color: $active_menu_button;
+    background:$signature;
+    color: $active_text;
+    border-radius: 0.5rem;
 }
-
 

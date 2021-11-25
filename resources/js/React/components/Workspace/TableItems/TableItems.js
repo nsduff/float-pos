@@ -1,19 +1,84 @@
-export default function TableItems({ showButton, setShowButton }) {
+export default function TableItems({
+    orders,
+    showButton,
+    setShowButton,
+    toggledItems,
+    highlightHandler,
+}) {
+    let total = 0;
+
     return (
-        <div className={"table__order"}>
-            <h3>Table # {showButton + 1}</h3>
+        <div>
+            {orders.map((order, index) => {
+                if (order.id === showButton) {
+                    total = order.items
+                        .map((item) => item.price)
+                        .reduce((a, i) => a + i, 0);
+                    return (
+                        <div key={index}>
+                            <h3 className="order_name_headline">
+                                {order.table_name}
+                            </h3>
 
-            {new Array(4).fill(null).map((n, m) => {
-                return (
-                    <div className={"table__order__list"} key={m}>
-                        <div className={"table__order__item"}>
-                            <button>Item # {m + 1}</button>
+                            {order.items.map((item, index) => {
+                                console.log(item);
+                                return (
+                                    <div key={index}>
+                                        <div className="order_list">
+                                            <div
+                                                className={
+                                                    "order_item_name"
+                                                    // +
+                                                    // (toggledItems.includes(
+                                                    //     order.indexOf(item)
+                                                    // )
+                                                    //     ? " active_order_item"
+                                                    //     : null)
+                                                }
+                                                onClick={() =>
+                                                    highlightHandler(
+                                                        order.indexOf(item)
+                                                    )
+                                                }
+                                            >
+                                                <p className="p_padding">
+                                                    {item.name}
+                                                </p>
+                                                <p className="p_padding">
+                                                    {item.price} CZK
+                                                </p>
+                                            </div>
+                                        </div>
+                                        {item.comments != null &&
+                                        item.comments.length > 0 ? (
+                                            <ul>
+                                                {item.comments.map(
+                                                    (comment, index) => {
+                                                        return (
+                                                            <li key={index}>
+                                                                {comment}
+                                                            </li>
+                                                        );
+                                                    }
+                                                )}
+                                            </ul>
+                                        ) : (
+                                            <></>
+                                        )}
+                                    </div>
+                                );
+                            })}
                         </div>
-                    </div>
-                );
+                    );
+                }
             })}
-
-            <button onClick={() => setShowButton(null)}>Back</button>
+            <div>Total: {total} &#75;&#269;</div>
+            <button
+                className="table_button"
+                onClick={() => setShowButton(null)}
+            >
+                Back
+            </button>
         </div>
     );
 }

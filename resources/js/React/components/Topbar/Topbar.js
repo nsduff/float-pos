@@ -1,36 +1,161 @@
 // import "./Topbar.css";
 
-const Topbar = ({ setTakeOrder, setNewOrder }) => {
+import { isNull } from "lodash";
+import { useEffect } from "react";
+
+const Topbar = ({
+    setTakeOrder,
+    newOrder,
+    setNewOrder,
+    setShowButton,
+    toggledItems,
+    setToggledItems,
+}) => {
+    // const toggledArray = [];
+    // const getToggledArray = () => {
+    //     newOrder.map((newOrderItem) => {
+    //         if (toggledItems.includes(newOrder.indexOf(newOrderItem))) {
+    //             toggledArray.push(newOrderItem);
+    //         }
+    //         console.log(toggledArray);
+    //     });
+    // };
+
     const homeButtonHandler = () => {
         setNewOrder([]);
         setTakeOrder(false);
-        //logic to send the user back to the home screen
+        setShowButton(null);
+        //LL -- logic to send the user back to the home screen
         //&& send the order IF anything was inputed.
-        //still have to decide on whatever the home screen UI is.
+        //ND -- oesn't do that, just clears the order
+        //LL -- still have to decide on whatever the home screen UI is.
     };
     const tablesButtonHandler = () => {
         setTakeOrder(true);
     };
+
+    const saveComments = (comment) => {
+        console.log(toggledItems.length);
+        const toggledItemIds = toggledItems.map((toggleItem) => {
+            // console.log(toggleItem.id);
+            return toggleItem.id;
+        });
+        console.log(toggledItemIds);
+        const newNewOrder = newOrder.map((newOrderItem) => {
+            if (toggledItems.includes(newOrder.indexOf(newOrderItem))) {
+                // console.log("boop")
+                if (isNull(newOrderItem.comments)) {
+                    newOrderItem.comments = [];
+                    console.log("no longer null");
+                }
+                //find item and remove it if it's there
+                const index = newOrderItem.comments.indexOf(comment);
+                if (index > -1) {
+                    newOrderItem.comments.splice(index, 1);
+                } else {
+                    newOrderItem.comments.push(comment);
+                    console.log("triggered");
+                }
+            }
+            return newOrderItem;
+        });
+        // console.log(newNewOrder);
+        setNewOrder(newNewOrder);
+        setToggledItems([]);
+        console.log(newOrder);
+    };
+
     const transferButtonHandler = () => {};
     const holdButtonHandler = () => {};
-    const deleteButtonHandler = () => {};
-    const modifyButtonHandler = () => {
-        const enteredMod = prompt("mod up");
-        console.log(enteredMod);
+    const deleteButtonHandler = () => {
+        newOrder.map((newOrderItem) => {
+            toggledItems.map((toggledItem) => {
+                if (newOrder.indexOf(newOrderItem) === toggledItem) {
+                    const index = newOrder.indexOf(toggledItem);
+                    if (index > -1) {
+                        newOrder.splice(index, 1);
+                    }
+                }
+            });
+        });
+        setToggledItems([]);
+        console.log(newOrder);
     };
-    const quantityButtonHandler = () => {};
-    const repeatButtonHandler = () => {};
+
+    // if (newOrder.includes(toggledItems)) {
+    //     // remove toggled items from newOrder array
+    //     newOrder.map((newOrderItems) => {
+    //         const index = newOrder.indexOf(toggledItems);
+    //         if (index > -1) {
+    //             newOrderItems.splice(index, 1);
+    //         }
+    //     });
+    // }
+
+    const modifyButtonHandler = () => {
+        const enteredMod = prompt("Custom Modification");
+        saveComments(enteredMod);
+    };
+    const quantityButtonHandler = () => {
+        if (toggledItems.length > 0) {
+            const quantity = prompt("Set Quantity");
+            const toggledArray = [];
+            newOrder.map((newOrderItem) => {
+                if (toggledItems.includes(newOrder.indexOf(newOrderItem))) {
+                    toggledArray.push(newOrderItem);
+                }
+                console.log(toggledArray);
+            });
+            const quantityItems = new Array(quantity - 1).fill(toggledArray);
+            const quantityArray = [];
+            quantityItems.map((item) => {
+                item.map((i) => {
+                    quantityArray.push(i);
+                });
+            });
+            const newNewOrder = newOrder.concat(quantityArray);
+            // console.log(newNewOrder);
+            setNewOrder(newNewOrder);
+            setToggledItems([]);
+
+            // const newNewArray = newOrder.concat(quantityArray);
+
+            // console.log(newNewArray);
+        }
+        // setNewOrder(...newOrder, newNewOrder);
+        // ND: breaks the page, don't use yet
+    };
+
+    const repeatButtonHandler = () => {
+        if (toggledItems.length > 0) {
+        }
+        const repeatArray = [];
+        // newOrder.map((newOrderItem) => {
+        //     if (toggledItems.includes(newOrderItem))
+        // }
+        // toggledItems.map((item) => {
+        //     repeatArray.push(item);
+        // });
+        // console.log(repeatArray);
+        const newNewOrder = newOrder.concat(repeatArray);
+        // console.log(newNewOrder);
+        setNewOrder(newNewOrder);
+        // const newItems = toggledItems.map((item);
+        // setNewOrder([...newOrder, newItems]);
+        setToggledItems([]);
+    };
+
     const seeServerButtonHandler = () => {
-        console.log("See Server");
+        saveComments("See Server");
     };
     const asAppButtonHandler = () => {
-        console.log("As App");
+        saveComments("As App");
     };
     const noMakeButtonHandler = () => {
-        console.log("No Make");
+        saveComments("No make");
     };
     const toGoButtonHandler = () => {
-        console.log("To Go");
+        saveComments("To Go");
     };
 
     return (
@@ -47,11 +172,11 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
             <button
                 type="submit"
                 className="button_top"
-               // className="topbar__right"
+                // className="topbar__right"
                 id="tb-tables"
                 onClick={tablesButtonHandler}
             >
-                Tables
+                New Order
             </button>
             <button
                 type="submit"
@@ -63,7 +188,7 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
                 Transfer
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
                 //className="topbar__left"
                 id="tb-hold"
@@ -72,7 +197,7 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
                 Hold
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
                 //className="topbar__left"
                 id="tb-delete"
@@ -81,7 +206,7 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
                 Delete
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
                 //className="topbar__left"
                 id="tb-modify"
@@ -90,25 +215,25 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
                 Modify
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
-               // className="topbar__left"
+                // className="topbar__left"
                 id="tb-quantity"
                 onClick={quantityButtonHandler}
             >
                 Quantity
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
-               // className="topbar__left"
+                // className="topbar__left"
                 id="tb-repeat"
                 onClick={repeatButtonHandler}
             >
                 Repeat
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
                 //className="topbar__left"
                 id="tb-seeServer"
@@ -117,16 +242,16 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
                 See Server
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
-               // className="topbar__left"
+                // className="topbar__left"
                 id="tb-asApp"
                 onClick={asAppButtonHandler}
             >
                 As App
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
                 //className="topbar__left"
                 id="tb-noMake"
@@ -135,9 +260,9 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
                 No Make
             </button>
             <button
-            className="button_top"
+                className="button_top"
                 type="submit"
-               // className="topbar__left"
+                // className="topbar__left"
                 id="tb-toGo"
                 onClick={toGoButtonHandler}
             >
@@ -146,5 +271,4 @@ const Topbar = ({ setTakeOrder, setNewOrder }) => {
         </div>
     );
 };
-
 export default Topbar;

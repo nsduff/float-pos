@@ -2,11 +2,10 @@
 @section('content')
 
     <div class="conteiner-login">
-        <section class="vh-100 w-100 bg-image " style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/search-box/img4.jpg');">
-            <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <section class="vh-100 w-100 bg-image background_img" >
+            <div class="mask d-flex align-items-center h-100 gradient-background">
                 <div class="form-signin">
-                    <img class="img-fluid" src="./img/slice.png">
-                    <main class="">
+                    <img class="img-fluid" src="{{ asset('/img/slice.png') }}" alt="logo">
                         <form action="{{ route('login') }}" method="post">
 
                             @csrf
@@ -20,11 +19,10 @@
                                 <label for="floatingPassword">Password</label>
                             </div>
 
-                            <button class="  w-100 btn btn-success btn-block btn-lg gradient-custom-4 text-body shadow border-0" type="submit">Login</button>
+                            <button class=" w-100 btn btn-lg gradient-button text-body shadow border-0" type="submit">Login</button>
                             <p class="text-center text-muted mt-5 mb-0">Haven't got account? <a href="/register" class="fw-bold text-body"><u>SignUp here</u></a></p>
 
                         </form>
-                    </main>
 
                 </div>
 
@@ -34,3 +32,5 @@
     </div>
 
 @endsection
+
+

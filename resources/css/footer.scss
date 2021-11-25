@@ -5,20 +5,25 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-rows: auto;
     gap: 0.3rem;
+    position: static;
 }
 
 .button_footer {
     background-color: $button-background;
     color: $signature;
-    border-radius: 0.5rem;
+    //border-radius: 0.5rem;
+    border: 0;
     font-size: 1.5rem;
     &:hover {
-        background-color: $hover}
+        background-color: $hover;
+        color: $hover_color}
 }
 
 .button_footer_logout{
-    background-color: $button-background;
-    border-radius: 0.5rem;
+    background-color: #802BB1;
+    border: 0;
+   
+    //border-radius: 0.5rem;
     font-size: 1.5rem;
     text-decoration: none;
 
@@ -26,7 +31,6 @@
          background-color: $hover_logout};
     a {
         text-decoration: none;
-        color: $logout_color;
-       
+        color:black;;
 }
     }

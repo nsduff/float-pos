@@ -4,19 +4,54 @@ import NewOrder from "./NewOrder/NewOrder";
 import { useState } from "react";
 
 export default function Workspace({
+    orders,
     takeOrder,
     newOrder,
     setNewOrder,
     setTakeOrder,
+    showButton,
+    setShowButton,
+    toggledItems,
+    setToggledItems,
 }) {
-    const [showButton, setShowButton] = useState(null);
+    // const [toggledItems, setToggledItems] = useState([]);
+
+    // toggles whether item is in toggled array
+    // css file in ../App/dummyToggle.css
+
+    // !! WEIRD BUG!!
+    // If you click too fast when you add the same item to newOrder,
+    // they all get highlighted when you add them to toggledItems
+    const highlightHandler = (i) => {
+        if (toggledItems.includes(i)) {
+            // remove
+            setToggledItems(toggledItems.filter((c) => c !== i));
+        } else {
+            // add
+            // console.log([...toggledItems, i]);
+            setToggledItems([...toggledItems, i]);
+        }
+    };
 
     if (takeOrder === false && showButton === null) {
-        return <Tables showButton={showButton} setShowButton={setShowButton} />;
+        return (
+            <Tables
+                orders={orders}
+                showButton={showButton}
+                setShowButton={setShowButton}
+            />
+        );
     }
     if (showButton != null)
         return (
-            <TableItems showButton={showButton} setShowButton={setShowButton} />
+            <TableItems
+                orders={orders}
+                showButton={showButton}
+                setShowButton={setShowButton}
+                toggledItems={toggledItems}
+                setToggledItems={setToggledItems}
+                highlightHandler={highlightHandler}
+            />
         );
     if (takeOrder === true) {
         return (
@@ -24,6 +59,9 @@ export default function Workspace({
                 newOrder={newOrder}
                 setNewOrder={setNewOrder}
                 setTakeOrder={setTakeOrder}
+                toggledItems={toggledItems}
+                setToggledItems={setToggledItems}
+                highlightHandler={highlightHandler}
             />
         );
     }

@@ -16,8 +16,10 @@ class CreateOrderItemsTable extends Migration
         Schema::create('items_order', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id');
-            $table->foreignId('bill_id');
+            $table->foreignId('bill_id')->nullable();
             $table->foreignId('item_id');
+            $table->text('item_comments')->nullable();
+            $table->boolean('paid')->default(false);
             $table->timestamps();
         });
     }

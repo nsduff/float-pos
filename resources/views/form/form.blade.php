@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('content')
-        <div id="app"></div>
+        <div class="container_form vh-100" id="app"></div>
 
         <script src="{{ mix('js/form.js') }}"></script>
 @endsection

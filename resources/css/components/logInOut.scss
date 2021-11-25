@@ -10,9 +10,8 @@
     max-width: 330px;
     padding: 15px;
     margin: auto;
+    margin-top: 20px;
 }
-
-
 
 .form-signin .form-floating:focus-within {
     z-index: 2;
@@ -23,24 +22,41 @@
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
-
-.form-signin input[type="password"] {
-    margin-bottom: 10px;
+#floatingInputEmail {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
-.gradient-custom-4 {
-    /* fallback for old browsers */
-    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
-}
-.gradient-custom-3 {
+#floatingInputPass {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+}
+
+.form-signin input[type="password"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+
+}
+.gradient-button {
+    background:$green-blue-button;
+}
+.gradient-background {
+
+    background:$green-blue-background;
 
 }
 .errors-messagesas {
     color: red;
     font-size: large;
+}
+.background_img {
+    background-image: url("../img/bgupdated.png");
 }
 
