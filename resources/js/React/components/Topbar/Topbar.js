@@ -176,7 +176,7 @@ const Topbar = ({
                 id="tb-tables"
                 onClick={tablesButtonHandler}
             >
-                Tables
+                New Order
             </button>
             <button
                 type="submit"

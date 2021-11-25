@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 //dummy CSS
-import "./dummyToggle.css";
 
 import Footer from "../Footer/Footer";
 import Menu from "../Menu/Menu";

@@ -76,15 +76,32 @@ export default function NewOrder({
 
     return (
         <div className="order">
-            <h4 className="order_headline">New Order Name:</h4>
-            <form action="" method="post">
-                <input
-                    type="text"
-                    name="table_name"
-                    value={newOrderName}
-                    onChange={handleNameChange}
-                />
-            </form>
+           <div className="order_header">
+                <div className="order_name">
+                    <h4 className="order_name_headline">New Order Name:</h4>
+                        <form action="" method="post">
+                            <input
+                                type="text"
+                                name="table_name"
+                                value={newOrderName}
+                                onChange={handleNameChange}
+                            />
+                        </form>
+                </div> 
+
+                       
+                    {/* send the order */}
+                    <form action="" method="post" onSubmit={placeOrder}>
+                            <button className="button_place_order">Place Order</button>
+                    </form>
+                   
+        
+
+            </div>     
+                    
+            
+            
+           
 
             {/* {errors.map((error, index) => {
                 if (error != []) {
@@ -104,7 +121,8 @@ export default function NewOrder({
             {newOrder.map((newOrderItem, index) => {
                 return (
                     <div key={index}>
-                        <div className="order_list">
+                        <div className="order_list ">
+                            
                             <div
                                 className={
                                     "order_item_name" +
@@ -122,11 +140,14 @@ export default function NewOrder({
                                     )
                                 }
                             >
-                                <p className="p_padding">{newOrderItem.name}</p>
-                                <p className="p_padding">
-                                    {newOrderItem.price} CZK
-                                </p>
+                                <div className="order_item_name">  
+                                   <p className="p_padding">{newOrderItem.name}</p>
+                                    <p className="p_padding ">
+                                        {newOrderItem.price} CZK
+                                    </p>
+                                </div>  
                             </div>
+                                    
                         </div>
                         {newOrderItem.comments != null &&
                         newOrderItem.comments.length > 0 ? (
@@ -157,14 +178,12 @@ export default function NewOrder({
 
             <div className="order_total">Total: {total} CZK</div>
 
-            {/* send the order */}
-            <form action="" method="post" onSubmit={placeOrder}>
-                <button className="button_place_order">Place Order</button>
-            </form>
-            {/* cancel the order */}
-            <button className="button_place_order" onClick={() => clearOrder()}>
-                Cancel
-            </button>
+             {/* cancel the order */}
+                    <button className="button_cancel_order" onClick={() => clearOrder()}>
+                            Cancel
+                    </button>
+
+           
         </div>
     );
 }

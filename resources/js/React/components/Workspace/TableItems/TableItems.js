@@ -40,6 +40,8 @@ export default function TableItems({
                                                     )
                                                 }
                                             >
+
+                                              
                                                 <p className="p_padding">
                                                     {item.name}
                                                 </p>
@@ -72,7 +74,7 @@ export default function TableItems({
                 }
             })}
             <div>Total: {total} &#75;&#269;</div>
-            <button onClick={() => setShowButton(null)}>Back</button>
+            <button className="table_button" onClick={() => setShowButton(null)}>Back</button>
         </div>
     );
 }

@@ -2,22 +2,64 @@
 /* CSS */
 .wrapper_menu{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0.2rem 0.2rem;
+ 
 
 
 }
-
 .button_menu {
-  background-color: $button-background;
+
   color: $text;
   border-radius: 0.5rem;
+    border: 0;
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-   &:hover {
-     background:$purple-dark;
-  }
+
+
+}
+.button_menu_color {
+    background: linear-gradient(
+            to left,
+            rgba(93, 12, 255, 1) 0%,
+            rgba(155, 0, 250, 1) 100%
+    );
+    &:hover {
+        background: #ffffff0c;
+    }
+}
+.button_menu_color:nth-child(4n + 1) {
+    background: linear-gradient(
+            90deg,
+            rgba(93, 12, 255, 1) 0%,
+            rgba(155, 0, 250, 1) 100%
+    );
+    &:hover {
+        background: #ffffff0c;
+    }
+}
+
+.button_menu_color:nth-child(4n + 2) {
+    background: linear-gradient(
+            90deg,
+            rgb(155, 0, 250) 100%,
+            rgba(93, 12, 255, 1) 0%
+    );
+    &:hover {
+        background: #ffffff0c;
+    }
+}
+
+.button_menu_color:nth-child(4n + 3) {
+    background: linear-gradient(
+            to right,
+            rgba(155, 0, 250, 1) 100%,
+            rgba(93, 12, 255, 1) 0%
+    );
+    &:hover {
+        background:#ffffff0c;
+    }
 }
   
 
