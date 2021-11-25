@@ -20,7 +20,8 @@ class Order extends Model
 
     public function items()
     {
-        return $this->belongsToMany(Item::class, "items_order");
+        return $this->belongsToMany(Item::class, "items_order")
+        ->withPivot('item_comments','paid');
     }
 
     public function user()

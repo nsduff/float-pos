@@ -9,9 +9,12 @@ export default function Footer({ options, setOptions }) {
                 OPTION
             </button>
 
-            <button className="button_footer_logout">
-                <a href={`/logout`}>LOGOUT</a>
-            </button>
+            <a
+                className="button_footer_logout  d-flex align-items-center justify-content-center"
+                href={`/logout`}
+            >
+                LOGOUT
+            </a>
         </div>
     );
 }

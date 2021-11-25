@@ -73,6 +73,13 @@ export default function Form() {
 
     return (
         <div className="App">
+            <a
+                className=" ms-3 mt-3 btn btn-lg gradient-button text-body shadow border-0"
+                href="/"
+            >
+                Home
+            </a>
+
             <div className="d-flex justify-content-around">
                 <div className="todo-app mt-5">
                     <h1 className="h-one">Create New Category</h1>
@@ -83,23 +90,22 @@ export default function Form() {
                         // toggledCategory={toggledCategory}
                         // setToggledCategory={setToggledCategory}
                     />
-                    {categories.map((category, i) => (
-                        <button
-                            className={
-                                " todo-row complete btn text-body shadow border-0" +
-                                (activeCategory === category.id
-                                    ? " active"
-                                    : " inactive")
-
-                                // DESIGN TEAM: CAN YOU STYLE
-                                // _ACTIVE & _INACTIVE CLASSES?
-                            }
-                            key={i}
-                            onClick={() => setActiveCategory(category.id)}
-                        >
-                            <h2>{category.name}</h2>
-                        </button>
-                    ))}
+                    <div className="wrapper_cattegory_one">
+                        {categories.map((category, i) => (
+                            <button
+                                className={
+                                    " todo-row complete btn text-body shadow border-0" +
+                                    (activeCategory === category.id
+                                        ? " active"
+                                        : " inactive")
+                                }
+                                key={i}
+                                onClick={() => setActiveCategory(category.id)}
+                            >
+                                <h2>{category.name}</h2>
+                            </button>
+                        ))}
+                    </div>
                 </div>
                 <div className="todo-app mt-5">
                     <h1 className="h-one">

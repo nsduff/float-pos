@@ -26,6 +26,9 @@ export default function TableItems({
 
                             {order.items.map((item, index) => {
                                 console.log(order.paid);
+                                if (item.pivot.paid === 0) {
+                                    console.log(item.name + " not paid");
+                                }
                                 return (
                                     <div key={index}>
                                         <div className="order_list">
@@ -53,18 +56,18 @@ export default function TableItems({
                                                 </p>
                                             </div>
                                         </div>
-                                        {item.comments != null &&
-                                        item.comments.length > 0 ? (
+                                        {item.pivot.item_comments != null &&
+                                        item.pivot.item_comments.length > 0 ? (
                                             <ul>
-                                                {item.comments.map(
-                                                    (comment, index) => {
+                                                {item.pivot.item_comments
+                                                    .split("\n\n")
+                                                    .map((comment, index) => {
                                                         return (
                                                             <li key={index}>
                                                                 {comment}
                                                             </li>
                                                         );
-                                                    }
-                                                )}
+                                                    })}
                                             </ul>
                                         ) : (
                                             <></>

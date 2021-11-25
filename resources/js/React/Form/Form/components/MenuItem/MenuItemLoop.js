@@ -2,7 +2,7 @@ import MenuItem from "./MenuItem";
 
 function MenuItemLoop(props) {
     return (
-        <div>
+        <div className="wrapper_cattegory">
             {props.items.map((item, i) => (
                 <MenuItem
                     key={i}

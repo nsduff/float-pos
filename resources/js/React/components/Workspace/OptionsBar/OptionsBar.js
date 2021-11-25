@@ -19,18 +19,29 @@ export default function OptionsBar() {
     }
     return (
         <>
-            <button onClick={() => setOptionsHandler("Server Tools")}>
+            <button
+                className=" w-100 btn btn-lg gradient-button text-body shadow border-0"
+                onClick={() => setOptionsHandler("Server Tools")}
+            >
                 Server Tools
-            </button>
-            <button>
-                {" "}
-                {/* onClick={() => setOptionsHandler("Menu Manager")} */}
-                <a href={`/create`}>Menu Manager</a>
-            </button>
-            <button onClick={() => setOptionsHandler("Button 2")}>
+            </button>{" "}
+            {/* onClick={() => setOptionsHandler("Menu Manager")} */}
+            <a
+                className=" mt-1 w-100 btn btn-lg gradient-button text-body shadow border-0"
+                href={`/create`}
+            >
+                Menu Manager
+            </a>
+            <button
+                className=" w-100 mt-1 btn btn-lg gradient-button text-body shadow border-0"
+                onClick={() => setOptionsHandler("Button 2")}
+            >
                 Button 2
             </button>
-            <button onClick={() => setOptionsHandler("Button 3")}>
+            <button
+                className=" w-100 mt-1 btn btn-lg gradient-button text-body shadow border-0"
+                onClick={() => setOptionsHandler("Button 3")}
+            >
                 Button 3
             </button>
         </>
