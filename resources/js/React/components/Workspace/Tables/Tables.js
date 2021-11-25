@@ -3,15 +3,13 @@ export default function Tables({ setShowButton, orders }) {
         setShowButton(id);
     };
     return (
-    <>
-
-
-        <h3 className="tables_headline">Tables</h3>
-        <div className="wrapper_tables">
-            {orders.map((order, index) => {
-                return (
-                  
-                    
+        <>
+            <h3 className="tables_headline">Tables</h3>
+            <div className="wrapper_tables">
+                {orders.map((order, index) => {
+                    // messing with payment
+                    // if (order.paid === false) {
+                    return (
                         <button
                             key={index}
                             className={"table_button"}
@@ -19,9 +17,10 @@ export default function Tables({ setShowButton, orders }) {
                         >
                             {order.table_name}
                         </button>
-                );
-            })}
-        </div>
-    </>
+                    );
+                    // }
+                })}
+            </div>
+        </>
     );
 }

@@ -128,11 +128,19 @@ export default function NewOrder({
                             <div
                                 className={
                                     "order_item_name" +
-                                    (toggledItems.includes(newOrderItem)
+                                    (toggledItems.includes(
+                                        newOrder.indexOf(newOrderItem)
+                                    )
                                         ? " active_order_item"
                                         : null)
+                                    // ? " active_order_item"
+                                    // : null)
                                 }
-                                onClick={() => highlightHandler(newOrderItem)}
+                                onClick={() =>
+                                    highlightHandler(
+                                        newOrder.indexOf(newOrderItem)
+                                    )
+                                }
                             >
                                 <div className="order_item_name">  
                                    <p className="p_padding">{newOrderItem.name}</p>
