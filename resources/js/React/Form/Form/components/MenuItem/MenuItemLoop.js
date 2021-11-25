@@ -2,7 +2,7 @@ import MenuItem from "./MenuItem";
 
 function MenuItemLoop(props) {
     return (
-        <Card className="expenses">
+        <div>
             {props.items.map((item, i) => (
                 <MenuItem
                     key={i}
@@ -11,7 +11,7 @@ function MenuItemLoop(props) {
                     date={item.date}
                 />
             ))}
-        </Card>
+        </div>
     );
 }
 

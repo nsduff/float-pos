@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-import "./MenuItemForm.css";
-import "./NewMenuItem.css";
+import React, { useState } from "react";
 import axios from "axios";
 
 const CategoryForm = (props) => {

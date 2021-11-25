@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./MenuItemForm.css";
+// import "./MenuItemForm.css";
 import axios from "axios";
 
 const MenuItemForm = (props) => {
@@ -62,6 +62,8 @@ const MenuItemForm = (props) => {
         setEnteredName("");
         setEnteredAmount("");
     };
+
+    console.log(props.activeCategory);
 
     return (
         <>
