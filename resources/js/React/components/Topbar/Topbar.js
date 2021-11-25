@@ -11,6 +11,16 @@ const Topbar = ({
     toggledItems,
     setToggledItems,
 }) => {
+    // const toggledArray = [];
+    // const getToggledArray = () => {
+    //     newOrder.map((newOrderItem) => {
+    //         if (toggledItems.includes(newOrder.indexOf(newOrderItem))) {
+    //             toggledArray.push(newOrderItem);
+    //         }
+    //         console.log(toggledArray);
+    //     });
+    // };
+
     const homeButtonHandler = () => {
         setNewOrder([]);
         setTakeOrder(false);
@@ -30,9 +40,9 @@ const Topbar = ({
             // console.log(toggleItem.id);
             return toggleItem.id;
         });
-        // console.log(toggledItemIds);
+        console.log(toggledItemIds);
         const newNewOrder = newOrder.map((newOrderItem) => {
-            if (toggledItemIds.includes(newOrderItem.id)) {
+            if (toggledItems.includes(newOrder.indexOf(newOrderItem))) {
                 // console.log("boop")
                 if (isNull(newOrderItem.comments)) {
                     newOrderItem.comments = [];
@@ -58,34 +68,81 @@ const Topbar = ({
     const transferButtonHandler = () => {};
     const holdButtonHandler = () => {};
     const deleteButtonHandler = () => {
-        if (newOrder.includes(toggledItems)) {
-            // remove toggled items from newOrder array
-            newOrder.map((newOrderItems) => {
-                const index = newOrder.indexOf(toggledItems);
-                if (index > -1) {
-                    newOrderItems.splice(index, 1);
+        newOrder.map((newOrderItem) => {
+            toggledItems.map((toggledItem) => {
+                if (newOrder.indexOf(newOrderItem) === toggledItem) {
+                    const index = newOrder.indexOf(toggledItem);
+                    if (index > -1) {
+                        newOrder.splice(index, 1);
+                    }
                 }
             });
-        }
+        });
         setToggledItems([]);
-        console.log(toggledItems);
+        console.log(newOrder);
     };
+
+    // if (newOrder.includes(toggledItems)) {
+    //     // remove toggled items from newOrder array
+    //     newOrder.map((newOrderItems) => {
+    //         const index = newOrder.indexOf(toggledItems);
+    //         if (index > -1) {
+    //             newOrderItems.splice(index, 1);
+    //         }
+    //     });
+    // }
 
     const modifyButtonHandler = () => {
         const enteredMod = prompt("Custom Modification");
         saveComments(enteredMod);
     };
     const quantityButtonHandler = () => {
-        const quantity = prompt("Set Quantity");
-        const newNewOrder = new Array(quantity - 1).fill(toggledItems);
-        setNewOrder(...newOrder, newNewOrder);
+        if (toggledItems.length > 0) {
+            const quantity = prompt("Set Quantity");
+            const toggledArray = [];
+            newOrder.map((newOrderItem) => {
+                if (toggledItems.includes(newOrder.indexOf(newOrderItem))) {
+                    toggledArray.push(newOrderItem);
+                }
+                console.log(toggledArray);
+            });
+            const quantityItems = new Array(quantity - 1).fill(toggledArray);
+            const quantityArray = [];
+            quantityItems.map((item) => {
+                item.map((i) => {
+                    quantityArray.push(i);
+                });
+            });
+            const newNewOrder = newOrder.concat(quantityArray);
+            // console.log(newNewOrder);
+            setNewOrder(newNewOrder);
+            setToggledItems([]);
+
+            // const newNewArray = newOrder.concat(quantityArray);
+
+            // console.log(newNewArray);
+        }
+        // setNewOrder(...newOrder, newNewOrder);
         // ND: breaks the page, don't use yet
     };
 
     const repeatButtonHandler = () => {
+        if (toggledItems.length > 0) {
+        }
+        const repeatArray = [];
+        // newOrder.map((newOrderItem) => {
+        //     if (toggledItems.includes(newOrderItem))
+        // }
+        // toggledItems.map((item) => {
+        //     repeatArray.push(item);
+        // });
+        // console.log(repeatArray);
+        const newNewOrder = newOrder.concat(repeatArray);
+        // console.log(newNewOrder);
+        setNewOrder(newNewOrder);
         // const newItems = toggledItems.map((item);
         // setNewOrder([...newOrder, newItems]);
-        // setToggledItems([]);
+        setToggledItems([]);
     };
 
     const seeServerButtonHandler = () => {

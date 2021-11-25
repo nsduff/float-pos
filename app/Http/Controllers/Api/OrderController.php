@@ -14,8 +14,6 @@ class OrderController extends Controller
     {
         $orders = Order::with('items')->orderBy('created_at')->get();
 
-// $orders->load(['ite'])
-
         return $orders;
     }
 

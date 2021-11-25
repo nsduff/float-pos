@@ -17,7 +17,7 @@ export default function TableItems({
                     return (
                         <div key={index}>
                             <h3 className="order_name_headline">
-                                {order.table_name} order
+                                {order.table_name}
                             </h3>
 
                             {order.items.map((item, index) => {
@@ -28,12 +28,16 @@ export default function TableItems({
                                             <div
                                                 className={
                                                     "order_item_name" +
-                                                    (toggledItems.includes(item)
+                                                    (toggledItems.includes(
+                                                        order.indexOf(item)
+                                                    )
                                                         ? " active_order_item"
                                                         : null)
                                                 }
                                                 onClick={() =>
-                                                    highlightHandler(item)
+                                                    highlightHandler(
+                                                        order.indexOf(item)
+                                                    )
                                                 }
                                             >
                                                 <p className="p_padding">

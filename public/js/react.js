@@ -2124,7 +2124,7 @@ function App() {
       categories = _useState2[0],
       setCategories = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(7),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(1),
       _useState4 = _slicedToArray(_useState3, 2),
       categoryId = _useState4[0],
       setCategoryId = _useState4[1];
@@ -2231,10 +2231,9 @@ function App() {
 
             case 2:
               orderData = _context3.sent;
-              setOrders(orderData.data);
-              console.log(orders);
+              setOrders(orderData.data); // console.log(orders);
 
-            case 5:
+            case 4:
             case "end":
               return _context3.stop();
           }
@@ -2250,7 +2249,8 @@ function App() {
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     fetchData();
     fetchItems();
-    fetchOrders(); // console.log(newOrder);
+    fetchOrders();
+    console.log(newOrder);
   }, [categoryId, newOrder, pay]);
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     console.log(toggledItems);
@@ -2475,18 +2475,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 // import "./Topbar.css";
 
 
@@ -2501,6 +2489,15 @@ var Topbar = function Topbar(_ref) {
       toggledItems = _ref.toggledItems,
       setToggledItems = _ref.setToggledItems;
 
+  // const toggledArray = [];
+  // const getToggledArray = () => {
+  //     newOrder.map((newOrderItem) => {
+  //         if (toggledItems.includes(newOrder.indexOf(newOrderItem))) {
+  //             toggledArray.push(newOrderItem);
+  //         }
+  //         console.log(toggledArray);
+  //     });
+  // };
   var homeButtonHandler = function homeButtonHandler() {
     setNewOrder([]);
     setTakeOrder(false);
@@ -2519,10 +2516,10 @@ var Topbar = function Topbar(_ref) {
     var toggledItemIds = toggledItems.map(function (toggleItem) {
       // console.log(toggleItem.id);
       return toggleItem.id;
-    }); // console.log(toggledItemIds);
-
+    });
+    console.log(toggledItemIds);
     var newNewOrder = newOrder.map(function (newOrderItem) {
-      if (toggledItemIds.includes(newOrderItem.id)) {
+      if (toggledItems.includes(newOrder.indexOf(newOrderItem))) {
         // console.log("boop")
         if ((0,lodash__WEBPACK_IMPORTED_MODULE_0__.isNull)(newOrderItem.comments)) {
           newOrderItem.comments = [];
@@ -2553,20 +2550,29 @@ var Topbar = function Topbar(_ref) {
   var holdButtonHandler = function holdButtonHandler() {};
 
   var deleteButtonHandler = function deleteButtonHandler() {
-    if (newOrder.includes(toggledItems)) {
-      // remove toggled items from newOrder array
-      newOrder.map(function (newOrderItems) {
-        var index = newOrder.indexOf(toggledItems);
+    newOrder.map(function (newOrderItem) {
+      toggledItems.map(function (toggledItem) {
+        if (newOrder.indexOf(newOrderItem) === toggledItem) {
+          var index = newOrder.indexOf(toggledItem);
 
-        if (index > -1) {
-          newOrderItems.splice(index, 1);
+          if (index > -1) {
+            newOrder.splice(index, 1);
+          }
         }
       });
-    }
-
+    });
     setToggledItems([]);
-    console.log(toggledItems);
-  };
+    console.log(newOrder);
+  }; // if (newOrder.includes(toggledItems)) {
+  //     // remove toggled items from newOrder array
+  //     newOrder.map((newOrderItems) => {
+  //         const index = newOrder.indexOf(toggledItems);
+  //         if (index > -1) {
+  //             newOrderItems.splice(index, 1);
+  //         }
+  //     });
+  // }
+
 
   var modifyButtonHandler = function modifyButtonHandler() {
     var enteredMod = prompt("Custom Modification");
@@ -2574,14 +2580,50 @@ var Topbar = function Topbar(_ref) {
   };
 
   var quantityButtonHandler = function quantityButtonHandler() {
-    var quantity = prompt("Set Quantity");
-    var newNewOrder = new Array(quantity - 1).fill(toggledItems);
-    setNewOrder.apply(void 0, _toConsumableArray(newOrder).concat([newNewOrder])); // ND: breaks the page, don't use yet
+    if (toggledItems.length > 0) {
+      var quantity = prompt("Set Quantity");
+      var toggledArray = [];
+      newOrder.map(function (newOrderItem) {
+        if (toggledItems.includes(newOrder.indexOf(newOrderItem))) {
+          toggledArray.push(newOrderItem);
+        }
+
+        console.log(toggledArray);
+      });
+      var quantityItems = new Array(quantity - 1).fill(toggledArray);
+      var quantityArray = [];
+      quantityItems.map(function (item) {
+        item.map(function (i) {
+          quantityArray.push(i);
+        });
+      });
+      var newNewOrder = newOrder.concat(quantityArray); // console.log(newNewOrder);
+
+      setNewOrder(newNewOrder);
+      setToggledItems([]); // const newNewArray = newOrder.concat(quantityArray);
+      // console.log(newNewArray);
+    } // setNewOrder(...newOrder, newNewOrder);
+    // ND: breaks the page, don't use yet
+
   };
 
-  var repeatButtonHandler = function repeatButtonHandler() {// const newItems = toggledItems.map((item);
+  var repeatButtonHandler = function repeatButtonHandler() {
+    if (toggledItems.length > 0) {}
+
+    var repeatArray = []; // newOrder.map((newOrderItem) => {
+    //     if (toggledItems.includes(newOrderItem))
+    // }
+    // toggledItems.map((item) => {
+    //     repeatArray.push(item);
+    // });
+    // console.log(repeatArray);
+
+    var newNewOrder = newOrder.concat(repeatArray); // console.log(newNewOrder);
+
+    setNewOrder(newNewOrder); // const newItems = toggledItems.map((item);
     // setNewOrder([...newOrder, newItems]);
-    // setToggledItems([]);
+
+    setToggledItems([]);
   };
 
   var seeServerButtonHandler = function seeServerButtonHandler() {
@@ -2698,9 +2740,208 @@ var Topbar = function Topbar(_ref) {
 /*!**********************************************************************!*\
   !*** ./resources/js/react/components/Workspace/NewOrder/NewOrder.js ***!
   \**********************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\web\\float-pos\\resources\\js\\react\\components\\Workspace\\NewOrder\\NewOrder.js: Unexpected token (79:1)\n\n\u001b[0m \u001b[90m 77 |\u001b[39m     \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[0m \u001b[90m 78 |\u001b[39m         \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"order\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 79 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 80 |\u001b[39m             \u001b[33m<\u001b[39m\u001b[33mh4\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"order_headline\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33mNew\u001b[39m \u001b[33mOrder\u001b[39m \u001b[33mName\u001b[39m\u001b[33m:\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mh4\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 81 |\u001b[39m             \u001b[33m<\u001b[39m\u001b[33mform\u001b[39m action\u001b[33m=\u001b[39m\u001b[32m\"\"\u001b[39m method\u001b[33m=\u001b[39m\u001b[32m\"post\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 82 |\u001b[39m                 \u001b[33m<\u001b[39m\u001b[33minput\u001b[39m\u001b[0m\n    at Object._raise (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:541:17)\n    at Object.raiseWithData (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:534:17)\n    at Object.raise (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:495:17)\n    at Object.unexpected (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:3587:16)\n    at Object.jsxParseIdentifier (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:7259:12)\n    at Object.jsxParseNamespacedName (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:7269:23)\n    at Object.jsxParseElementName (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:7280:21)\n    at Object.jsxParseOpeningElementAt (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:7367:22)\n    at Object.jsxParseElementAt (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:7400:33)\n    at Object.jsxParseElementAt (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:7416:32)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ NewOrder)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+function NewOrder(_ref) {
+  var newOrder = _ref.newOrder,
+      setNewOrder = _ref.setNewOrder,
+      setTakeOrder = _ref.setTakeOrder,
+      toggledItems = _ref.toggledItems,
+      setToggledItems = _ref.setToggledItems,
+      highlightHandler = _ref.highlightHandler;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
+      _useState2 = _slicedToArray(_useState, 2),
+      newOrderName = _useState2[0],
+      setNewOrderName = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({}),
+      _useState4 = _slicedToArray(_useState3, 2),
+      errors = _useState4[0],
+      setErrors = _useState4[1];
+
+  var handleNameChange = function handleNameChange(event) {
+    setNewOrderName(event.target.value);
+  }; // const viewComments = (comments) => {
+  //     if (comments.length > 0) {
+  //         console.log(comments);
+  //         // comments.map((comment, index) => {
+  //         //     return <div key={index}>{comment}</div>;
+  //         // });
+  //     }
+  // };
+
+
+  var clearOrder = function clearOrder() {
+    //reset states back to normal
+    setNewOrder([]);
+    setNewOrderName("");
+    setTakeOrder(false);
+  };
+
+  var total = newOrder.map(function (newOrderItem) {
+    return newOrderItem.price;
+  }).reduce(function (a, i) {
+    return a + i;
+  }, 0);
+
+  var placeOrder = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
+      var itemsIds, itemsComments, data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              e.preventDefault();
+              _context.prev = 1;
+              itemsIds = newOrder.map(function (value) {
+                return value.id;
+              });
+              itemsComments = newOrder.map(function (value) {
+                return {
+                  item_id: value.id,
+                  comments: value.comments
+                };
+              });
+              _context.next = 6;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/orders", {
+                items: itemsIds,
+                table_name: newOrderName,
+                // ND: CAN'T POST COMMENTS YET, SO DON'T TRY
+                item_comments: itemsComments
+              });
+
+            case 6:
+              data = _context.sent;
+              // stops here and wait for response from ajax request
+              console.log(data.data); //reset states back to normal
+
+              clearOrder();
+              _context.next = 15;
+              break;
+
+            case 11:
+              _context.prev = 11;
+              _context.t0 = _context["catch"](1);
+              alert("something went wrong"); //log for developer use
+              // console.log(error.message);
+              // console.log(error.response);
+              //show errors on screen
+              // setErrors(error.response.data);
+
+              console.log(errors);
+
+            case 15:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[1, 11]]);
+    }));
+
+    return function placeOrder(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }(); // useEffect(() => {
+  //     console.log(toggledItems);
+  // }, [toggledItems]);
+
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "order",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+      className: "order_headline",
+      children: "New Order Name:"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("form", {
+      action: "",
+      method: "post",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "text",
+        name: "table_name",
+        value: newOrderName,
+        onChange: handleNameChange
+      })
+    }), newOrder.map(function (newOrderItem, index) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "order_list",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "order_item_name" + (toggledItems.includes(newOrder.indexOf(newOrderItem)) ? " active_order_item" : null) // ? " active_order_item"
+            // : null)
+            ,
+            onClick: function onClick() {
+              return highlightHandler(newOrder.indexOf(newOrderItem));
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+              className: "p_padding",
+              children: newOrderItem.name
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+              className: "p_padding",
+              children: [newOrderItem.price, " CZK"]
+            })]
+          })
+        }), newOrderItem.comments != null && newOrderItem.comments.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
+          children: newOrderItem.comments.map(function (comment, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+              children: comment
+            }, index);
+          })
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {})]
+      }, index);
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "order_total",
+      children: ["Total: ", total, " CZK"]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("form", {
+      action: "",
+      method: "post",
+      onSubmit: placeOrder,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        className: "button_place_order",
+        children: "Place Order"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+      className: "button_place_order",
+      onClick: function onClick() {
+        return clearOrder();
+      },
+      children: "Cancel"
+    })]
+  });
+}
 
 /***/ }),
 
@@ -2708,9 +2949,75 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /*!**************************************************************************!*\
   !*** ./resources/js/react/components/Workspace/TableItems/TableItems.js ***!
   \**************************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\web\\float-pos\\resources\\js\\react\\components\\Workspace\\TableItems\\TableItems.js: Unexpected token (24:1)\n\n\u001b[0m \u001b[90m 22 |\u001b[39m                                 console\u001b[33m.\u001b[39mlog(item)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 23 |\u001b[39m                                 \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 24 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 25 |\u001b[39m                                     \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m key\u001b[33m=\u001b[39m{index}\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 26 |\u001b[39m                                         \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"order_list\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 27 |\u001b[39m                                             \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m\u001b[0m\n    at Object._raise (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:541:17)\n    at Object.raiseWithData (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:534:17)\n    at Object.raise (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:495:17)\n    at Object.unexpected (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:3587:16)\n    at Object.jsxParseIdentifier (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:7259:12)\n    at Object.jsxParseNamespacedName (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:7269:23)\n    at Object.jsxParseElementName (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:7280:21)\n    at Object.jsxParseOpeningElementAt (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:7367:22)\n    at Object.jsxParseElementAt (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:7400:33)\n    at Object.jsxParseElement (C:\\web\\float-pos\\node_modules\\@babel\\parser\\lib\\index.js:7474:17)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ TableItems)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function TableItems(_ref) {
+  var orders = _ref.orders,
+      showButton = _ref.showButton,
+      setShowButton = _ref.setShowButton,
+      toggledItems = _ref.toggledItems,
+      highlightHandler = _ref.highlightHandler;
+  var total = 0;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    children: [orders.map(function (order, index) {
+      if (order.id === showButton) {
+        total = order.items.map(function (item) {
+          return item.price;
+        }).reduce(function (a, i) {
+          return a + i;
+        }, 0);
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
+            className: "order_name_headline",
+            children: order.table_name
+          }), order.items.map(function (item, index) {
+            console.log(item);
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                className: "order_list",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                  className: "order_item_name" + (toggledItems.includes(order.indexOf(item)) ? " active_order_item" : null),
+                  onClick: function onClick() {
+                    return highlightHandler(order.indexOf(item));
+                  },
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+                    className: "p_padding",
+                    children: item.name
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
+                    className: "p_padding",
+                    children: [item.price, " CZK"]
+                  })]
+                })
+              }), item.comments != null && item.comments.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("ul", {
+                children: item.comments.map(function (comment, index) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                    children: comment
+                  }, index);
+                })
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {})]
+            }, index);
+          })]
+        }, index);
+      }
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      children: ["Total: ", total, " K\u010D"]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+      onClick: function onClick() {
+        return setShowButton(null);
+      },
+      children: "Back"
+    })]
+  });
+}
 
 /***/ }),
 
@@ -2738,13 +3045,15 @@ function Tables(_ref) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
     className: "wrapper_tables",
     children: orders.map(function (order, index) {
+      // messing with payment
+      // if (order.paid === false) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
         className: "table_button",
         onClick: function onClick() {
           return handleClick(order.id);
         },
         children: order.table_name
-      }, index);
+      }, index); // }
     })
   });
 }
