@@ -103,6 +103,8 @@ export default function App() {
                     setShowButton={setShowButton}
                     toggledItems={toggledItems}
                     setToggledItems={setToggledItems}
+                    pay={pay}
+                    setPay={setPay}
                 />
             </div>
 

@@ -130,18 +130,15 @@ const Topbar = ({
         if (toggledItems.length > 0) {
         }
         const repeatArray = [];
-        // newOrder.map((newOrderItem) => {
-        //     if (toggledItems.includes(newOrderItem))
-        // }
-        // toggledItems.map((item) => {
-        //     repeatArray.push(item);
-        // });
-        // console.log(repeatArray);
+        newOrder.map((newOrderItem) => {
+            if (toggledItems.includes(newOrder.indexOf(newOrderItem))) {
+                repeatArray.push(newOrderItem);
+            }
+            console.log(repeatArray);
+        });
         const newNewOrder = newOrder.concat(repeatArray);
-        // console.log(newNewOrder);
+        console.log(newNewOrder);
         setNewOrder(newNewOrder);
-        // const newItems = toggledItems.map((item);
-        // setNewOrder([...newOrder, newItems]);
         setToggledItems([]);
     };
 

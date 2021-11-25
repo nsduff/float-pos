@@ -56,4 +56,11 @@ class OrderController extends Controller
         return $order;
     }
 
+    public function payment(Request $request)
+    {
+        $order->paid = $request->paid;
+        $order->save();
+        return $order;
+    }
+
 }

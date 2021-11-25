@@ -1,9 +1,13 @@
+import axios from "axios";
+
 export default function TableItems({
     orders,
     showButton,
     setShowButton,
     toggledItems,
     highlightHandler,
+    pay,
+    setPay,
 }) {
     let total = 0;
 
@@ -21,7 +25,7 @@ export default function TableItems({
                             </h3>
 
                             {order.items.map((item, index) => {
-                                console.log(item);
+                                console.log(order.paid);
                                 return (
                                     <div key={index}>
                                         <div className="order_list">

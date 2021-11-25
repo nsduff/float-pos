@@ -28,7 +28,7 @@ Route::get('/items', 'App\Http\Controllers\Api\CategoryController@items');
 
 Route::get('/orders', 'App\Http\Controllers\Api\OrderController@orders');
 Route::post('/orders', 'App\Http\Controllers\Api\OrderController@store');
-
+Route::post('orders', 'App\Http\Controllers\Api\OrderController@payment');
 // Route::get('/user', function(){
 //     return [
 //         'user' => Auth::user()

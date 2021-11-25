@@ -13,6 +13,8 @@ export default function Workspace({
     setShowButton,
     toggledItems,
     setToggledItems,
+    pay,
+    setPay,
 }) {
     // const [toggledItems, setToggledItems] = useState([]);
 
@@ -51,6 +53,8 @@ export default function Workspace({
                 toggledItems={toggledItems}
                 setToggledItems={setToggledItems}
                 highlightHandler={highlightHandler}
+                pay={pay}
+                setPay={setPay}
             />
         );
     if (takeOrder === true) {
