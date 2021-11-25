@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./MenuItemForm.css";
 
 const MenuItemForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -52,30 +51,38 @@ const MenuItemForm = (props) => {
     setEnteredAmount("");
   };
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} className='todo-form d-flex flex-row ms-4 '>
       <div className="new-expense__controls">
         <div className="new-expense__control">
-          <label>Title</label>
+
           <input
             type="text"
             value={enteredTitle}
             onChange={titleChangeHandler}
+            className="todo-input"
+            placeholder="Your Item"
+            id="item_input_name"
+            required
           />
         </div>
         <div className="new-expense__control">
-          <label>Amount</label>
+
           <input
             type="text"
             min="0.01"
             step="0.01"
             value={enteredAmount}
             onChange={amountChangeHandler}
+            className="todo-input"
+            placeholder="Price"
+            id="item_input_price"
+            required
           />
         </div>
       </div>
-      <div className="new-expense__actions">
-        <button type="submit">Add Menu Item</button>
-      </div>
+
+        <button type="submit" className="todo-button">Add Menu Item</button>
+
     </form>
   );
 };

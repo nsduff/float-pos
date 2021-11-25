@@ -41,12 +41,15 @@ export default function NewOrder({
 
         try {
             const itemsIds = newOrder.map((value) => value.id);
-            // const itemsComments = newOrder.map((value) => value.comments);
+            const itemsComments = newOrder.map((value) => ({
+                item_id: value.id,
+                comments: value.comments,
+            }));
             const data = await axios.post("/api/orders", {
                 items: itemsIds,
                 table_name: newOrderName,
                 // ND: CAN'T POST COMMENTS YET, SO DON'T TRY
-                // item_comments: itemsComments,
+                item_comments: itemsComments,
             });
 
             // stops here and wait for response from ajax request
@@ -62,7 +65,7 @@ export default function NewOrder({
             // console.log(error.response);
 
             //show errors on screen
-            setErrors(error.response.data);
+            // setErrors(error.response.data);
             console.log(errors);
         }
     };
@@ -73,40 +76,53 @@ export default function NewOrder({
 
     return (
         <div className="order">
-          <div className="order_header"> 
-            <div className="order_name"> 
-                <h4 className="order_name_headline">New Order Name:</h4>
-                <form action="" method="post">
-                    <input
-                        type="text"
-                        name="table_name"
-                        value={newOrderName}
-                        onChange={handleNameChange}
-                    />
-                </form>
-            </div>    
+           <div className="order_header">
+                <div className="order_name">
+                    <h4 className="order_name_headline">New Order Name:</h4>
+                        <form action="" method="post">
+                            <input
+                                type="text"
+                                name="table_name"
+                                value={newOrderName}
+                                onChange={handleNameChange}
+                            />
+                        </form>
+                </div> 
 
-            {/* send the order */}
-            <form action="" method="post" onSubmit={placeOrder}>
-                    <button className="button_place_order">Place Order</button>
-            </form>  
+                       
+                    {/* send the order */}
+                    <form action="" method="post" onSubmit={placeOrder}>
+                            <button className="button_place_order">Place Order</button>
+                    </form>
+                   
+        
 
-
-            {/* cancel the order */}
+            </div>     
+                    
             
-            <button className="button_cancel_order" onClick={() => clearOrder()}>
-                Cancel
-            </button>    
-          </div>  
+            
+           
 
-         
+            {/* {errors.map((error, index) => {
+                if (error != []) {
+                    return (
+                        <>
+                            <div key={index}>
+                                {error.table_name && error.items}
+                            </div>
+                        </>
+                    );
+                } else {
+                    return;
+                }
+            })} */}
 
-             
-
+            {/* show names and prices of new order */}
             {newOrder.map((newOrderItem, index) => {
                 return (
                     <div key={index}>
-                        <div className="order_list">
+                        <div className="order_list ">
+                            
                             <div
                                 className={
                                     "order_item_name" +
@@ -116,15 +132,14 @@ export default function NewOrder({
                                 }
                                 onClick={() => highlightHandler(newOrderItem)}
                             >
-                              <div className="order_item_name" key={index}>  
-                                <p className="p_padding">{newOrderItem.name}</p>
-                                <p className="p_padding">
-                                    {newOrderItem.price} CZK
-                                </p>
+                                <div className="order_item_name">  
+                                   <p className="p_padding">{newOrderItem.name}</p>
+                                    <p className="p_padding ">
+                                        {newOrderItem.price} CZK
+                                    </p>
+                                </div>  
                             </div>
-                          </div>  
                                     
-
                         </div>
                         {newOrderItem.comments != null &&
                         newOrderItem.comments.length > 0 ? (
@@ -155,7 +170,12 @@ export default function NewOrder({
 
             <div className="order_total">Total: {total} CZK</div>
 
-        
+             {/* cancel the order */}
+                    <button className="button_cancel_order" onClick={() => clearOrder()}>
+                            Cancel
+                    </button>
+
+           
         </div>
     );
 }

@@ -5,27 +5,48 @@ $signature: #84FAB0;
 $button-background: #ffffff0c;
 
 // MENU THEME COLORS
-$pink-hover:  #e90adeb4;
+$pink-hover: #e90adeb4;
 
-$purple-dark:  #4e19a3e7;
-$purple-light:  #6323c8e7;
-$purple-superlight:  #8143e41a;
+$purple-dark: #4e19a3e7;
+$purple-light: #6323c8e7;
+$purple-superlight: #8143e41a;
 
 // SIDEBAR THEME COLORS
-$active_menu_button: #84FAB0;
+$active_menu_button: #84fab0;
 $active_text: black;
 
 //LOGIN LOGOUT SIGNUP COLORS
-$green-blue-button: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
-$green-blue-background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+$green-blue-button: linear-gradient(
+    to right,
+    rgba(132, 250, 176, 1),
+    rgba(143, 211, 244, 1)
+);
+$green-blue-background: linear-gradient(
+    to right,
+    rgba(132, 250, 176, 0.5),
+    rgba(143, 211, 244, 0.5)
+);
 
 // footer THEME COLORS
 //$logout_color:  #e90ade3b;
-$hover: #84FAB0;
+$hover: #84fab0;
 $hover_color: black;
-$hover_logout: #e90adeb4;
+$hover_logout: linear-gradient(
+            90deg,
+            rgba(93, 12, 255, 1) 0%,
+            rgba(155, 0, 250, 1) 100%
+    );
 
 //WORKSPACE THEME COLORS
+
+//FORM Creation
+$form-back: linear-gradient
+    (90deg, rgba(48, 16, 255, 1) 0%, rgba(100, 115, 255, 1) 100%);
+$item-buttons: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+);
 $tables_hover_background: #7424f3af;
 $tables_button_background: #ffffff00;
 $background_workspace: #ff00f241;
