@@ -1,3 +1,4 @@
+import OptionsBar from "./OptionsBar/OptionsBar";
 import TableItems from "./TableItems/TableItems";
 import Tables from "./Tables/Tables";
 import NewOrder from "./NewOrder/NewOrder";
@@ -15,6 +16,7 @@ export default function Workspace({
     setToggledItems,
     pay,
     setPay,
+    options,
 }) {
     // const [toggledItems, setToggledItems] = useState([]);
 
@@ -35,7 +37,10 @@ export default function Workspace({
         }
     };
 
-    if (takeOrder === false && showButton === null) {
+    if (options === true && takeOrder === false && showButton === null) {
+        return <OptionsBar options={options} />;
+    }
+    if (takeOrder === false && showButton === null && options === false) {
         return (
             <Tables
                 orders={orders}

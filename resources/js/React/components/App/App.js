@@ -19,6 +19,7 @@ export default function App() {
     const [newOrder, setNewOrder] = useState([]);
     const [showButton, setShowButton] = useState(null);
     const [takeOrder, setTakeOrder] = useState(false);
+    const [options, setOptions] = useState(false);
 
     // messing with toggling items
     const [toggledItems, setToggledItems] = useState([]);
@@ -41,6 +42,7 @@ export default function App() {
 
     useEffect(() => {
         fetchData();
+        console.log(options + "app");
         fetchItems();
         fetchOrders();
         console.log(newOrder);
@@ -96,6 +98,7 @@ export default function App() {
                 <Workspace
                     takeOrder={takeOrder}
                     newOrder={newOrder}
+                    options={options}
                     setNewOrder={setNewOrder}
                     setTakeOrder={setTakeOrder}
                     orders={orders}
@@ -109,7 +112,7 @@ export default function App() {
             </div>
 
             <div className="footer">
-                <Footer pay={pay} setPay={setPay} />
+                <Footer options={options} setOptions={setOptions} />
             </div>
         </div>
     );
