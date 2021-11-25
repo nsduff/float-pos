@@ -19,9 +19,34 @@ class CategoryController extends Controller
         return $category;
     }
 
+    public function storeCategories(Request $request)
+    {
+      
+        $category = new Category;
+        $category->name = $request->name;
+        $category->save();
+        return $category;
+    }
+
+    
+    
+
     public function items()
     {
         $items = Item::orderBy('name')->get();
         return $items;
     }
+
+
+
+     public function storeItems(Request $request)
+    {
+        $items = new Item;
+        $items->name = $request->name;
+        $items->price = $request->amount;
+        $items->category_id = $request->category_id;
+        $items->save();
+        return $items;
+    }
+
 }

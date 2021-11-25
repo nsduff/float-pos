@@ -2,35 +2,60 @@ import React, { useEffect, useState } from "react";
 import MenuItemLoop from "./components/MenuItem/MenuItemLoop";
 import NewMenuItem from "./components/NewMenuItem/NewMenuItem";
 import CategoryForm from "./components/NewCategory/CategoryForm";
+import "./FormDummy.css";
+import axios from "axios";
 
 // import "./App.css";
 
 export default function Form() {
+    //Set Items that already exsist in DB
+    const [items, setItems] = useState([]);
+    //Set Categories that already exsist in DB
     const [categories, setCategories] = useState([]);
-    const [activeCategory, setActiveCategory] = useState(null);
+    //Menu Creator Tool to add new items within active Category when selected
+    const [activeCategory, setActiveCategory] = useState(0);
+    //Ability to toggle category className
+
+    const catFetch = async () => {
+        const apiCat = await axios.get("/api/categories");
+        setCategories(apiCat.data);
+    };
+
+    const itemFetch = async () => {
+        const apiItem = await axios.get("/api/items");
+        setItems(apiItem.data);
+    };
+    //console.log(catFetchData);
 
     useEffect(() => {
+        catFetch();
+        itemFetch();
         // backend: initial load categories from DB
     }, []);
 
     const addMenuItem = (newItem) => {
         // backend: send new item to backend
-
-        setCategories((prevCategories) =>
-            prevCategories.map((category, category_id) => {
-                if (category_id === activeCategory) {
-                    // need to modify items of this category
-
-                    return {
-                        title: category.title,
-                        items: [newItem, ...category.items],
-                    };
-                }
-
-                return category;
-            })
-        );
+        console.log("adding menu item", newItem);
+        setItems([...items, newItem]);
     };
+    // const addMenuItem = (newItem) => {
+    //     // backend: send new item to backend
+
+    //     setCategories((prevCategories) =>
+    //         prevCategories.map((category, category_id) => {
+    //             if (category_id === activeCategory) {
+    //                 // need to modify items of this category
+
+    //                 return {
+    //                     title: category.name,
+    //                     items: [newItem, ...category.items],
+    //                 };
+    //             }
+
+    //             return category;
+    //         })
+    //     );
+    // };
 
     const addCategory = (newCategory) => {
         // backend: send new category to backend
@@ -38,31 +63,58 @@ export default function Form() {
         setCategories((prevCategories) => [newCategory, ...prevCategories]);
     };
 
-    console.log(activeCategory, categories);
+    // const highlightHandler = () => {
+    //     // if (toggledCategory.includes(i)) {
+    //     //     // remove
+    //     //     setToggledCategory(toggledCategory.filter((c) => c !== i));
+    //     // } else {
+    //     //     // add
+    //     //     setToggledCategory([...toggledCategory, i]);
+    //     // }
+    // };
 
     return (
         <div className="App">
             <div style={{ display: "flex", flexDirection: "row" }}>
                 <div style={{ width: "50%" }}>
-                    <CategoryForm onSaveCategory={addCategory} />
-                    {/* frontend: erase above */}
+                    <CategoryForm
+                        onSaveCategory={addCategory}
+                        // setCategories={setCategories}
+                        // categories={categories}
+                        // toggledCategory={toggledCategory}
+                        // setToggledCategory={setToggledCategory}
+                    />
                     {categories.map((category, i) => (
                         <button
-                            className="expense-item__description"
-                            onClick={() => setActiveCategory(i)}
+                            className={
+                                "expense-item__description" +
+                                (activeCategory === category.id
+                                    ? " active"
+                                    : " inactive")
+                            }
+                            key={i}
+                            onClick={() => setActiveCategory(category.id)}
                         >
-                            <h2>{category.title}</h2>
+                            <h2>{category.name}</h2>
                         </button>
                     ))}
                 </div>
                 <div style={{ width: "50%" }}>
                     {activeCategory !== null && (
                         <>
-                            <NewMenuItem onAddMenuItem={addMenuItem} />
-                            {/* frontend: erase above */}
-                            <MenuItemLoop
-                                items={categories[activeCategory].items}
+                            <NewMenuItem
+                                onAddMenuItem={addMenuItem}
+                                activeCategory={activeCategory}
                             />
+                            {activeCategory && (
+                                <MenuItemLoop
+                                    items={items.filter(
+                                        (element) =>
+                                            element.category_id ===
+                                            activeCategory
+                                    )}
+                                />
+                            )}
                         </>
                     )}
                 </div>
