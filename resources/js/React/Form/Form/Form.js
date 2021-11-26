@@ -94,10 +94,9 @@ export default function Form() {
                         {categories.map((category, i) => (
                             <button
                                 className={
-                                    " todo-row complete btn text-body shadow border-0" +
-                                    (activeCategory === category.id
+                                    activeCategory === category.id
                                         ? " active"
-                                        : " inactive")
+                                        : " todo-row complete btn text-body shadow border-0"
                                 }
                                 key={i}
                                 onClick={() => setActiveCategory(category.id)}
